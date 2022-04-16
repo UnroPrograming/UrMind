@@ -1,4 +1,4 @@
-package com.example.urmind;
+package com.example.urmindtfg;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.urmind.databinding.ActivityMainBinding;
+import com.example.urmindtfg.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 

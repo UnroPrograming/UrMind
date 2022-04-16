@@ -1,4 +1,4 @@
-package com.example.urmind;
+package com.example.urmindtfg;
 
 import org.junit.Test;
 
