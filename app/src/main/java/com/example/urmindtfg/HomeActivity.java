@@ -3,6 +3,8 @@ package com.example.urmindtfg;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -15,15 +17,28 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.urmindtfg.databinding.ActivityMainBinding;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
+    private TextView txtEmail, txtPass;
+    private Button btnCerrarSesion;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+        txtEmail = findViewById(R.id.txt_email);
+        txtPass = findViewById(R.id.txt_pass);
+        btnCerrarSesion = findViewById(R.id.btn_cerrarSesion);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -47,6 +62,18 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
+        //Setup
+        //setup(extras.getString("Email"),extras.getString("Provider"));
+        setup("","");
+
+        btnCerrarSesion.setOnClickListener(l1 -> {
+            //Para deslogearse
+            FirebaseAuth.getInstance().signOut();
+            onBackPressed();
+        });
     }
 
     @Override
@@ -61,5 +88,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void setup(String email, String provider){
+        txtEmail.setText(email);
+        txtPass.setText(provider);
     }
 }
