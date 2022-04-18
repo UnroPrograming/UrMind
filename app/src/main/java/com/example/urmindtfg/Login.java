@@ -1,24 +1,47 @@
 package com.example.urmindtfg;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
+
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.GoogleAuthProvider;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
     //Para mandar un aviso a analitics
     private FirebaseAnalytics mFirebaseAnalytics;
+
+    //Para autentificacion con firebase
     private FirebaseAuth firebaseAuth;
+
+    //Elementos android
     private EditText txtEmail,txtPass;
-    private Button btnRegistrarse, btnLogin;
+    private Button btnRegistrarse, btnLogin, btnGoogle;
+    private LinearLayout layLogin;
+
+    //Constante
+    private static final int GOOGLE_SIGN_IN = 100;
 
 
     @Override
@@ -26,12 +49,15 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        layLogin = findViewById(R.id.lay_login);
         txtEmail = findViewById(R.id.eTxt_email);
         txtPass = findViewById(R.id.eTxt_pass);
         btnRegistrarse = findViewById(R.id.btn_registrarse);
         btnRegistrarse.setOnClickListener(this);
         btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(this);
+        btnGoogle = findViewById(R.id.btn_google);
+        btnGoogle.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -41,6 +67,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         bundle.putString("Mensaje", "Integración de firebase completa");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
+        comprobarSesion();
     }
 
     @Override
@@ -74,6 +101,52 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                             });
                 }
                 break;
+            case R.id.btn_google:
+                //Solicitamos el id de la web y el gmail del usuario
+                GoogleSignInOptions googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestIdToken(getString(R.string.default_web_client_id))
+                        .requestEmail()
+                        .build();
+
+                GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
+                googleClient.signOut();//Para que en el caso de que ya haya unca
+                startActivityForResult(googleClient.getSignInIntent(),GOOGLE_SIGN_IN);
+                break;
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Cuando iniciemos la pestaña ponemos el layout visible
+        layLogin.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            //En el caso de que el número sea el mismo significa que nos hemos autentificado
+            if (requestCode == GOOGLE_SIGN_IN) {
+
+                //Recuperamos la cuenta de google
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+
+                //Si la cuenta no es nula la introducimos en firebase
+                if(account != null){
+                    AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
+                    firebaseAuth.signInWithCredential(credential).addOnCompleteListener( l ->{
+                        if(l.isSuccessful()){
+                            showHome(account.getEmail(), ProviderType.GOOGLE);
+                        }else{
+                            showAlert("Error","Hay un error al registrarse");
+                        }
+                    });
+                }
+            }
+        }catch (ApiException e){
+            showAlert("Error","No se ha podido recuperar la cuenta");
         }
     }
 
@@ -98,5 +171,18 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         homeIntent.putExtra("Provider",proveedor.name());
 
         startActivity(homeIntent);
+    }
+
+
+    //Nos valida si se ha iniciado sesión anteriormente y así pase directamente al menú home
+    private void comprobarSesion(){
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
+        String email = prefs.getString("email",null);
+        String proveedor = prefs.getString("proveedor",null);
+
+        if (email!= null && proveedor != null) {
+            layLogin.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
+            showHome(email, ProviderType.valueOf(proveedor));//Si hay sesión iniciada pasa a la pestaña de inicio
+        }
     }
 }
