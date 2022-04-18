@@ -26,6 +26,9 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.iid.FirebaseInstanceIdReceiver;
+import com.google.firebase.iid.internal.FirebaseInstanceIdInternal;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
@@ -34,6 +37,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
     //Para autentificacion con firebase
     private FirebaseAuth firebaseAuth;
+
+    //Para mandar notificaciones
+    private FirebaseMessaging firebaseMessaging;
 
     //Elementos android
     private EditText txtEmail,txtPass;
@@ -60,6 +66,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         btnGoogle.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseMessaging = FirebaseMessaging.getInstance();
+
 
         //Cada vez que iniciemos la app se mandará un aviso a google analitics
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -68,6 +76,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         comprobarSesion();
+        notificacionPorGrupos();
     }
 
     @Override
@@ -184,5 +193,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             layLogin.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
             showHome(email, ProviderType.valueOf(proveedor));//Si hay sesión iniciada pasa a la pestaña de inicio
         }
+    }
+
+    private void notificacionPorGrupos(){
+
+        //A los grupos les llamaremos Temas(Topics)
+        firebaseMessaging.subscribeToTopic("topic1");
     }
 }

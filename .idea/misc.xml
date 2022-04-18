@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
         <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/drawable/ic_launcher_background.xml" value="0.196" />
         <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2985" />
         <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2985" />
+        <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2985" />
+        <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/drawable/side_nav_bar.xml" value="0.2985" />
         <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/layout/activity_inicio.xml" value="0.2804878048780488" />
         <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/layout/activity_login.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/Unrro/AndroidStudioProjects/UrMind/UrMind/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
