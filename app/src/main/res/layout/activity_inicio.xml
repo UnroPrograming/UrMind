@@ -4,55 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDDBDB"
     tools:context=".Inicio">
+
+    <LinearLayout
+        android:id="@+id/lay_inicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txt_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Email" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txt_pass"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Contraseña" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_weight="1" />
+
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txt_email"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Email" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/txt_pass"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:text="Contraseña" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <Button
+                android:id="@+id/btn_cerrarSesion"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:background="#787676"
+                android:text="cerrar sesión" />
 
-                <Button
-                    android:id="@+id/btn_cerrarSesion"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="cerrar sesión" />
-
-            </LinearLayout>
         </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_google"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:drawableStart="@drawable/icono_google"
+            android:outlineAmbientShadowColor="#000000"
+            android:outlineSpotShadowColor="#000000"
+            android:paddingLeft="16dp"
+            android:shadowColor="#000000"
+            android:text="  Google"
+            android:textAlignment="textStart"
+            android:textColor="#000000" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

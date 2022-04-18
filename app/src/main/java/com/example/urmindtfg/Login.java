@@ -3,11 +3,14 @@ package com.example.urmindtfg;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,9 +19,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
     //Para mandar un aviso a analitics
     private FirebaseAnalytics mFirebaseAnalytics;
+
+    //Para autentificacion con firebase
     private FirebaseAuth firebaseAuth;
+
+    //Nos permite crear una librería claveValor interna
+    private SharedPreferences prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
+
+    //Elementos android
     private EditText txtEmail,txtPass;
     private Button btnRegistrarse, btnLogin;
+    private LinearLayout layInicio;
 
 
     @Override
@@ -26,6 +37,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
+        //layInicio = findViewById(R.id.lay_inicio);
         txtEmail = findViewById(R.id.eTxt_email);
         txtPass = findViewById(R.id.eTxt_pass);
         btnRegistrarse = findViewById(R.id.btn_registrarse);
@@ -41,6 +53,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         bundle.putString("Mensaje", "Integración de firebase completa");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
+        //comprobarSesion();
     }
 
     @Override
@@ -77,6 +90,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //Cuando iniciemos la pestaña ponemos el layout visible
+        layInicio.setVisibility(View.VISIBLE);
+    }
+
     private boolean validacion(){
         return txtEmail.getText().length()>0 && txtPass.getText().length()>0;
     }
@@ -98,5 +119,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         homeIntent.putExtra("Provider",proveedor.name());
 
         startActivity(homeIntent);
+    }
+
+
+    //Nos valida si se ha iniciado sesión anteriormente y así pase directamente al menú home
+    private void comprobarSesion(){
+        String email = prefs.getString("email",null);
+        String proveedor = prefs.getString("proveedor",null);
+
+        if (email!= null && proveedor != null) {
+            layInicio.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
+            showHome(email, ProviderType.valueOf(proveedor));//Si hay sesión iniciada pasa a la pestaña de inicio
+        }
     }
 }

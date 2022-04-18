@@ -2,6 +2,8 @@ package com.example.urmindtfg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,9 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
 
     private TextView txtEmail, txtPass;
     private Button btnCerrarSesion;
+    //Nos permite crear una librería claveValor interna
+    private SharedPreferences prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
+    private SharedPreferences.Editor prefsEdit = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +32,31 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
 
         //Setup
         setup(extras.getString("Email"),extras.getString("Provider"));
+
+        //guardarDatos();
     }
 
     @Override
     public void onClick(View v) {
-        //Para deslogearse
+        //Para deslogearse de firebase
         FirebaseAuth.getInstance().signOut();
         onBackPressed();
+
+        //Para borrar la librería interna
+        prefsEdit.clear();
+        prefsEdit.apply();
     }
 
+    //Le damos el correo y el proveedor
     private void setup(String email, String provider){
         txtEmail.setText(email);
         txtPass.setText(provider);
     }
 
-
+    //Guarda los datos en una librería interna
+    private void guardarDatos(){
+        prefsEdit.putString("email",txtEmail.getText().toString());
+        prefsEdit.putString("proveedor",txtPass.getText().toString());
+        prefsEdit.apply();
+    }
 }
