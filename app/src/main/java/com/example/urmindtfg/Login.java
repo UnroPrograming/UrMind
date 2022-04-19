@@ -23,23 +23,23 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.iid.FirebaseInstanceIdReceiver;
-import com.google.firebase.iid.internal.FirebaseInstanceIdInternal;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
+import com.google.firebase.remoteconfig.RemoteConfigComponent;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
-    //Para mandar un aviso a analitics
-    private FirebaseAnalytics mFirebaseAnalytics;
-
-    //Para autentificacion con firebase
-    private FirebaseAuth firebaseAuth;
-
-    //Para mandar notificaciones
-    private FirebaseMessaging firebaseMessaging;
+    //Firebase
+    private FirebaseAnalytics mFirebaseAnalytics;//Para mandar un aviso a analitics
+    private FirebaseAuth firebaseAuth;//Para autentificacion con firebase
+    private FirebaseMessaging firebaseMessaging;//Para mandar notificaciones
 
     //Elementos android
     private EditText txtEmail,txtPass;
@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         comprobarSesion();
-        notificacionPorGrupos();
+        nombrarGrupo();
     }
 
     @Override
@@ -195,9 +195,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
-    private void notificacionPorGrupos(){
-
+    //Cuando se ejecute este método este usuario pertenecerá a un grupo
+    private void nombrarGrupo(){
         //A los grupos les llamaremos Temas(Topics)
         firebaseMessaging.subscribeToTopic("topic1");
     }
+
+
 }

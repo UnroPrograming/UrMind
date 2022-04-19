@@ -50,9 +50,22 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="#BAB6B6"
                     android:text="cerrar sesión" />
 
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_forzarFallo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#BF3737"
+                android:text="FORZAR FALLO" />
         </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
