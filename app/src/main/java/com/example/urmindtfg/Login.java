@@ -12,11 +12,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+<<<<<<< Updated upstream
+=======
+
+import com.example.urmindtfg.model.Firebase;
+import com.example.urmindtfg.model.Intents;
+import com.example.urmindtfg.model.Validaciones;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
+>>>>>>> Stashed changes
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
+<<<<<<< Updated upstream
     //Para mandar un aviso a analitics
     private FirebaseAnalytics mFirebaseAnalytics;
 
@@ -25,11 +40,21 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
     //Nos permite crear una librería claveValor interna
     private SharedPreferences prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
+=======
+    //Firebase
+    private Firebase firebase;
+    private FirebaseAuth firebaseAuth;//Para autentificacion con firebase
+    private FirebaseMessaging firebaseMessaging;//Para mandar notificaciones
+>>>>>>> Stashed changes
 
     //Elementos android
     private EditText txtEmail,txtPass;
     private Button btnRegistrarse, btnLogin;
     private LinearLayout layInicio;
+
+    //Clases modelo
+    Validaciones validaciones;
+    Intents myIntents;
 
 
     @Override
@@ -46,6 +71,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         btnLogin.setOnClickListener(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
+<<<<<<< Updated upstream
 
         //Cada vez que iniciemos la app se mandará un aviso a google analitics
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
@@ -54,35 +80,45 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
         //comprobarSesion();
+=======
+        firebaseMessaging = FirebaseMessaging.getInstance();
+        firebase = new Firebase();
+
+        validaciones = new Validaciones();
+        myIntents = new Intents();
+
+        firebase.comprobarSesion(layLogin);
+        firebase.nombrarGrupo();
+>>>>>>> Stashed changes
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_registrarse:
-                if(validacion()){
+                if(Validaciones.comprobarEmailPass(txtEmail.getText(),txtPass.getText())){
                     //Llamamos al metodo para crear un nuevo usuario y contraseña
                     firebaseAuth.createUserWithEmailAndPassword(txtEmail.getText().toString(),txtPass.getText().toString())
                             .addOnCompleteListener(l2 -> {
                                 //Si el registro es correcto pasamos a la nueva pantalla
                                 if(l2.isSuccessful()){
-                                    showHome(l2.getResult().getUser().getEmail(), ProviderType.BASIC);
+                                    myIntents.showHome(l2.getResult().getUser().getEmail(), ProviderType.BASIC);
                                 }else{
-                                    showAlert("Error","Hay un error al registrarse");
+                                    validaciones.showAlert("Error","Hay un error al registrarse");
                                 }
                             });
                 }
                 break;
             case R.id.btn_login:
-                if(validacion()){
+                if(Validaciones.comprobarEmailPass(txtEmail.getText(),txtPass.getText())){
                     //Llamamos al método para iniciar sesion con usuario y contraseña
                     firebaseAuth.signInWithEmailAndPassword(txtEmail.getText().toString(),txtPass.getText().toString())
                             .addOnCompleteListener(l2 -> {
                                 //Si el registro es correcto pasamos a la nueva pantalla
                                 if(l2.isSuccessful()){
-                                    showHome(l2.getResult().getUser().getEmail(), ProviderType.BASIC);
+                                    myIntents.showHome(l2.getResult().getUser().getEmail(), ProviderType.BASIC);
                                 }else{
-                                    showAlert("Error","Hay un error al registrarse");
+                                    validaciones.showAlert("Error","Hay un error al registrarse");
                                 }
                             });
                 }
@@ -95,6 +131,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     protected void onStart() {
         super.onStart();
         //Cuando iniciemos la pestaña ponemos el layout visible
+<<<<<<< Updated upstream
         layInicio.setVisibility(View.VISIBLE);
     }
 
@@ -132,4 +169,38 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             showHome(email, ProviderType.valueOf(proveedor));//Si hay sesión iniciada pasa a la pestaña de inicio
         }
     }
+=======
+        layLogin.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        try {
+            //En el caso de que el número sea el mismo significa que nos hemos autentificado
+            if (requestCode == GOOGLE_SIGN_IN) {
+
+                //Recuperamos la cuenta de google
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+
+                //Si la cuenta no es nula la introducimos en firebase
+                if(account != null){
+                    AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
+                    firebaseAuth.signInWithCredential(credential).addOnCompleteListener( l ->{
+                        if(l.isSuccessful()){
+                            myIntents.showHome(account.getEmail(), ProviderType.GOOGLE);
+                        }else{
+                            validaciones.showAlert("Error","Hay un error al registrarse");
+                        }
+                    });
+                }
+            }
+        }catch (ApiException e){
+            validaciones.showAlert("Error","No se ha podido recuperar la cuenta");
+        }
+    }
+
+
+>>>>>>> Stashed changes
 }

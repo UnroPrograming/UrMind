@@ -21,11 +21,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< Updated upstream
         <activity
             android:name=".HomeActivity"
             android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.UrMindTFG.NoActionBar"></activity>
+=======
+
+        <service
+            android:name=".model.FirebaseMensajeria"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icono_logo_urmind" />
+>>>>>>> Stashed changes
     </application>
 
 </manifest>
