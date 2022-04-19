@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //UwU
         setContentView(R.layout.activity_login);
         layLogin = findViewById(R.id.lay_login);
         txtEmail = findViewById(R.id.eTxt_email);
