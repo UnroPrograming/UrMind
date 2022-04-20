@@ -39,21 +39,70 @@
                 android:layout_height="8dp"
                 android:layout_weight="1" />
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/txt_direccion"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="40dp"
+                android:hint="Calle, numero piso" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/txt_telefono"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:hint="Teléfono" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/btn_guardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:background="#BAB6B6"
+                android:text="guardar" />
 
-                <Button
-                    android:id="@+id/btn_cerrarSesion"
-                    android:layout_width="80dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#BAB6B6"
-                    android:text="cerrar sesión" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/btn_recuperar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#BAB6B6"
+                android:text="recuperar" />
 
-            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/btn_eliminar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#BAB6B6"
+                android:text="eliminar" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_weight="1" />
+            <Button
+                android:id="@+id/btn_cerrarSesion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FF5722"
+                android:text="cerrar sesión" />
 
             <Space
                 android:layout_width="match_parent"

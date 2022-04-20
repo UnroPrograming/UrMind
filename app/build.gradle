@@ -51,4 +51,5 @@ dependencies {
     implementation'com.google.firebase:firebase-messaging:23.0.3'
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-config-ktx:21.0.2'
+    implementation 'com.google.firebase:firebase-firestore:24.1.1'
 }

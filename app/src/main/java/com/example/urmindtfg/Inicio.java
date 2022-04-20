@@ -9,11 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
-import com.google.firebase.ktx.Firebase;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -22,8 +20,8 @@ import java.util.HashMap;
 public class Inicio extends AppCompatActivity implements View.OnClickListener{
 
     //Variables de android
-    private TextView txtEmail, txtPass;
-    private Button btnCerrarSesion, btnForzarFallo;
+    private TextView txtEmail, txtPass, txtDireccion, txtTelefono;
+    private Button btnCerrarSesion, btnForzarFallo, btnGuardar, btnRecuperar, btnEliminar;
 
     //Variables de firebase
     private FirebaseCrashlytics firebaseCrashlytics;//Para los informes de errores
@@ -41,10 +39,19 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
         Bundle extras = getIntent().getExtras();
         txtEmail = findViewById(R.id.txt_email);
         txtPass = findViewById(R.id.txt_pass);
+        txtDireccion = findViewById(R.id.txt_direccion);
+        txtPass = findViewById(R.id.txt_telefono);
+
         btnCerrarSesion = findViewById(R.id.btn_cerrarSesion);
         btnCerrarSesion.setOnClickListener(this);
         btnForzarFallo = findViewById(R.id.btn_forzarFallo);
         btnForzarFallo.setOnClickListener(this);
+        btnGuardar = findViewById(R.id.btn_guardar);
+        btnGuardar.setOnClickListener(this);
+        btnRecuperar = findViewById(R.id.btn_recuperar);
+        btnRecuperar.setOnClickListener(this);
+        btnEliminar = findViewById(R.id.btn_eliminar);
+        btnEliminar.setOnClickListener(this);
 
         //Firebase
         firebaseCrashlytics = FirebaseCrashlytics.getInstance();
@@ -104,8 +111,6 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
 
     private void remoteConfig(){
 
-        //btnForzarFallo.setVisibility(View.INVISIBLE);
-
         FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(60).build();
         remoteConfig.setConfigSettingsAsync(configSettings);
 
@@ -133,6 +138,5 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
             btnForzarFallo.setText(btn_forzarFallo_text);
 
         });
-
     }
 }

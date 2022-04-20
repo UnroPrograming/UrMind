@@ -1,4 +1,4 @@
-package com.example.urmindtfg;
+package com.example.urmindtfg.model;
 
 public enum ProviderType {
     BASIC,

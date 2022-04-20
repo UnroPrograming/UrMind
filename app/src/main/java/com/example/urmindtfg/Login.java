@@ -1,7 +1,6 @@
 package com.example.urmindtfg;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,6 +13,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 
+import com.example.urmindtfg.model.ChangeWindow;
+import com.example.urmindtfg.model.ProviderType;
+import com.example.urmindtfg.model.Validaciones;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
@@ -26,13 +28,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
-import com.google.firebase.remoteconfig.RemoteConfigComponent;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
@@ -75,6 +72,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         bundle.putString("Mensaje", "Integración de firebase completa");
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
 
+
         comprobarSesion();
         nombrarGrupo();
     }
@@ -83,29 +81,39 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_registrarse:
-                if(validacion()){
+                if(Validaciones.validacionEmailPass(txtEmail.getText().toString(), txtPass.getText().toString())){
                     //Llamamos al metodo para crear un nuevo usuario y contraseña
                     firebaseAuth.createUserWithEmailAndPassword(txtEmail.getText().toString(),txtPass.getText().toString())
                             .addOnCompleteListener(l2 -> {
                                 //Si el registro es correcto pasamos a la nueva pantalla
                                 if(l2.isSuccessful()){
-                                    showHome(l2.getResult().getUser().getEmail(), ProviderType.BASIC);
+                                    //Cambiamos la ventana
+                                    HashMap<String,String> lista = new HashMap();
+                                    lista.put("Email",l2.getResult().getUser().getEmail());
+                                    lista.put("Provider", ProviderType.BASIC.toString());
+
+                                    ChangeWindow.showHome(this, lista);
                                 }else{
-                                    showAlert("Error","Hay un error al registrarse");
+                                    Validaciones.showAlert(this,"Error","Hay un error al registrarse");
                                 }
                             });
                 }
                 break;
             case R.id.btn_login:
-                if(validacion()){
+                if(Validaciones.validacionEmailPass(txtEmail.getText().toString(), txtPass.getText().toString())){
                     //Llamamos al método para iniciar sesion con usuario y contraseña
                     firebaseAuth.signInWithEmailAndPassword(txtEmail.getText().toString(),txtPass.getText().toString())
                             .addOnCompleteListener(l2 -> {
                                 //Si el registro es correcto pasamos a la nueva pantalla
                                 if(l2.isSuccessful()){
-                                    showHome(l2.getResult().getUser().getEmail(), ProviderType.BASIC);
+                                    //Cambiamos la ventana
+                                    HashMap<String,String> lista = new HashMap();
+                                    lista.put("Email",l2.getResult().getUser().getEmail());
+                                    lista.put("Provider",ProviderType.BASIC.toString());
+
+                                    ChangeWindow.showHome(this, lista);
                                 }else{
-                                    showAlert("Error","Hay un error al registrarse");
+                                    Validaciones.showAlert(this,"Error","Hay un error al registrarse");
                                 }
                             });
                 }
@@ -118,7 +126,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                         .build();
 
                 GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
-                googleClient.signOut();//Para que en el caso de que ya haya unca
+                googleClient.signOut();//Para que en el caso de que ya haya una se cierre la sesión
                 startActivityForResult(googleClient.getSignInIntent(),GOOGLE_SIGN_IN);
                 break;
         }
@@ -146,42 +154,26 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                 if(account != null){
                     AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(),null);
                     firebaseAuth.signInWithCredential(credential).addOnCompleteListener( l ->{
+
+                        //Si funciona
                         if(l.isSuccessful()){
-                            showHome(account.getEmail(), ProviderType.GOOGLE);
+                            //Cambiamos la ventana si la validación es correcta
+                            HashMap<String,String> lista = new HashMap();
+                            lista.put("Email",account.getEmail());
+                            lista.put("Provider",ProviderType.GOOGLE.toString());
+
+                            ChangeWindow.showHome(this, lista);
+
                         }else{
-                            showAlert("Error","Hay un error al registrarse");
+                            Validaciones.showAlert(this,"Error","Hay un error al registrarse");
                         }
                     });
                 }
             }
         }catch (ApiException e){
-            showAlert("Error","No se ha podido recuperar la cuenta");
+            Validaciones.showAlert(this,"Error","No se ha podido recuperar la cuenta");
         }
     }
-
-    private boolean validacion(){
-        return txtEmail.getText().length()>0 && txtPass.getText().length()>0;
-    }
-
-    private void showAlert(String titulo, String mensaje) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(titulo);
-        builder.setMessage(mensaje);
-        builder.setPositiveButton("Aceptar",null);
-
-        AlertDialog dialog = builder.create();
-        dialog.show();
-    }
-
-    private void showHome(String email, ProviderType proveedor){
-
-        Intent homeIntent = new Intent(this, Inicio.class);
-        homeIntent.putExtra("Email",email);
-        homeIntent.putExtra("Provider",proveedor.name());
-
-        startActivity(homeIntent);
-    }
-
 
     //Nos valida si se ha iniciado sesión anteriormente y así pase directamente al menú home
     private void comprobarSesion(){
@@ -191,7 +183,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
 
         if (email!= null && proveedor != null) {
             layLogin.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
-            showHome(email, ProviderType.valueOf(proveedor));//Si hay sesión iniciada pasa a la pestaña de inicio
+
+            //Si hay sesión iniciada pasa a la pestaña de inicio
+            HashMap<String,String> lista = new HashMap();
+            lista.put("Email",email);
+            lista.put("Provider",ProviderType.valueOf(proveedor).toString());
+
+            ChangeWindow.showHome(this, lista);
         }
     }
 
