@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -26,6 +27,7 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
     //Variables de firebase
     private FirebaseCrashlytics firebaseCrashlytics;//Para los informes de errores
     private FirebaseRemoteConfig remoteConfig;//Para editar la app desde firebase
+    private FirebaseFirestore dataBase;//Para la base de datos
 
     //Variables Login
     private String email, proveedor;
@@ -40,7 +42,7 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
         txtEmail = findViewById(R.id.txt_email);
         txtPass = findViewById(R.id.txt_pass);
         txtDireccion = findViewById(R.id.txt_direccion);
-        txtPass = findViewById(R.id.txt_telefono);
+        txtTelefono = findViewById(R.id.txt_telefono);
 
         btnCerrarSesion = findViewById(R.id.btn_cerrarSesion);
         btnCerrarSesion.setOnClickListener(this);
@@ -56,6 +58,7 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
         //Firebase
         firebaseCrashlytics = FirebaseCrashlytics.getInstance();
         remoteConfig = FirebaseRemoteConfig.getInstance();
+        dataBase = FirebaseFirestore.getInstance();
 
         //Login
         email = extras.getString("Email");
@@ -81,6 +84,28 @@ public class Inicio extends AppCompatActivity implements View.OnClickListener{
                 prefsEdit.clear();
                 prefsEdit.apply();
                 break;
+
+            case R.id.btn_guardar:
+                //Creamos una lista de objetos
+                HashMap<String,Object> datos = new HashMap<>();
+                datos.put("proveedor" , proveedor);
+                datos.put("direccion", txtDireccion.getText().toString());
+                datos.put("phone", txtTelefono.getText().toString());
+
+                dataBase.collection("users").document(email).set(datos);
+                break;
+
+            case R.id.btn_recuperar:
+                dataBase.collection("users").document(email).get().addOnSuccessListener(e -> {
+                   txtDireccion.setText(e.get("direccion").toString());
+                   txtTelefono.setText(e.get("phone").toString());
+                });
+                break;
+
+            case R.id.btn_eliminar:
+                dataBase.collection("users").document(email).delete();
+                break;
+
             case R.id.btn_forzarFallo:
                 //Enviar información adicional
                 firebaseCrashlytics.setUserId(email);
