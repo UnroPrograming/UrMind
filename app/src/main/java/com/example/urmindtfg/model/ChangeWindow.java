@@ -10,7 +10,7 @@ import java.util.HashMap;
 public class ChangeWindow {
 
     //String email, ProviderType proveedor
-    public static void showHome(Context context, HashMap<String, String> lista){
+    public static void cambiarVentana(Context context, HashMap<String, String> lista){
 
         Intent intent = new Intent(context, Inicio.class);
 

@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,7 +13,7 @@ import android.widget.LinearLayout;
 
 
 import com.example.urmindtfg.model.ChangeWindow;
-import com.example.urmindtfg.model.ProviderType;
+import com.example.urmindtfg.entitis.ProviderType;
 import com.example.urmindtfg.model.Validaciones;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -23,120 +22,112 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.messaging.FirebaseMessaging;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+
 import java.util.HashMap;
 
-public class Login extends AppCompatActivity implements View.OnClickListener{
-
-    //Firebase
-    private FirebaseAnalytics mFirebaseAnalytics;//Para mandar un aviso a analitics
-    private FirebaseAuth firebaseAuth;//Para autentificacion con firebase
-    private FirebaseMessaging firebaseMessaging;//Para mandar notificaciones
+@EActivity(R.layout.activity_login)
+public class Login extends AppCompatActivity{
 
     //Elementos android
-    private EditText txtEmail,txtPass;
-    private Button btnRegistrarse, btnLogin, btnGoogle;
-    private LinearLayout layLogin;
+    @ViewById
+    public EditText eTxt_email;
+    @ViewById
+    public EditText eTxt_pass;
+
+    @ViewById
+    public Button btn_registrarse;
+    @ViewById
+    public Button btn_login;
+    @ViewById
+    public Button btn_google;
+
+    @ViewById
+    public LinearLayout lay_login;
+
+    //Firebase
+    private FirebaseAuth firebaseAuth;//Para autentificacion con firebase
+    private FirebaseMessaging firebaseMessaging;//Para mandar notificaciones
 
     //Constante
     private static final int GOOGLE_SIGN_IN = 100;
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //UwU
-        setContentView(R.layout.activity_login);
-        layLogin = findViewById(R.id.lay_login);
-        txtEmail = findViewById(R.id.eTxt_email);
-        txtPass = findViewById(R.id.eTxt_pass);
-        btnRegistrarse = findViewById(R.id.btn_registrarse);
-        btnRegistrarse.setOnClickListener(this);
-        btnLogin = findViewById(R.id.btn_login);
-        btnLogin.setOnClickListener(this);
-        btnGoogle = findViewById(R.id.btn_google);
-        btnGoogle.setOnClickListener(this);
-
+    @AfterViews
+    public void onCreate(){
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseMessaging = FirebaseMessaging.getInstance();
-
-
-        //Cada vez que iniciemos la app se mandará un aviso a google analitics
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Bundle bundle = new Bundle();
-        bundle.putString("Mensaje", "Integración de firebase completa");
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-
 
         comprobarSesion();
         nombrarGrupo();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_registrarse:
-                if(Validaciones.validacionEmailPass(txtEmail.getText().toString(), txtPass.getText().toString())){
-                    //Llamamos al metodo para crear un nuevo usuario y contraseña
-                    firebaseAuth.createUserWithEmailAndPassword(txtEmail.getText().toString(),txtPass.getText().toString())
-                            .addOnCompleteListener(l2 -> {
-                                //Si el registro es correcto pasamos a la nueva pantalla
-                                if(l2.isSuccessful()){
-                                    //Cambiamos la ventana
-                                    HashMap<String,String> lista = new HashMap();
-                                    lista.put("Email",l2.getResult().getUser().getEmail());
-                                    lista.put("Provider", ProviderType.BASIC.toString());
+    @Click
+    public void btn_registrarse(){
+        if(Validaciones.validacionEmailPass(eTxt_email.getText().toString(), eTxt_pass.getText().toString())) {
+            //Llamamos al metodo para crear un nuevo usuario y contraseña
+            firebaseAuth.createUserWithEmailAndPassword(eTxt_email.getText().toString(), eTxt_pass.getText().toString())
+                    .addOnCompleteListener(l2 -> {
+                        //Si el registro es correcto pasamos a la nueva pantalla
+                        if (l2.isSuccessful()) {
+                            //Cambiamos la ventana
+                            HashMap<String, String> lista = new HashMap();
+                            lista.put("Email", l2.getResult().getUser().getEmail());
+                            lista.put("Provider", ProviderType.BASIC.toString());
 
-                                    ChangeWindow.showHome(this, lista);
-                                }else{
-                                    Validaciones.showAlert(this,"Error","Hay un error al registrarse");
-                                }
-                            });
-                }
-                break;
-            case R.id.btn_login:
-                if(Validaciones.validacionEmailPass(txtEmail.getText().toString(), txtPass.getText().toString())){
-                    //Llamamos al método para iniciar sesion con usuario y contraseña
-                    firebaseAuth.signInWithEmailAndPassword(txtEmail.getText().toString(),txtPass.getText().toString())
-                            .addOnCompleteListener(l2 -> {
-                                //Si el registro es correcto pasamos a la nueva pantalla
-                                if(l2.isSuccessful()){
-                                    //Cambiamos la ventana
-                                    HashMap<String,String> lista = new HashMap();
-                                    lista.put("Email",l2.getResult().getUser().getEmail());
-                                    lista.put("Provider",ProviderType.BASIC.toString());
-
-                                    ChangeWindow.showHome(this, lista);
-                                }else{
-                                    Validaciones.showAlert(this,"Error","Hay un error al registrarse");
-                                }
-                            });
-                }
-                break;
-            case R.id.btn_google:
-                //Solicitamos el id de la web y el gmail del usuario
-                GoogleSignInOptions googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                        .requestIdToken(getString(R.string.default_web_client_id))
-                        .requestEmail()
-                        .build();
-
-                GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
-                googleClient.signOut();//Para que en el caso de que ya haya una se cierre la sesión
-                startActivityForResult(googleClient.getSignInIntent(),GOOGLE_SIGN_IN);
-                break;
+                            ChangeWindow.cambiarVentana(this, lista);
+                        } else {
+                            Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
+                        }
+                    });
         }
+    }
+    @Click
+    public void btn_login() {
+        if(Validaciones.validacionEmailPass(eTxt_email.getText().toString(), eTxt_pass.getText().toString())){
+            //Llamamos al método para iniciar sesion con usuario y contraseña
+            firebaseAuth.signInWithEmailAndPassword(eTxt_email.getText().toString(), eTxt_pass.getText().toString())
+                    .addOnCompleteListener(l2 -> {
+                        //Si el registro es correcto pasamos a la nueva pantalla
+                        if(l2.isSuccessful()){
+                            //Cambiamos la ventana
+                            HashMap<String,String> lista = new HashMap();
+                            lista.put("Email",l2.getResult().getUser().getEmail());
+                            lista.put("Provider",ProviderType.BASIC.toString());
+
+                            ChangeWindow.cambiarVentana(this, lista);
+                        }else{
+                            Validaciones.showAlert(this,"Error","Hay un error al registrarse");
+                        }
+                    });
+        }
+    }
+
+    @Click
+    public void btn_google(){
+        //Solicitamos el id de la web y el gmail del usuario
+        GoogleSignInOptions googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
+        googleClient.signOut();//Para que en el caso de que ya haya una se cierre la sesión
+        startActivityForResult(googleClient.getSignInIntent(),GOOGLE_SIGN_IN);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         //Cuando iniciemos la pestaña ponemos el layout visible
-        layLogin.setVisibility(View.VISIBLE);
+        lay_login.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -162,7 +153,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
                             lista.put("Email",account.getEmail());
                             lista.put("Provider",ProviderType.GOOGLE.toString());
 
-                            ChangeWindow.showHome(this, lista);
+                            ChangeWindow.cambiarVentana(this, lista);
 
                         }else{
                             Validaciones.showAlert(this,"Error","Hay un error al registrarse");
@@ -182,14 +173,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         String proveedor = prefs.getString("proveedor",null);
 
         if (email!= null && proveedor != null) {
-            layLogin.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
+            lay_login.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
 
             //Si hay sesión iniciada pasa a la pestaña de inicio
             HashMap<String,String> lista = new HashMap();
             lista.put("Email",email);
             lista.put("Provider",ProviderType.valueOf(proveedor).toString());
 
-            ChangeWindow.showHome(this, lista);
+            ChangeWindow.cambiarVentana(this, lista);
         }
     }
 
