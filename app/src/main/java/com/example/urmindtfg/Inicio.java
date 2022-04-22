@@ -74,44 +74,7 @@ public class Inicio extends AppCompatActivity{
         guardarDatos();
         remoteConfig();
     }
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_inicio);
-//
-//        //Android
-//        Bundle extras = getIntent().getExtras();
-//        txtEmail = findViewById(R.id.txt_email);
-//        txtPass = findViewById(R.id.txt_pass);
-//        txtDireccion = findViewById(R.id.txt_direccion);
-//        txtTelefono = findViewById(R.id.txt_telefono);
-//
-//        btnCerrarSesion = findViewById(R.id.btn_cerrarSesion);
-//        btnCerrarSesion.setOnClickListener(this);
-//        btnForzarFallo = findViewById(R.id.btn_forzarFallo);
-//        btnForzarFallo.setOnClickListener(this);
-//        btnGuardar = findViewById(R.id.btn_guardar);
-//        btnGuardar.setOnClickListener(this);
-//        btnRecuperar = findViewById(R.id.btn_recuperar);
-//        btnRecuperar.setOnClickListener(this);
-//        btnEliminar = findViewById(R.id.btn_eliminar);
-//        btnEliminar.setOnClickListener(this);
-//
-//        //Firebase
-//        firebaseCrashlytics = FirebaseCrashlytics.getInstance();
-//        remoteConfig = FirebaseRemoteConfig.getInstance();
-//        dataBase = FirebaseFirestore.getInstance();
-//
-//        //Login
-//        email = extras.getString("Email");
-//        proveedor = extras.getString("Provider");
-//
-//        //Setup
-//        setup(email, proveedor);
-//
-//        guardarDatos();
-//        remoteConfig();
-//    }
+
     @Click
     void btn_cerrarSesion(){
         //Para deslogearse de firebase
@@ -159,55 +122,6 @@ public class Inicio extends AppCompatActivity{
         //Forzado de error
         throw new RuntimeException("Forzado de error");
     }
-
-//    @Override
-//    public void onClick(View v) {
-//        switch (v.getId()){
-//            case R.id.btn_cerrarSesion:
-//                //Para deslogearse de firebase
-//                FirebaseAuth.getInstance().signOut();
-//                onBackPressed();
-//
-//                //Para borrar la librería interna
-//                SharedPreferences.Editor prefsEdit = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
-//                prefsEdit.clear();
-//                prefsEdit.apply();
-//                break;
-//
-//            case R.id.btn_guardar:
-//                //Creamos una lista de objetos
-//                HashMap<String,Object> datos = new HashMap<>();
-//                datos.put("proveedor" , proveedor);
-//                datos.put("direccion", txtDireccion.getText().toString());
-//                datos.put("phone", txtTelefono.getText().toString());
-//
-//                dataBase.collection("users").document(email).set(datos);
-//                break;
-//
-//            case R.id.btn_recuperar:
-//                dataBase.collection("users").document(email).get().addOnSuccessListener(e -> {
-//                       txtDireccion.setText(e.get("direccion").toString());
-//                       txtTelefono.setText(e.get("phone").toString());
-//                });
-//                break;
-//
-//            case R.id.btn_eliminar:
-//                dataBase.collection("users").document(email).delete();
-//                break;
-//
-//            case R.id.btn_forzarFallo:
-//                //Enviar información adicional
-//                firebaseCrashlytics.setUserId(email);
-//                firebaseCrashlytics.setCustomKey("provider", proveedor);
-//
-//                //Enviar log de contexto
-//                firebaseCrashlytics.log("Se ha pulsado el botón FORZAR ERROR");
-//
-//                //Forzado de error
-//                throw new RuntimeException("Forzado de error");
-//        }
-//
-//    }
 
     //Le damos el correo y el proveedor
     private void setup(String email, String provider){
