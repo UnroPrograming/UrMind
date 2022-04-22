@@ -82,7 +82,7 @@ public class Login extends AppCompatActivity{
                             lista.put("Email", l2.getResult().getUser().getEmail());
                             lista.put("Provider", ProviderType.BASIC.toString());
 
-                            ChangeWindow.cambiarVentana(this, lista);
+                            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
                         } else {
                             Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
                         }
@@ -102,7 +102,7 @@ public class Login extends AppCompatActivity{
                             lista.put("Email",l2.getResult().getUser().getEmail());
                             lista.put("Provider",ProviderType.BASIC.toString());
 
-                            ChangeWindow.cambiarVentana(this, lista);
+                            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
                         }else{
                             Validaciones.showAlert(this,"Error","Hay un error al registrarse");
                         }
@@ -153,7 +153,7 @@ public class Login extends AppCompatActivity{
                             lista.put("Email",account.getEmail());
                             lista.put("Provider",ProviderType.GOOGLE.toString());
 
-                            ChangeWindow.cambiarVentana(this, lista);
+                            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
 
                         }else{
                             Validaciones.showAlert(this,"Error","Hay un error al registrarse");
@@ -180,7 +180,7 @@ public class Login extends AppCompatActivity{
             lista.put("Email",email);
             lista.put("Provider",ProviderType.valueOf(proveedor).toString());
 
-            ChangeWindow.cambiarVentana(this, lista);
+            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
         }
     }
 

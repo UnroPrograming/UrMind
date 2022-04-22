@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UrMindTFG">
         <activity
-            android:name=".Inicio"
+            android:name=".Inicio_"
             android:exported="false" />
         <activity
             android:name=".Login_"
