@@ -29,10 +29,10 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/txt_pass"
+                android:id="@+id/txt_provider"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:text="Contraseña" />
+                android:text="Provider" />
 
             <Space
                 android:layout_width="match_parent"
@@ -116,6 +116,20 @@
                 android:layout_height="wrap_content"
                 android:background="#BF3737"
                 android:text="FORZAR FALLO" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btn_cambiarVentana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#BAB6B6"
+                android:text="cambiar ventana" />
+
         </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

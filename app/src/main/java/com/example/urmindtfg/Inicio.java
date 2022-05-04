@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.urmindtfg.entitis.ProviderType;
+import com.example.urmindtfg.model.ChangeWindow;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
@@ -30,7 +32,7 @@ public class Inicio extends AppCompatActivity{
     @ViewById
     public TextView txt_email;
     @ViewById
-    public TextView txt_pass;
+    public TextView txt_provider;
     @ViewById
     public TextView txt_direccion;
     @ViewById
@@ -123,17 +125,26 @@ public class Inicio extends AppCompatActivity{
         throw new RuntimeException("Forzado de error");
     }
 
+    @Click
+    void btn_cambiarVentana(){
+        HashMap<String,String> lista = new HashMap();
+        lista.put("Email",email);
+        lista.put("Provider", proveedor);
+
+        ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
+    }
+
     //Le damos el correo y el proveedor
     private void setup(String email, String provider){
         txt_email.setText(email);
-        txt_pass.setText(provider);
+        txt_provider.setText(provider);
     }
 
     //Guarda los datos en una librería interna
     private void guardarDatos(){
         SharedPreferences.Editor prefsEdit = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
         prefsEdit.putString("email",txt_email.getText().toString());
-        prefsEdit.putString("proveedor",txt_pass.getText().toString());
+        prefsEdit.putString("proveedor",txt_provider.getText().toString());
         prefsEdit.apply();
     }
 

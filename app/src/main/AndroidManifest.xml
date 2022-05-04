@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UrMindTFG">
         <activity
+            android:name=".reg_usuario_"
+            android:exported="false" />
+        <activity
+            android:name=".reg_empresario_"
+            android:exported="false" />
+        <activity
+            android:name=".reg_especialista_"
+            android:exported="false" />
+        <activity
             android:name=".Inicio_"
             android:exported="false" />
         <activity

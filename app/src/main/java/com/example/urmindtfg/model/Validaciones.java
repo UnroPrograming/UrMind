@@ -5,11 +5,6 @@ import android.content.Context;
 import androidx.appcompat.app.AlertDialog;
 
 public class Validaciones {
-
-    public static boolean validacionEmailPass(String email, String pass){
-        return email.length()>0 && pass.length()>0;
-    }
-
     public static void showAlert(Context context, String titulo, String mensaje) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(titulo);
@@ -18,5 +13,13 @@ public class Validaciones {
 
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    public static boolean validacionEmailPass(String email, String pass){
+        return email.length()>0 && pass.length()>0;
+    }
+
+    public static boolean validarUsuario(String nombre, String apellidos, String telefono, String DNI) {
+        return true;
     }
 }

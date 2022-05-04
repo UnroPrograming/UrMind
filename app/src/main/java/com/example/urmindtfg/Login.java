@@ -189,6 +189,4 @@ public class Login extends AppCompatActivity{
         //A los grupos les llamaremos Temas(Topics)
         firebaseMessaging.subscribeToTopic("topic1");
     }
-
-
 }
