@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Inicio">
-        <LinearLayout
+
+    <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -110,7 +111,7 @@
                 android:layout_height="8dp"
                 android:layout_weight="1" />
 
-            <Button
+        <Button
                 android:id="@+id/btn_forzarFallo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,6 +131,19 @@
                 android:background="#BAB6B6"
                 android:text="cambiar ventana" />
 
-        </LinearLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_Chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#BAB6B6"
+            android:text="chat" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

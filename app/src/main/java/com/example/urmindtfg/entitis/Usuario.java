@@ -11,13 +11,13 @@ public class Usuario extends Persona{
         super(email, nombre, apellidos, telefono, DNI, proveedor);
     }
 
-    public HashMap<String,Object> toHashMap(){
-        HashMap<String,Object> lista = new HashMap<String,Object>();
+    public HashMap<String, String> toHashMap(){
+        HashMap<String, String> lista = new HashMap<String, String>();
 
         lista.put("email",getEmail());
         lista.put("nombre",getNombre());
         lista.put("apellidos",getApellidos());
-        lista.put("telefono",getTelefono());
+        lista.put("telefono", String.valueOf(getTelefono()));
         lista.put("dni",getDNI());
         lista.put("proveedor",getProveedor());
 

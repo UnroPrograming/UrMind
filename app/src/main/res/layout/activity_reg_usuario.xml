@@ -41,17 +41,6 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/eTxt_telefono"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Teléfono"
-            android:inputType="number" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
-
-        <EditText
             android:id="@+id/eTxt_Nombre"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -69,6 +58,18 @@
             android:layout_height="40dp"
             android:hint="Apellidos"
             android:inputType="text" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/eTxt_telefono"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Teléfono"
+            android:inputType="number" />
 
         <Space
             android:layout_width="match_parent"

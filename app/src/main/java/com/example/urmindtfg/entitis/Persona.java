@@ -8,7 +8,7 @@ public class Persona {
     private String apellidos;
     private int telefono;
     private String DNI;
-    private String proveedor;''
+    private String proveedor;
 
     public Persona() {
     }
@@ -68,18 +68,5 @@ public class Persona {
 
     public void setProveedor(String proveedor) {
         this.proveedor = proveedor;
-    }
-
-    public HashMap<String,Object> toHashMap(){
-        HashMap<String,Object> lista = new HashMap<String,Object>();
-
-        lista.put("email",getEmail());
-        lista.put("nombre",getNombre());
-        lista.put("apellidos",getApellidos());
-        lista.put("telefono",getTelefono());
-        lista.put("dni",getDNI());
-        lista.put("proveedor",getProveedor());
-
-        return lista;
     }
 }

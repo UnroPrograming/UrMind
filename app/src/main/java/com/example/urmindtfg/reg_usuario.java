@@ -7,7 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.urmindtfg.chat.Chat;
 import com.example.urmindtfg.entitis.Usuario;
+import com.example.urmindtfg.model.ChangeWindow;
+import com.example.urmindtfg.model.Database;
 import com.example.urmindtfg.model.Validaciones;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -15,6 +18,8 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+
+import java.util.HashMap;
 
 @EActivity(R.layout.activity_reg_usuario)
 public class reg_usuario extends AppCompatActivity {
@@ -37,8 +42,8 @@ public class reg_usuario extends AppCompatActivity {
 
     //Database
     private Usuario usuario;
-    private FirebaseFirestore dB;
-    private final String tableName = "Usuarios";
+    private Database db;
+    private final String TABLE_NAME = "Usuarios";
 
     @AfterViews
     public void onCreate() {
@@ -48,8 +53,8 @@ public class reg_usuario extends AppCompatActivity {
         txt_email.setText(extras.getString("Email"));
         txt_provider.setText(extras.getString("Provider"));
 
-        //Firebase
-        dB = FirebaseFirestore.getInstance();
+        //Base de datos
+        db = new Database(TABLE_NAME);
     }
 
     @Click
@@ -65,8 +70,10 @@ public class reg_usuario extends AppCompatActivity {
                     eTxt_DNI.getText().toString(),
                     txt_provider.getText().toString());
 
-            //Pasamos el usuario a HashMap y lo subimos a la base de datos
-            dB.collection(tableName).document(usuario.getEmail()).set(usuario.toHashMap());
+            //Pasamos el usuario a HashMap
+            HashMap<String,String> usuarioMap = usuario.toHashMap();
+            //Lo subimos a la base de datos
+            db.add(usuario.getEmail(),usuarioMap);
         }
     }
 }
