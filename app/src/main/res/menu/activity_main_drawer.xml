@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_cuenta"
             android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_temas"
+            android:icon="@drawable/ic_menu_temas"
+            android:title="@string/menu_temas"/>
+
+        <item
+            android:id="@+id/nav_chats"
+            android:icon="@drawable/ic_menu_chats"
+            android:title="@string/menu_chats"/>
+        <item
+            android:id="@+id/nav_recomendaciones"
+            android:icon="@drawable/ic_menu_recomendaciones"
+            android:title="@string/menu_recomendaciones"/>
+        <item
+            android:id="@+id/nav_logros"
+            android:icon="@drawable/ic_menu_logros"
+            android:title="@string/menu_logros"/>
+        <item
+            android:id="@+id/nav_ubicaciones"
+            android:icon="@drawable/ic_menu_ubicacion"
+            android:title="@string/menu_ubicaciones"/>
+
+        <item android:title="Sobre la Aplicacion">
+            <menu>
+                <item
+                    android:id="@+id/nav_cuenta"
+                    android:icon="@drawable/ic_menu_cuenta"
+                    android:title="@string/menu_cuenta"/>
+                <item
+                    android:id="@+id/nav_configuracion"
+                    android:icon="@drawable/ic_menu_configuracion"
+                    android:title="@string/menu_configuracion"/>
+            </menu>
+        </item>
     </group>
 </menu>

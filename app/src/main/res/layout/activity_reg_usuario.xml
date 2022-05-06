@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/nonwhite"
     tools:context=".reg_usuario">
+
+    <ImageView
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        tools:ignore="MissingConstraints"
+        android:background="@drawable/ic_menu_cuenta"
+        android:backgroundTint="#9FE4D8BF"/>
 
     <LinearLayout
         android:layout_width="0dp"
@@ -19,82 +27,121 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Email"
+            android:textSize="15dp"
+            android:textColor="@color/blue1"
+            android:fontFamily="@font/montserrat_italic"/>
+
+        <TextView
             android:id="@+id/txt_email"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Email" />
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/nondark"/>
 
-        <Space
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:text="Tipo de proveedor"
+            android:textSize="15dp"
+            android:textColor="@color/blue1"
+            android:fontFamily="@font/montserrat_italic"/>
 
         <TextView
             android:id="@+id/txt_provider"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:text="Proveedor" />
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/nondark"/>
 
-        <Space
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:text="Nombre"
+            android:textSize="15dp"
+            android:textColor="@color/blue1"
+            android:fontFamily="@font/montserrat_italic"/>
 
         <EditText
             android:id="@+id/eTxt_Nombre"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Nombre"
-            android:inputType="text" />
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:textSize="15dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/nondark"/>
 
-        <Space
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:text="Apellidos"
+            android:textSize="15dp"
+            android:textColor="@color/blue1"
+            android:fontFamily="@font/montserrat_italic"/>
 
         <EditText
             android:id="@+id/eTxt_Apellidos"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Apellidos"
-            android:inputType="text" />
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:textSize="15dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/nondark"/>
 
-        <Space
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:text="Teléfono"
+            android:textSize="15dp"
+            android:textColor="@color/blue1"
+            android:fontFamily="@font/montserrat_italic"/>
 
         <EditText
             android:id="@+id/eTxt_telefono"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="Teléfono"
-            android:inputType="number" />
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:textSize="15dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/nondark"/>
 
-        <Space
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:text="DNI"
+            android:textSize="15dp"
+            android:textColor="@color/blue1"
+            android:fontFamily="@font/montserrat_italic"/>
 
         <EditText
             android:id="@+id/eTxt_DNI"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="DNI"
-            android:inputType="text" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:textSize="15dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@color/nondark"/>
 
         <Button
             android:id="@+id/btn_registrarUsuario"
-            android:layout_width="match_parent"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:background="@drawable/boton_blue2"
+            android:fontFamily="@font/montserrat_semibolditalic"
+            android:textColor="@color/nonwhite"
+
             android:text="REGISTRAR" />
-
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

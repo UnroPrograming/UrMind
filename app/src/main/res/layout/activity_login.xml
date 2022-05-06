@@ -4,15 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDDBDB"
+    android:background="@drawable/fondo_pantalla"
     tools:context=".Login">
+
+
+    <ImageView
+        android:layout_width="294dp"
+        android:layout_height="453dp"
+        android:background="@drawable/logo_fondo"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="139dp"
+        android:foregroundGravity="center"/>
+
+    <ImageView
+        android:layout_width="370dp"
+        android:layout_height="400dp"
+        android:background="@drawable/back_login"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="432dp"
+        android:foregroundGravity="center"/>
 
     <LinearLayout
         android:id="@+id/lay_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="430dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,69 +39,97 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/eTxt_email"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_menu_cuenta"
+                android:backgroundTint="@color/cream" />
+            <EditText
+                android:id="@+id/eTxt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/nonwhite"
+                android:fontFamily="@font/montserrat_medium"/>
+        </LinearLayout>
 
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_password"
+                android:backgroundTint="@color/cream"/>
+            <EditText
+                android:id="@+id/eTxt_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:textColor="@color/nonwhite"
+                android:fontFamily="@font/montserrat_medium"/>
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/eTxt_pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp">
 
             <Button
                 android:id="@+id/btn_registrarse"
-                android:layout_width="80dp"
+                android:layout_width="10dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/boton_blue1"
+                android:textColor="@color/nonwhite"
                 android:layout_weight="1"
-                android:text="Registrarse" />
-
-            <Space
-                android:layout_width="8dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:text="Registrarse"
+                android:fontFamily="@font/montserrat_semibolditalic"/>
 
             <Button
                 android:id="@+id/btn_login"
-                android:layout_width="80dp"
+                android:layout_width="10dp"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/boton_outcream"
+                android:textColor="@color/nonwhite"
                 android:layout_weight="1"
-                android:text="Continuar" />
+                android:text="Acceder"
+                android:fontFamily="@font/montserrat_semibolditalic"/>
         </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp"
-            android:layout_weight="1" />
 
         <Button
             android:id="@+id/btn_google"
-            android:layout_width="match_parent"
+            android:layout_width="130dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="120dp"
             android:layout_weight="1"
-            android:background="#FFFFFF"
+            android:background="#001E1E1E"
             android:drawableStart="@drawable/icono_google"
             android:outlineAmbientShadowColor="#000000"
             android:outlineSpotShadowColor="#000000"
@@ -90,6 +137,6 @@
             android:shadowColor="#000000"
             android:text="  Google"
             android:textAlignment="textStart"
-            android:textColor="#000000" />
+            android:textColor="@color/nonwhite" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
