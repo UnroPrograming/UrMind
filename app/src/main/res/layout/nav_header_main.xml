@@ -19,15 +19,14 @@
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@mipmap/ic_launcher_round"
         android:contentDescription="@string/nav_header_desc"
-        android:id="@+id/imageView" />
+        android:id="@+id/imageView"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:fontFamily="@font/montserrat_medium"
-        android:text="@string/nav_header_title"
-        />
+        android:text="@string/nav_header_title"/>
 
     <TextView
         android:id="@+id/textView"

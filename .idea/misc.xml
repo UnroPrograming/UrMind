@@ -55,6 +55,7 @@
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/drawable/loading_background.xml" value="0.309" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/drawable/side_nav_bar.xml" value="0.309" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/activity_chat.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/activity_cuenta.xml" value="0.38411316648531013" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/activity_inicio.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
@@ -65,7 +66,7 @@
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/content_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/fragment_cuenta.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/nav_header_main.xml" value="0.67" />
+        <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/layout/nav_header_main.xml" value="0.33" />
         <entry key="..\:/Users/dme22/AndroidStudioProjects/UrMind/app/src/main/res/menu/activity_main_drawer.xml" value="0.9" />
       </map>
     </option>

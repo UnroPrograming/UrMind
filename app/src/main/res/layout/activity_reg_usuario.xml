@@ -140,7 +140,6 @@
             android:background="@drawable/boton_blue2"
             android:fontFamily="@font/montserrat_semibolditalic"
             android:textColor="@color/nonwhite"
-
             android:text="REGISTRAR" />
     </LinearLayout>
 
