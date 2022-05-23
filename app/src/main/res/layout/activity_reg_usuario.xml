@@ -142,5 +142,4 @@
             android:textColor="@color/nonwhite"
             android:text="REGISTRAR" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
