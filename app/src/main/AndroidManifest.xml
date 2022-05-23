@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UrMindTFG" >
         <activity
-            android:name=".model.Controlador_Navigation"
+            android:name=".ControladorNavigation"
             android:exported="false"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.UrMindTFG.NoActionBar" />

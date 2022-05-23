@@ -11,6 +11,7 @@ public class Usuario extends Persona{
         super(email, nombre, apellidos, telefono, DNI, proveedor);
     }
 
+
     public HashMap<String, String> toHashMap(){
         HashMap<String, String> lista = new HashMap<String, String>();
 

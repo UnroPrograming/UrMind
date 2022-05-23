@@ -7,12 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.urmindtfg.chat.Chat;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.model.Database;
 import com.example.urmindtfg.model.Validaciones;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -43,7 +41,7 @@ public class reg_usuario extends AppCompatActivity {
     //Database
     private Usuario usuario;
     private Database db;
-    private final String TABLE_NAME = "Usuarios";
+    private final String TABLE_NAME = "usuarios";
 
     @AfterViews
     public void onCreate() {
@@ -74,6 +72,8 @@ public class reg_usuario extends AppCompatActivity {
             HashMap<String,String> usuarioMap = usuario.toHashMap();
             //Lo subimos a la base de datos
             db.add(usuario.getEmail(),usuarioMap);
+
+            ChangeWindow.cambiarVentana(this, usuarioMap, ControladorNavigation.class);
         }
     }
 }

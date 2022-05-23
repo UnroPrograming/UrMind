@@ -1,4 +1,4 @@
-package com.example.urmindtfg.model;
+package com.example.urmindtfg;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.urmindtfg.databinding.ActivityMainBinding;
 
-public class Controlador_Navigation extends AppCompatActivity {
+public class ControladorNavigation extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;

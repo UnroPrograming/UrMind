@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.urmindtfg.model.ChangeWindow;
-import com.example.urmindtfg.model.Controlador_Navigation;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
@@ -135,7 +134,7 @@ public class Inicio extends AppCompatActivity{
     }
     @Click
     void btn_Chat(){
-        ChangeWindow.cambiarVentana(this, Controlador_Navigation.class);
+        ChangeWindow.cambiarVentana(this, ControladorNavigation.class);
     }
 
     //Le damos el correo y el proveedor
