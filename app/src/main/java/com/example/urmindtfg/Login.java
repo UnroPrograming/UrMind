@@ -25,6 +25,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.androidannotations.annotations.AfterViews;
@@ -33,6 +36,7 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import java.util.HashMap;
+import java.util.Map;
 
 @EActivity(R.layout.activity_login)
 public class Login extends AppCompatActivity{
@@ -56,7 +60,8 @@ public class Login extends AppCompatActivity{
     //Firebase
     private FirebaseAuth firebaseAuth;//Para autentificacion con firebase
     private FirebaseMessaging firebaseMessaging;//Para mandar notificaciones
-
+    private FirebaseFirestore dB;
+    private Map<String, Object> datosObtenidos;
     //Constante
     private static final int GOOGLE_SIGN_IN = 100;
 
@@ -64,9 +69,7 @@ public class Login extends AppCompatActivity{
     public void onCreate(){
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseMessaging = FirebaseMessaging.getInstance();
-
-        comprobarSesion();
-        nombrarGrupo();
+        dB = FirebaseFirestore.getInstance();
     }
 
     @Click
@@ -91,24 +94,47 @@ public class Login extends AppCompatActivity{
     }
     @Click
     public void btn_login() {
-        if(Validaciones.validacionEmailPass(eTxt_email.getText().toString(), eTxt_pass.getText().toString())){
-            //Llamamos al método para iniciar sesion con usuario y contraseña
-            firebaseAuth.signInWithEmailAndPassword(eTxt_email.getText().toString(), eTxt_pass.getText().toString())
-                    .addOnCompleteListener(l2 -> {
-                        //Si el registro es correcto pasamos a la nueva pantalla
-                        if(l2.isSuccessful()){
-                            //Cambiamos la ventana
-                            HashMap<String,String> lista = new HashMap();
-                            lista.put("Email",l2.getResult().getUser().getEmail());
-                            lista.put("Provider",ProviderType.BASIC.toString());
+        String email = eTxt_email.getText().toString();
+        String pass = eTxt_pass.getText().toString();
 
-                            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
-                        }else{
-                            Validaciones.showAlert(this,"Error","Hay un error al registrarse");
+        if(Validaciones.validacionEmailPass(eTxt_email.getText().toString(), eTxt_pass.getText().toString())){
+            DocumentReference docRef = dB.collection("usuarios").document(email);
+
+            docRef.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+
+                    if (document.exists()) {
+                        datosObtenidos = document.getData();
+                        if (((String) datosObtenidos.get("email")).equals(email)) {
+                            //Llamamos al método para iniciar sesion con usuario y contraseña
+                            firebaseAuth.signInWithEmailAndPassword(email, pass)
+                                    .addOnCompleteListener(l2 -> {
+                                        //Si el registro es correcto pasamos a la nueva pantalla
+                                        if (l2.isSuccessful()) {
+                                            //Cambiamos la ventana
+                                            HashMap<String, String> lista = new HashMap();
+                                            lista.put("Email", l2.getResult().getUser().getEmail());
+                                            lista.put("Provider", ProviderType.BASIC.toString());
+
+                                            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
+                                        } else {
+                                            Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
+                                        }
+                                    });
+                        } else {
+                            Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
                         }
-                    });
+                    }else {
+                        Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
+                    }
+                }else {
+                    Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
+                }
+            });
         }
     }
+
 
     @Click
     public void btn_google(){
@@ -153,8 +179,25 @@ public class Login extends AppCompatActivity{
                             lista.put("Email",account.getEmail());
                             lista.put("Provider",ProviderType.GOOGLE.toString());
 
-                            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
+                            //Comprobamos que ha iniciado sesión anteriormente
+                            DocumentReference docRef = dB.collection("usuarios").document(account.getEmail());
 
+                            docRef.get().addOnCompleteListener(e -> {
+                                        if (e.isSuccessful()) {
+                                            DocumentSnapshot document = e.getResult();
+
+                                            if (document.exists()) {
+                                                datosObtenidos = document.getData();
+                                                if (((String) datosObtenidos.get("email")).equals(account.getEmail())) {
+                                                    ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
+                                                }
+                                            }else {
+                                                ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
+                                            }
+                                        }else {
+                                            ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
+                                        }
+                                    });
                         }else{
                             Validaciones.showAlert(this,"Error","Hay un error al registrarse");
                         }

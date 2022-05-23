@@ -69,4 +69,16 @@ public class Persona {
     public void setProveedor(String proveedor) {
         this.proveedor = proveedor;
     }
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "email='" + email + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", telefono=" + telefono +
+                ", DNI='" + DNI + '\'' +
+                ", proveedor='" + proveedor + '\'' +
+                '}';
+    }
 }
