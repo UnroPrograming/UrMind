@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.temas.TemasFragment">
+    tools:context=".ui.configuracion.ConfiguracionFragment">
 
     <ImageView
         android:layout_width="700dp"
         android:layout_height="700dp"
-        android:background="@drawable/ic_menu_temas"
+        android:background="@drawable/ic_menu_configuracion"
         android:backgroundTint="#9FE4D8BF"
         tools:ignore="MissingConstraints"/>
 
@@ -28,15 +28,12 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/montserrat_semibolditalic"
-                android:text="Temas"
+                android:text="Configuración"
                 android:textColor="@color/blue1"
                 android:textSize="30sp"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="30dp" />
-
-
+                tools:layout_editor_absoluteY="30dp"/>
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

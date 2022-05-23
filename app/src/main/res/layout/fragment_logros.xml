@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.logors.LogrosFragment">
+    tools:context=".ui.logros.LogrosFragment"
+    android:orientation="vertical"
+    android:backgroundTint="@color/nonwhite">
 
     <ImageView
         android:layout_width="700dp"
@@ -13,326 +14,600 @@
         android:backgroundTint="#9FE4D8BF"
         tools:ignore="MissingConstraints"/>
 
-
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        tools:ignore="MissingConstraints"
+        android:paddingBottom="10dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="385dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:text="Logros"
+                android:textColor="@color/blue1"
+                android:textSize="30sp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="30dp" />
+
+            <LinearLayout
+                android:layout_width="180dp"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="115dp"
+                tools:layout_editor_absoluteY="88dp"
+                tools:ignore="MissingConstraints"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:id="@+id/puntuacion"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_semibolditalic"
+                    android:text="100"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/blue2"
+                    android:textSize="45dp" />
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="pnts"
+                    android:textSize="25dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="318dp"
+                android:layout_height="68dp"
+                android:fontFamily="@font/montserrat_italic"
+                android:text="Recuerda que podras eleccionar que has cumplido los objetivos propuestos en cualquier momento. Se sicero conntigo mismo y verás lo orgulloso que te sientes. Ánimo confiamos en tí."
+                android:textColor="@color/blue1"
+                android:textSize="12dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="46dp"
+                tools:layout_editor_absoluteY="154dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:layout_width="365dp"
+                android:layout_height="202dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="481dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="369dp"
+                    android:layout_height="59dp"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="21dp"
+                    tools:layout_editor_absoluteY="282dp">
+
+                    <ImageView
+                        android:layout_width="59dp"
+                        android:layout_height="59dp"
+                        android:background="@drawable/ic_progreso_imaginacion"
+                        android:backgroundTint="@color/blue2" />
+
+                    <TextView
+                        android:layout_width="310dp"
+                        android:layout_height="59dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/montserrat_semibolditalic"
+                        android:text="Imaginación"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDAD DIARIA:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDADES SEMANALES:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 2"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 3"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 4"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="365dp"
+                android:layout_height="202dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="253dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="369dp"
+                    android:layout_height="59dp"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="21dp"
+                    tools:layout_editor_absoluteY="326dp">
+
+                    <ImageView
+                        android:layout_width="59dp"
+                        android:layout_height="59dp"
+                        android:background="@drawable/ic_progreso_personal"
+                        android:backgroundTint="@color/blue2" />
+
+                    <TextView
+                        android:layout_width="310dp"
+                        android:layout_height="59dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/montserrat_semibolditalic"
+                        android:text="Personal:"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDAD DIARIA:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDADES SEMANALES:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 2"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 3"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 4"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="365dp"
+                android:layout_height="202dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="253dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="369dp"
+                    android:layout_height="59dp"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="21dp"
+                    tools:layout_editor_absoluteY="326dp">
+
+                    <ImageView
+                        android:layout_width="59dp"
+                        android:layout_height="59dp"
+                        android:background="@drawable/ic_progreso_social"
+                        android:backgroundTint="@color/blue2" />
+
+                    <TextView
+                        android:layout_width="310dp"
+                        android:layout_height="59dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/montserrat_semibolditalic"
+                        android:text="Social:"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDAD DIARIA:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDADES SEMANALES:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 2"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 3"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 4"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="365dp"
+                android:layout_height="202dp"
+                android:orientation="vertical"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="23dp"
+                tools:layout_editor_absoluteY="253dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center">
+
+                <LinearLayout
+                    android:layout_width="369dp"
+                    android:layout_height="59dp"
+                    android:orientation="horizontal"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="21dp"
+                    tools:layout_editor_absoluteY="326dp">
+
+                    <ImageView
+                        android:layout_width="59dp"
+                        android:layout_height="59dp"
+                        android:background="@drawable/ic_progreso_racional"
+                        android:backgroundTint="@color/blue2" />
+
+                    <TextView
+                        android:layout_width="310dp"
+                        android:layout_height="59dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/montserrat_semibolditalic"
+                        android:text="Racional:"
+                        android:textSize="25dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDAD DIARIA:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/montserrat_italic"
+                    android:text="ACTIVIDADES SEMANALES:"
+                    android:textColor="@color/blue1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 2"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 3"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="20dp"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="Piensa un poquito pequeñin 4"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/ic_check_circle"
+                        android:backgroundTint="@color/blue2" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="385dp"
-        android:layout_height="44dp"
-        android:fontFamily="@font/montserrat_semibolditalic"
-        android:text="Logros"
-        android:textColor="@color/blue1"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="30dp" />
-
-    <LinearLayout
-        android:layout_width="180dp"
-        android:layout_height="52dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="88dp">
-
-        <TextView
-            android:id="@+id/puntuacion"
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/montserrat_semibolditalic"
-            android:text="100"
-            android:textAlignment="textEnd"
-            android:textColor="@color/blue2"
-            android:textSize="45dp" />
-
-        <TextView
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/montserrat_italic"
-            android:text="pnts"
-            android:textSize="25dp" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="318dp"
-        android:layout_height="68dp"
-        android:fontFamily="@font/montserrat_italic"
-        android:text="Recuerda que podras eleccionar que has cumplido los objetivos propuestos en cualquier momento. Se sicero conntigo mismo y verás lo orgulloso que te sientes. Ánimo confiamos en tí."
-        android:textColor="@color/blue1"
-        android:textSize="12dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="154dp" />
-
-    <LinearLayout
-        android:layout_width="365dp"
-        android:layout_height="202dp"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="481dp">
-
-        <LinearLayout
-            android:layout_width="369dp"
-            android:layout_height="59dp"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="21dp"
-            tools:layout_editor_absoluteY="282dp">
-
-            <ImageView
-                android:layout_width="59dp"
-                android:layout_height="59dp"
-                android:background="@drawable/ic_progreso_imaginacion"
-                android:backgroundTint="@color/blue1" />
-
-            <TextView
-                android:layout_width="310dp"
-                android:layout_height="59dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_semibolditalic"
-                android:text="Imaginación"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/montserrat_italic"
-            android:text="ACTIVIDAD DIARIA:"
-            android:textColor="@color/blue1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/montserrat_italic"
-            android:text="ACTIVIDADES SEMANALES:"
-            android:textColor="@color/blue1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin 2"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin 3"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin 4"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="365dp"
-        android:layout_height="202dp"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="253dp">
-
-        <LinearLayout
-            android:layout_width="369dp"
-            android:layout_height="59dp"
-            android:orientation="horizontal"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="21dp"
-            tools:layout_editor_absoluteY="326dp">
-
-            <ImageView
-                android:layout_width="59dp"
-                android:layout_height="59dp"
-                android:background="@drawable/ic_progreso_personal"
-                android:backgroundTint="@color/blue1" />
-
-            <TextView
-                android:layout_width="310dp"
-                android:layout_height="59dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_semibolditalic"
-                android:text="Progreso personal:"
-                android:textSize="25dp" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/montserrat_italic"
-            android:text="ACTIVIDAD DIARIA:"
-            android:textColor="@color/blue1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/montserrat_italic"
-            android:text="ACTIVIDADES SEMANALES:"
-            android:textColor="@color/blue1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin 2"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin 3"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="20dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:text="Piensa un poquito pequeñin 4"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_check_circle"
-                android:backgroundTint="@color/blue2" />
-        </LinearLayout>
-    </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.urmindtfg.ui.logors;
+package com.example.urmindtfg.ui.logros;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +22,7 @@ public class LogrosFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        View root = inflater.inflate(R.layout.fragment_logros, container, false);
         return inflater.inflate(R.layout.fragment_logros, container, false);
     }
 

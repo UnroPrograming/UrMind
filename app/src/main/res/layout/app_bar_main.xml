@@ -16,8 +16,8 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.UrMindTFG.PopupOverlay" />
+            android:background="@color/blue2"
+            app:popupTheme="@style/Theme.UrMindTFG.PopupOverlay"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -30,5 +30,6 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/ic_add"
+        android:backgroundTint="@color/cream"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -9,26 +9,34 @@
 
 
     <ImageView
-        android:layout_width="294dp"
-        android:layout_height="453dp"
+        android:id="@+id/imageView2"
+        android:layout_width="296dp"
+        android:layout_height="468dp"
         android:background="@drawable/logo_fondo"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="139dp"
-        android:foregroundGravity="center"/>
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:layout_width="370dp"
-        android:layout_height="400dp"
+        android:layout_width="363dp"
+        android:layout_height="431dp"
+        android:layout_marginTop="530dp"
         android:background="@drawable/back_login"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="432dp"
-        android:foregroundGravity="center"/>
+        android:foregroundGravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/lay_login"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="430dp"
@@ -36,67 +44,73 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="6dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/ic_menu_cuenta"
                 android:backgroundTint="@color/cream" />
+
             <EditText
                 android:id="@+id/eTxt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/montserrat_medium"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/nonwhite"
-                android:fontFamily="@font/montserrat_medium"/>
+                android:textColor="@color/nonwhite" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="6dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/ic_password"
-                android:backgroundTint="@color/cream"/>
+                android:backgroundTint="@color/cream" />
+
             <EditText
                 android:id="@+id/eTxt_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:fontFamily="@font/montserrat_medium"
                 android:hint="Contraseña"
                 android:inputType="textPassword"
-                android:textColor="@color/nonwhite"
-                android:fontFamily="@font/montserrat_medium"/>
+                android:textColor="@color/nonwhite" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="20dp">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_registrarse"
@@ -104,30 +118,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/boton_blue1"
-                android:textColor="@color/nonwhite"
                 android:layout_weight="1"
+                android:background="@drawable/boton_blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
                 android:text="Registrarse"
-                android:fontFamily="@font/montserrat_semibolditalic"/>
+                android:textColor="@color/nonwhite" />
 
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
-                android:background="@drawable/boton_outcream"
-                android:textColor="@color/nonwhite"
                 android:layout_weight="1"
+                android:background="@drawable/boton_outcream"
+                android:fontFamily="@font/montserrat_semibolditalic"
                 android:text="Acceder"
-                android:fontFamily="@font/montserrat_semibolditalic"/>
+                android:textColor="@color/nonwhite" />
         </LinearLayout>
 
         <Button
             android:id="@+id/btn_google"
             android:layout_width="130dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="120dp"
+            android:layout_marginTop="15dp"
             android:layout_weight="1"
             android:background="#001E1E1E"
             android:drawableStart="@drawable/icono_google"
@@ -139,4 +153,6 @@
             android:textAlignment="textStart"
             android:textColor="@color/nonwhite" />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
