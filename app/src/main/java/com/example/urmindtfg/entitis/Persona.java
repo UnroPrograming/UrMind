@@ -1,8 +1,9 @@
 package com.example.urmindtfg.entitis;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Persona {
+public class Persona implements Serializable {
     private String email;
     private String nombre;
     private String apellidos;

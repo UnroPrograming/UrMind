@@ -24,6 +24,7 @@ private FragmentHomeBinding binding;
 
         final TextView textView = binding.textHome;
         final Button btnCosa = root.findViewById(R.id.btn_cosa);
+
         btnCosa.setOnClickListener(view -> {
             textView.setText("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH");
         });

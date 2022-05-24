@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.urmindtfg.model.ChangeWindow;
+import com.example.urmindtfg.entitis.Constantes;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
@@ -66,8 +67,8 @@ public class Inicio extends AppCompatActivity{
         dataBase = FirebaseFirestore.getInstance();
 
         //Login
-        email = extras.getString("Email");
-        proveedor = extras.getString("Provider");
+        email = extras.getString(Constantes.KEY_EMAIL_USUARIOS);
+        proveedor = extras.getString(Constantes.KEY_PROVEEDOR_USUARIOS);
 
         //Setup
         setup(email, proveedor);

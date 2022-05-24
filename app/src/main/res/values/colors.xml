@@ -13,4 +13,5 @@
     <color name="blue1">#6a85b3</color>
     <color name="blue2">#3a4257</color>
     <color name="cream">#e4d8bf</color>
+    <color name="error">#AE0909</color>
 </resources>

@@ -41,5 +41,10 @@
         android:name="com.example.urmindtfg.ui.recomendaciones.RecomendacionesFragment"
         android:label="@string/menu_recomendaciones"
         tools:layout="@layout/fragment_recomendaciones" />
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="com.example.urmindtfg.ui.chat.ChatFragment"
+        android:label="@string/menu_chats"
+        tools:layout="@layout/fragment_chat" />
 
 </navigation>

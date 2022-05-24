@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
+import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.model.Database;
 import com.example.urmindtfg.model.Validaciones;
 
@@ -41,18 +42,17 @@ public class reg_usuario extends AppCompatActivity {
     //Database
     private Usuario usuario;
     private Database db;
-    private final String TABLE_NAME = "usuarios";
 
     @AfterViews
     public void onCreate() {
 
         //Login
         Bundle extras = getIntent().getExtras();
-        txt_email.setText(extras.getString("Email"));
-        txt_provider.setText(extras.getString("Provider"));
+        txt_email.setText(extras.getString(Constantes.KEY_EMAIL_USUARIOS));
+        txt_provider.setText(extras.getString(Constantes.KEY_PROVEEDOR_USUARIOS));
 
         //Base de datos
-        db = new Database(TABLE_NAME);
+        db = new Database(Constantes.KEY_TABLA_USUARIOS);
     }
 
     @Click

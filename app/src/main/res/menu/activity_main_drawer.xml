@@ -15,7 +15,7 @@
             android:title="@string/menu_temas"/>
 
         <item
-            android:id="@+id/nav_chats"
+            android:id="@+id/nav_chat"
             android:icon="@drawable/ic_menu_chats"
             android:title="@string/menu_chats"/>
         <item

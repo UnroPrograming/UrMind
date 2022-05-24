@@ -1,24 +1,20 @@
 package com.example.urmindtfg;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
 
-import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.entitis.ProviderType;
-import com.example.urmindtfg.model.Database;
+import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.model.Validaciones;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -67,7 +63,6 @@ public class Login extends AppCompatActivity{
     private FirebaseMessaging firebaseMessaging;//Para mandar notificaciones
     private FirebaseFirestore dB;
     private Map<String, Object> datosObtenidos;
-    private Database db; //Base de datos
 
 
     //Constante
@@ -78,8 +73,8 @@ public class Login extends AppCompatActivity{
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseMessaging = FirebaseMessaging.getInstance();
         dB = FirebaseFirestore.getInstance();
-        db = new Database("Usuarios");
 
+        comprobarSesion();
     }
 
     @Click
@@ -92,8 +87,8 @@ public class Login extends AppCompatActivity{
                         if (l2.isSuccessful()) {
                             //Cambiamos la ventana
                             HashMap<String, String> lista = new HashMap();
-                            lista.put("Email", l2.getResult().getUser().getEmail());
-                            lista.put("Provider", ProviderType.BASIC.toString());
+                            lista.put(Constantes.KEY_EMAIL_USUARIOS, l2.getResult().getUser().getEmail());
+                            lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, ProviderType.BASIC.toString());
 
                             //ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
                             ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
@@ -109,7 +104,7 @@ public class Login extends AppCompatActivity{
         String pass = eTxt_pass.getText().toString();
 
         if(Validaciones.validacionEmailPass(email, pass)) {
-            DocumentReference docRef = dB.collection("usuarios").document(email);
+            DocumentReference docRef = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
 
             docRef.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()){
@@ -117,7 +112,7 @@ public class Login extends AppCompatActivity{
 
                     if (document.exists()){
                         datosObtenidos = document.getData();
-                        if(((String)datosObtenidos.get("email")).equals(email)){
+                        if(((String)datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)){
 
                             //Llamamos al método para iniciar sesion con usuario y contraseña
                             firebaseAuth.signInWithEmailAndPassword(email, pass)
@@ -126,8 +121,8 @@ public class Login extends AppCompatActivity{
                                         if (l2.isSuccessful()) {
                                             //Cambiamos la ventana
                                             HashMap<String, String> lista = new HashMap();
-                                            lista.put("Email", l2.getResult().getUser().getEmail());
-                                            lista.put("Provider", ProviderType.BASIC.toString());
+                                            lista.put(Constantes.KEY_EMAIL_USUARIOS, l2.getResult().getUser().getEmail());
+                                            lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, ProviderType.BASIC.toString());
 
                                             ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
                                         } else {
@@ -192,11 +187,11 @@ public class Login extends AppCompatActivity{
                                 if (l.isSuccessful()) {
                                     //Cambiamos la ventana si la validación es correcta
                                     HashMap<String, String> lista = new HashMap();
-                                    lista.put("Email", account.getEmail());
-                                    lista.put("Provider", ProviderType.GOOGLE.toString());
+                                    lista.put(Constantes.KEY_EMAIL_USUARIOS, account.getEmail());
+                                    lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, ProviderType.GOOGLE.toString());
 
                                     //Comprobamos que ha iniciado sesión anteriormente
-                                    DocumentReference docRef = dB.collection("usuarios").document(account.getEmail());
+                                    DocumentReference docRef = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(account.getEmail());
 
                                     docRef.get().addOnCompleteListener(e -> {
                                         if (e.isSuccessful()) {
@@ -204,7 +199,7 @@ public class Login extends AppCompatActivity{
 
                                             if (document.exists()) {
                                                 datosObtenidos = document.getData();
-                                                if (((String) datosObtenidos.get("email")).equals(account.getEmail())) {
+                                                if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(account.getEmail())) {
                                                     ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
                                                 }
                                             } else {
@@ -221,6 +216,23 @@ public class Login extends AppCompatActivity{
         }catch (ApiException e) {
                     Validaciones.showAlert(this, "Error", "No se ha podido recuperar la cuenta");
                 }
+    }
+
+    //Nos valida si se ha iniciado sesión anteriormente y así pase directamente al menú home
+    private void comprobarSesion(){
+        SharedPreferences prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
+        String email = prefs.getString("email",null);
+        String proveedor = prefs.getString("proveedor",null);
+
+        if (email!= null && proveedor != null) {
+            lay_login.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
+            //Si hay sesión iniciada pasa a la pestaña de inicio
+            HashMap<String,String> lista = new HashMap();
+            lista.put(Constantes.KEY_EMAIL_USUARIOS,email);
+            lista.put(Constantes.KEY_PROVEEDOR_USUARIOS,ProviderType.valueOf(proveedor).toString());
+
+            ChangeWindow.cambiarVentana(this, lista,Inicio_.class);
+        }
     }
 
 }

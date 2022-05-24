@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.urmindtfg" >
+    package="com.example.urmindtfg">
 
     <application
         android:allowBackup="true"
@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".ui.chat.UsersActivity"
+            android:exported="false" />
         <activity
             android:name=".ControladorNavigation"
             android:exported="false"
@@ -25,7 +28,7 @@
             android:exported="false" />
         <activity
             android:name=".Login_"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +38,7 @@
 
         <service
             android:name=".model.FirebaseMensajeria"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
