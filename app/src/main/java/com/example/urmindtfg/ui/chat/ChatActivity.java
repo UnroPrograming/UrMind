@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.example.urmindtfg.databinding.ActivityChatBinding;
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChatMessage;
+import com.example.urmindtfg.model.Img;
 import com.example.urmindtfg.ui.chat.adapters.ChatAdapter;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
@@ -60,15 +62,10 @@ public class ChatActivity extends AppCompatActivity {
     private void init(){
         listaMensajes = new ArrayList<>();
 
-        //AQUI
-//        chatAdapter = new ChatAdapter(
-//                listaMensajes,
-//                getBitmapFromEncodedString(usuarioRecivido.getImagen()),
-//                currentUserId
-//        );
 
         chatAdapter = new ChatAdapter(
                 listaMensajes,
+                Img.getImgDesencriptada(usuarioRecivido.getImagen()),
                 currentUserId
         );
 
@@ -133,12 +130,6 @@ public class ChatActivity extends AppCompatActivity {
       }
         binding.progressBar.setVisibility(View.GONE);
     };
-
-    //AQUI
-//    private Bitmap getBitmapFromEncodedString(String endedImage){
-//        byte[] bytes = Base64.decode(endedImage, Base64.DEFAULT);
-//        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-//    }
 
     private void cargarRecividos(){
         //Cargamos el usuario

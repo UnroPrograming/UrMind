@@ -131,7 +131,7 @@
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_12sdp"
         android:background="@drawable/background_chat_input"
-        android:hint="Type a message"
+        android:hint="Escribe un mensaje"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:inputType="text"

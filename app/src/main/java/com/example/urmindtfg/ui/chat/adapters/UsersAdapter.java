@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.urmindtfg.databinding.ItemContainerUserBinding;
 import com.example.urmindtfg.entitis.Usuario;
+import com.example.urmindtfg.model.Img;
 import com.example.urmindtfg.ui.chat.listeners.UsersListener;
 
 import java.util.List;
@@ -56,14 +57,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         void setUserData(Usuario usuario){
             binding.txtNombreUsuario.setText(usuario.getNombre());
             binding.txtEmailUsuario.setText(usuario.getEmail());
-            //AQUI binding.imgPerfil.setImageBitmap(getUserImage(usuario.getImagen()));
+            binding.imgPerfil.setImageBitmap(Img.getImgDesencriptada(usuario.getImagen()));
             binding.getRoot().setOnClickListener(e-> usersListener.onUserClicked(usuario));
         }
     }
-
-    //AQUI
-//    private Bitmap getUserImage(String encoderImage){
-//        byte[] bytes = Base64.decode(encoderImage, 0);
-//        return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-//    }
 }

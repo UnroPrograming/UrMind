@@ -70,7 +70,7 @@ public class UsersActivity extends AppCompatActivity implements UsersListener {
                             usuario.setDNI(queryDocumentSnapshot.getString(Constantes.KEY_DNI_USUARIOS));
                             usuario.setTelefono(Integer.parseInt(queryDocumentSnapshot.getString(Constantes.KEY_TELEFONO_USUARIOS)));
                             usuario.setProveedor(queryDocumentSnapshot.getString(Constantes.KEY_PROVEEDOR_USUARIOS));
-                            //AQUI usuario.setImagen(queryDocumentSnapshot.getString(Constantes.KEY_IMG_USUARIOS));
+                            usuario.setImagen(queryDocumentSnapshot.getString(Constantes.KEY_IMG_USUARIOS));
 
                             listaUsuarios.add(usuario);
 

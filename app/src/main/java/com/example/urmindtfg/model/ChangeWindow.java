@@ -26,7 +26,6 @@ public class ChangeWindow {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
         }
-
     }
 
     public static void cambiarVentana(Context context, HashMap<String, String> lista, Class clase){

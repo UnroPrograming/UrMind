@@ -16,22 +16,15 @@ import java.util.List;
 public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private final List<ChatMessage> listaMensajes;
-//    AQUI private Bitmap receiverProfileImage;
+    private Bitmap receiverProfileImage;
     private final String senderId;
 
     public static final int VIEW_TYPE_SENT = 1;
     public static final int VIEW_TYPE_RECEIVED = 2;
 
-    //AQUI
-//    public ChatAdapter(List<ChatMessage> listaMensajes, Bitmap receiverProfileImage, String senderId) {
-//        this.listaMensajes = listaMensajes;
-//        this.receiverProfileImage = receiverProfileImage;
-//        this.senderId = senderId;
-//    }
-
-    //Borrar
-    public ChatAdapter(List<ChatMessage> listaMensajes, String senderId) {
+    public ChatAdapter(List<ChatMessage> listaMensajes, Bitmap receiverProfileImage, String senderId) {
         this.listaMensajes = listaMensajes;
+        this.receiverProfileImage = receiverProfileImage;
         this.senderId = senderId;
     }
 
@@ -64,10 +57,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         if(getItemViewType(position) == VIEW_TYPE_SENT) {
             ((SentMessageViewHolder) holder).setData(listaMensajes.get(position));
         }else {
-            //AQUI ((ReceivedMessageViewHolder) holder).setData(listaMensajes.get(position), receiverProfileImage);
-
-            //Borrar
-            ((ReceivedMessageViewHolder) holder).setData(listaMensajes.get(position));
+            ((ReceivedMessageViewHolder) holder).setData(listaMensajes.get(position), receiverProfileImage);
         }
     }
 
@@ -113,17 +103,10 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             binding = itemContainerReceivedMessageBinding;
         }
 
-        //AQUI
-//        void setData(ChatMessage chatMessage, Bitmap receiverProfileImage){
-//            binding.txtMensaje.setText(chatMessage.getMensaje());
-//            binding.txtDateTime.setText(chatMessage.getDateTime());
-//            binding.imgUsuario.setImageBitmap(receiverProfileImage);
-//        }
-
-        //Sin imagen (Borrar)
-        void setData(ChatMessage chatMessage){
+        void setData(ChatMessage chatMessage, Bitmap receiverProfileImage){
             binding.txtMensaje.setText(chatMessage.getMensaje());
             binding.txtDateTime.setText(chatMessage.getDateTime());
+            binding.imgUsuario.setImageBitmap(receiverProfileImage);
         }
     }
 }

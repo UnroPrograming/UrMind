@@ -21,21 +21,10 @@ public class Validaciones {
         return email.length()>0 && pass.length()>0;
     }
 
-    public static boolean validarUsuario(String nombre, String apellidos, String telefono, String DNI) {
-        return true;
-    }
-
-    public static boolean registroPrevio(String email){
-        boolean result = false;
-        try {
-            Database db = new Database("usuarios");
-            Usuario usuario = new Usuario();
-            db.getUsuario(usuario,email);
-            System.out.println("                                                                                              aaaaaaaaaaaaaaaaaaaaaaaah "+ usuario);
-            result = usuario.getEmail().equals(email);
-        }catch (Exception e){
-            e.printStackTrace();
+    public static boolean validarUsuario(String nombre, String apellidos, String telefono, String DNI,String imagen) {
+        if (imagen == null || imagen.length()<=0){
+            return false;
         }
-        return result;
+        return true;
     }
 }

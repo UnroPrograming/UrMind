@@ -15,6 +15,7 @@
         android:backgroundTint="#9FE4D8BF"/>
 
     <LinearLayout
+        android:id="@+id/lay_imagen"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -26,13 +27,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <FrameLayout
+            android:id="@+id/lay_addImagen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_gravity="center">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/img_fotoPerfil"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:background="@drawable/back_login"
+                android:scaleType="centerCrop"
+                app:riv_oval="true"/>
+            <TextView
+                android:id="@+id/txt_addImagen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Añadir imagen"
+                android:textSize="13dp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_italic"/>
+        </FrameLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Email"
             android:textSize="15dp"
             android:textColor="@color/blue1"
-            android:fontFamily="@font/montserrat_italic"/>
+            android:fontFamily="@font/montserrat_italic"
+            android:layout_marginTop="@dimen/_15sdp"/>
 
         <TextView
             android:id="@+id/txt_email"

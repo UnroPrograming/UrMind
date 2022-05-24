@@ -18,12 +18,13 @@ public class Usuario extends Persona{
     public HashMap<String, String> toHashMap(){
         HashMap<String, String> lista = new HashMap<String, String>();
 
-        lista.put("email",getEmail());
-        lista.put("nombre",getNombre());
-        lista.put("apellidos",getApellidos());
-        lista.put("telefono", String.valueOf(getTelefono()));
-        lista.put("dni",getDNI());
-        lista.put("proveedor",getProveedor());
+        lista.put(Constantes.KEY_EMAIL_USUARIOS,getEmail());
+        lista.put(Constantes.KEY_NOMBRE_USUARIOS,getNombre());
+        lista.put(Constantes.KEY_APELLIDO_USUARIOS,getApellidos());
+        lista.put(Constantes.KEY_TELEFONO_USUARIOS, String.valueOf(getTelefono()));
+        lista.put(Constantes.KEY_DNI_USUARIOS,getDNI());
+        lista.put(Constantes.KEY_PROVEEDOR_USUARIOS ,getProveedor());
+        lista.put(Constantes.KEY_IMG_USUARIOS,getImagen());
 
         return lista;
     }
