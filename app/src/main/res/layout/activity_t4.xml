@@ -1,6 +1,479 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.temas.TemasFragment">
+
+    <ImageView
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:background="@drawable/ic_menu_temas"
+        android:backgroundTint="#9FE4D8BF"
+        tools:ignore="MissingConstraints"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="385dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:text="Trno. alimenticio"
+                android:textColor="@color/blue1"
+                android:textSize="30sp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="30dp" />
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="¿Qué es?"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="318dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_italic"
+                android:text="Los trastornos de la alimentación, también llamados trastornos de la conducta alimentaria, son enfermedades médicas graves con una influencia biológica que se caracterizan por alteraciones graves de las conductas alimentarias."
+                android:textColor="@color/blue1"
+                android:textSize="15dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="46dp"
+                tools:layout_editor_absoluteY="154dp" />
+
+            <TextView
+                android:layout_width="318dp"
+                android:layout_height="145dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_italic"
+                android:text="Aunque hay ocasiones en que muchas personas se pueden preocupar por su salud, peso o apariencia, algunas se fijan excesivamente o se obsesionan con la pérdida de peso, el peso o la forma corporal y el control de los alimentos que consumen. Estos pueden ser signos de un trastorno alimentario."
+                android:textColor="@color/blue1"
+                android:textSize="15dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="46dp"
+                tools:layout_editor_absoluteY="154dp" />
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Webs de interes"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="NIH"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="342dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="https://www.nimh.nih.gov/health/publications/espanol/los-trastornos-de-la-alimentacion"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="NEDA"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="346dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="https://www.nationaleatingdisorders.org/Que-es-un-trastorno-alimenticio"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="TOPDOCTORS"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="https://www.topdoctors.es/diccionario-medico/trastornos-alimenticios"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ACAB"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="https://www.acab.org/es/los-trastornos-de-conducta-alimentaria/que-son-los-tca/tipos-de-tca/"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Videos informativos"
+                android:textSize="22sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="181dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="#9C3A4257"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="336dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77dp"
+                            android:layout_height="74dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/tp_doctors"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="33dp"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Top Doctors LATAM"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="https://youtu.be/GYcPLxfDZdI"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="181dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="#9C3A4257"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="336dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77dp"
+                            android:layout_height="74dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/tedx"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="33dp"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="TEDx Talks"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="https://youtu.be/Vc8B1EsfDzk"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Libros en relación"
+                android:textSize="22sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#4F6A85B3"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="319dp"
+                        android:layout_height="119dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imgItem"
+                            android:layout_width="67dp"
+                            android:layout_height="98dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/jaula_dorada" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="La jaula dorada"
+                                android:textColor="@color/white"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/montserrat_semibold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Hilde Bruch"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                android:fontFamily="@font/montserrat_regular" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#4F6A85B3"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="319dp"
+                        android:layout_height="119dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="67dp"
+                            android:layout_height="98dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/esclavos_comida"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Esclavosd de la comida"
+                                android:textColor="@color/white"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/montserrat_semibold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Pedro Garcia Aguado"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                android:fontFamily="@font/montserrat_regular"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#4F6A85B3"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="319dp"
+                        android:layout_height="119dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="67dp"
+                            android:layout_height="98dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/dejate_florecer"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Déjate florecer"
+                                android:textColor="@color/white"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/montserrat_semibold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Sheila Mulero Almeda"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                android:fontFamily="@font/montserrat_regular"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

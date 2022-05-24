@@ -1,6 +1,479 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ui.temas.TemasFragment">
+
+    <ImageView
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:background="@drawable/ic_menu_temas"
+        android:backgroundTint="#9FE4D8BF"
+        tools:ignore="MissingConstraints"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="385dp"
+                android:layout_height="44dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:text="Trno. de Ánimo"
+                android:textColor="@color/blue1"
+                android:textSize="30sp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="30dp" />
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="¿Qué es?"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="318dp"
+                android:layout_height="148dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_italic"
+                android:text="Los trastornos del estado de ánimo o tambien llamados trastornos afectivos, son trastornos de la salud mental caracterizados por la existencia de alteraciones emocionales, consistentes en periodos prolongados de tristeza excesiva (depresión), de exaltación o euforia excesivas (manía), o de ambos."
+                android:textColor="@color/blue1"
+                android:textSize="15dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="46dp"
+                tools:layout_editor_absoluteY="154dp" />
+
+            <TextView
+                android:layout_width="318dp"
+                android:layout_height="57dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_italic"
+                android:text="La depresión y la manía representan los dos polos o extremos de los trastornos del estado de ánimo."
+                android:textColor="@color/blue1"
+                android:textSize="15dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="46dp"
+                tools:layout_editor_absoluteY="154dp" />
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Webs de interes"
+                android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="MANUAL MSD"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="347dp"
+                android:layout_height="49dp"
+                android:layout_marginLeft="30dp"
+                android:text="https://www.msdmanuals.com/es-es/hogar/trastornos-de-la-salud-mental/trastornos-del-estado-de-%C3%A1nimo/introducci%C3%B3n-a-los-trastornos-del-estado-de-%C3%A1nimo"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="MEDLINE PLUS"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginLeft="30dp"
+                android:text="https://medlineplus.gov/spanish/mooddisorders.html"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="EL FARMACÉUTICO"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="345dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="https://www.elfarmaceutico.es/tendencias/te-interesa/trastornos-del-estado-de-animo-sintomas-y-tratamiento_110682_102.html"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="MAYO CLINIC"
+                android:textSize="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="347dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="https://www.mayoclinic.org/es-es/diseases-conditions/mood-disorders/symptoms-causes/syc-20365057"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Videos informativos"
+                android:textSize="22sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="181dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="#9C3A4257"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="336dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77dp"
+                            android:layout_height="74dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/ha"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="33dp"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Hospitales Angeles"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="https://youtu.be/1UILgPKAZKY"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="181dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="#9C3A4257"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="336dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="77dp"
+                            android:layout_height="74dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/uc"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="33dp"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Universidad Continental"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="17dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/montserrat_regular"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="https://youtu.be/icKnIdsMtW8"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Libros en relación"
+                android:textSize="22sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#4F6A85B3"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="319dp"
+                        android:layout_height="119dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imgItem"
+                            android:layout_width="67dp"
+                            android:layout_height="98dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/emociones_superadas" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Emociones expresadas, superadas"
+                                android:textColor="@color/white"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/montserrat_semibold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Ciara Molina"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                android:fontFamily="@font/montserrat_regular" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#4F6A85B3"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="319dp"
+                        android:layout_height="119dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="67dp"
+                            android:layout_height="98dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/anatomia_emocional"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Anatomia Emocional"
+                                android:textColor="@color/white"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/montserrat_semibold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Stanley Keleman"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                android:fontFamily="@font/montserrat_regular"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="350dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#4F6A85B3"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="319dp"
+                        android:layout_height="119dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="67dp"
+                            android:layout_height="98dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/tras_disociativos"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Trastornos Disociativos"
+                                android:textColor="@color/white"
+                                android:textSize="18dp"
+                                android:fontFamily="@font/montserrat_semibold"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="10dp"
+                                android:text="Anabel González Vázquez"
+                                android:textColor="@color/white"
+                                android:textSize="15dp"
+                                android:fontFamily="@font/montserrat_regular"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
