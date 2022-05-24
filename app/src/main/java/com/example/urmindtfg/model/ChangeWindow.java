@@ -12,7 +12,6 @@ import java.util.HashMap;
 
 public class ChangeWindow {
 
-    //String email, ProviderType proveedor
     public static void cambiarVentana(Context context, Class clase){
 
         Intent intent = new Intent(context, clase);
@@ -20,7 +19,15 @@ public class ChangeWindow {
         context.startActivity(intent);
     }
 
-    //String email, ProviderType proveedor
+    public static void cambiarVentana(Context context, Class clase, Boolean flag){
+        if(flag){
+            Intent intent = new Intent(context, clase);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(intent);
+        }
+
+    }
+
     public static void cambiarVentana(Context context, HashMap<String, String> lista, Class clase){
 
         Intent intent = new Intent(context, clase);

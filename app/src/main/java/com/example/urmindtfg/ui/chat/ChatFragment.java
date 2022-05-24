@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.urmindtfg.R;
 import com.example.urmindtfg.databinding.FragmentChatBinding;
 import com.example.urmindtfg.databinding.FragmentHomeBinding;
+import com.example.urmindtfg.model.ChangeWindow;
 
 public class ChatFragment extends Fragment {
 
@@ -29,7 +30,9 @@ public class ChatFragment extends Fragment {
         binding = FragmentChatBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        
+        binding.btnNewChat.setOnClickListener(e->{
+            ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), UsersActivity.class,true);
+        });
         return root;
     }
 
