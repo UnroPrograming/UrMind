@@ -124,7 +124,7 @@ public class Login extends AppCompatActivity{
                                             lista.put(Constantes.KEY_EMAIL_USUARIOS, l2.getResult().getUser().getEmail());
                                             lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, ProviderType.BASIC.toString());
 
-                                            ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
+                                            ChangeWindow.cambiarVentana(this, lista, ControladorNavigation.class);
                                         } else {
                                             Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
                                         }
@@ -200,7 +200,7 @@ public class Login extends AppCompatActivity{
                                             if (document.exists()) {
                                                 datosObtenidos = document.getData();
                                                 if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(account.getEmail())) {
-                                                    ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
+                                                    ChangeWindow.cambiarVentana(this, lista, ControladorNavigation.class);
                                                 }
                                             } else {
                                                 ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
@@ -221,8 +221,8 @@ public class Login extends AppCompatActivity{
     //Nos valida si se ha iniciado sesión anteriormente y así pase directamente al menú home
     private void comprobarSesion(){
         SharedPreferences prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
-        String email = prefs.getString("email",null);
-        String proveedor = prefs.getString("proveedor",null);
+        String email = prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null);
+        String proveedor = prefs.getString(Constantes.KEY_PROVEEDOR_USUARIOS,null);
 
         if (email!= null && proveedor != null) {
             lay_login.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/nonwhite"
+    android:backgroundTint="@color/nonwhite"
     tools:context=".ui.cuenta.CuentaFragment">
 
     <ImageView
@@ -14,162 +15,110 @@
         android:backgroundTint="#9FE4D8BF"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/nombre"
-        android:layout_width="379dp"
-        android:layout_height="39dp"
-        android:fontFamily="@font/montserrat_semibold"
-        android:text="Nombre usuario"
-        android:textColor="@color/blue2"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
-
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="390dp"
+        android:layout_height="606dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.374"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="1dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="379dp"
+                android:layout_height="39dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Nombre usuario"
+                android:textColor="@color/blue2"
+                android:textSize="30sp" />
 
             <ImageView
                 android:id="@+id/imgusuario"
-                android:layout_width="162dp"
-                android:layout_height="170dp"
-                android:layout_marginBottom="424dp"
+                android:layout_width="170dp"
+                android:layout_height="169dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/ic_menu_cuenta"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.173"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                tools:layout_editor_absoluteX="30dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="282dp"
                 android:layout_height="37dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Datos"
                 android:textColor="@color/blue1"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.238"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.336" />
-
-            <Button
-                android:layout_width="348dp"
-                android:layout_height="41dp"
-                android:background="@drawable/boton_blue2"
-                android:fontFamily="@font/montserrat_semibolditalic"
-                android:text="Editar Datos"
-                android:textColor="@color/nonwhite"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.688" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/apellidos"
                 android:layout_width="279dp"
                 android:layout_height="23dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
                 android:text="............................."
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.233"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.426" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/correo"
                 android:layout_width="279dp"
                 android:layout_height="23dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
                 android:text="............................."
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.233"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.477" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/telefono"
                 android:layout_width="279dp"
                 android:layout_height="23dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
                 android:text="............................."
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.225"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.532" />
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/ubicacion"
                 android:layout_width="279dp"
                 android:layout_height="23dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
                 android:text="............................."
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.225"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.586" />
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btneditarCambios"
+                android:layout_width="348dp"
+                android:layout_height="41dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/boton_blue2"
+                android:fontFamily="@font/montserrat_semibolditalic"
+                android:text="Editar Datos"
+                android:textColor="@color/nonwhite" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="282dp"
                 android:layout_height="37dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Posts"
                 android:textColor="@color/blue1"
-                android:textSize="25sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.238"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.805" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textSize="25sp" />
+        </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

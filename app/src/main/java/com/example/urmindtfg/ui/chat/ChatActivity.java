@@ -62,7 +62,6 @@ public class ChatActivity extends AppCompatActivity {
     private void init(){
         listaMensajes = new ArrayList<>();
 
-
         chatAdapter = new ChatAdapter(
                 listaMensajes,
                 Img.getImgDesencriptada(usuarioRecivido.getImagen()),

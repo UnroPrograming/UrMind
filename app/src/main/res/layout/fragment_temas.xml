@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/nonwhite"
     tools:context=".ui.temas.TemasFragment">
 
     <ImageView
@@ -35,7 +36,88 @@
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="30dp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Aqui encontras una serie de temas comunes que una gran parte de la poblacion padece o ha oido hablar."
+                    android:textSize="13dp"
+                    android:textColor="@color/blue2"
+                    android:fontFamily="@font/montserrat_light"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="15dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Desde UrMInd querems proporcionaros una serie de materiales para que podias consultar y en algunos casos os sirvan de ayuda."
+                    android:textSize="13dp"
+                    android:textColor="@color/blue2"
+                    android:fontFamily="@font/montserrat_light"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+                <Button
+                    android:id="@+id/btn_adicciones"
+                    android:layout_width="300dp"
+                    android:layout_height="65dp"
+                    android:text="Adicciones"
+                    android:background="@drawable/boton_outblue1"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/montserrat_semibolditalic"
+                    android:textColor="@color/blue2" />
+                <Button
+                    android:id="@+id/btn_amor_pareja"
+                    android:layout_width="300dp"
+                    android:layout_height="65dp"
+                    android:text="Amor y Pareja"
+                    android:background="@drawable/boton_outblue1"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/montserrat_semibolditalic"
+                    android:textColor="@color/blue2"/>
+                <Button
+                    android:id="@+id/btn_ansiedad_estres"
+                    android:layout_width="300dp"
+                    android:layout_height="65dp"
+                    android:text="Ansiedad y estres"
+                    android:background="@drawable/boton_outblue1"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/montserrat_semibolditalic"
+                    android:textColor="@color/blue2"/>
+                <Button
+                    android:id="@+id/btn_trastorno_alimentario"
+                    android:layout_width="300dp"
+                    android:layout_height="65dp"
+                    android:text="Trastorno alimentario"
+                    android:background="@drawable/boton_outblue1"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/montserrat_semibolditalic"
+                    android:textColor="@color/blue2"/>
+                <Button
+                    android:id="@+id/btn_trastorno_animo"
+                    android:layout_width="300dp"
+                    android:layout_height="65dp"
+                    android:text="Trastorno de ánimo"
+                    android:background="@drawable/boton_outblue1"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/montserrat_semibolditalic"
+                    android:textColor="@color/blue2"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

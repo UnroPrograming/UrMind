@@ -72,8 +72,6 @@ public class Inicio extends AppCompatActivity{
 
         //Setup
         setup(email, proveedor);
-
-        guardarDatos();
         remoteConfig();
     }
 
@@ -88,6 +86,7 @@ public class Inicio extends AppCompatActivity{
         prefsEdit.clear();
         prefsEdit.apply();
     }
+
     @Click
     void btn_guardar(){
         //Creamos una lista de objetos
@@ -135,7 +134,11 @@ public class Inicio extends AppCompatActivity{
     }
     @Click
     void btn_Chat(){
-        ChangeWindow.cambiarVentana(this, ControladorNavigation.class);
+        HashMap<String,String> lista = new HashMap();
+        lista.put("Email",email);
+        lista.put("Provider", proveedor);
+
+        ChangeWindow.cambiarVentana(this, lista,ControladorNavigation.class);
     }
 
     //Le damos el correo y el proveedor
@@ -144,13 +147,6 @@ public class Inicio extends AppCompatActivity{
         txt_provider.setText(provider);
     }
 
-    //Guarda los datos en una librería interna
-    private void guardarDatos(){
-        SharedPreferences.Editor prefsEdit = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
-        prefsEdit.putString("email",txt_email.getText().toString());
-        prefsEdit.putString("proveedor",txt_provider.getText().toString());
-        prefsEdit.apply();
-    }
 
     private void remoteConfig(){
 

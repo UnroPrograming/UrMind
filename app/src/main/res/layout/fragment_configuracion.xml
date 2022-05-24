@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/nonwhite"
     tools:context=".ui.configuracion.ConfiguracionFragment">
 
     <ImageView
@@ -34,6 +35,42 @@
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="30dp"/>
+
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Cuenta"
+                android:textColor="@color/blue2"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Notificaciones"
+                android:textColor="@color/blue2"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Apariencia"
+                android:textColor="@color/blue2"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Ayuda y Soporte"
+                android:textColor="@color/blue2"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="282dp"
+                android:layout_height="37dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Sobre Nosotros"
+                android:textColor="@color/blue2"
+                android:textSize="20sp"/>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
