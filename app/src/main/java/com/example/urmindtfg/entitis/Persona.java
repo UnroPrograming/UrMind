@@ -10,6 +10,7 @@ public class Persona implements Serializable {
     private int telefono;
     private String DNI;
     private String proveedor;
+    private String imagen;
 
     public Persona() {
     }
@@ -21,6 +22,16 @@ public class Persona implements Serializable {
         this.telefono = telefono;
         this.DNI = DNI;
         this.proveedor = proveedor;
+    }
+
+    public Persona(String email, String nombre, String apellidos, int telefono, String DNI, String proveedor, String imagen) {
+        this.email = email;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.telefono = telefono;
+        this.DNI = DNI;
+        this.proveedor = proveedor;
+        this.imagen = imagen;
     }
 
     public String getEmail() {
@@ -71,6 +82,14 @@ public class Persona implements Serializable {
         this.proveedor = proveedor;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
@@ -80,6 +99,7 @@ public class Persona implements Serializable {
                 ", telefono=" + telefono +
                 ", DNI='" + DNI + '\'' +
                 ", proveedor='" + proveedor + '\'' +
+                ", imagen='" + imagen + '\'' +
                 '}';
     }
 }

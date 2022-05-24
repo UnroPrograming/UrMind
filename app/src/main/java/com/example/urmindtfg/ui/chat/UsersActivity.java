@@ -5,28 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.text.BoringLayout;
 import android.view.View;
 
 import com.example.urmindtfg.R;
 import com.example.urmindtfg.databinding.ActivityUsersBinding;
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Usuario;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.example.urmindtfg.model.ChangeWindow;
+import com.example.urmindtfg.ui.chat.adapters.UsersAdapter;
+import com.example.urmindtfg.ui.chat.listeners.UsersListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UsersActivity extends AppCompatActivity {
+public class UsersActivity extends AppCompatActivity implements UsersListener {
 
     private ActivityUsersBinding binding;
     private SharedPreferences prefs;
     private String currentUserId;
-    private Map<String, Object> datosObtenidos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,12 +70,12 @@ public class UsersActivity extends AppCompatActivity {
                             usuario.setDNI(queryDocumentSnapshot.getString(Constantes.KEY_DNI_USUARIOS));
                             usuario.setTelefono(Integer.parseInt(queryDocumentSnapshot.getString(Constantes.KEY_TELEFONO_USUARIOS)));
                             usuario.setProveedor(queryDocumentSnapshot.getString(Constantes.KEY_PROVEEDOR_USUARIOS));
-                            //usuario.setImg(queryDocumentSnapshot.getString(Constantes.KEY_IMG_USUARIOS));
+                            //AQUI usuario.setImagen(queryDocumentSnapshot.getString(Constantes.KEY_IMG_USUARIOS));
 
                             listaUsuarios.add(usuario);
 
                             if(listaUsuarios.size() >0){
-                                UsersAdapter usersAdapter = new UsersAdapter(listaUsuarios);
+                                UsersAdapter usersAdapter = new UsersAdapter(listaUsuarios, this);
                                 binding.recyclerViewUsuarios.setAdapter(usersAdapter);
                                 binding.recyclerViewUsuarios.setVisibility(View.VISIBLE);
                             }else {
@@ -97,5 +97,11 @@ public class UsersActivity extends AppCompatActivity {
         }else {
             binding.progressBar.setVisibility(View.INVISIBLE);
         }
+    }
+
+    @Override
+    public void onUserClicked(Usuario usuario) {
+        ChangeWindow.cambiarVentana(this,usuario,ChatActivity.class);
+        finish();
     }
 }

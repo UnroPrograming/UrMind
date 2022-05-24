@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.example.urmindtfg.Inicio;
 import com.example.urmindtfg.Inicio_;
+import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Usuario;
 
 import java.util.HashMap;
@@ -36,6 +37,13 @@ public class ChangeWindow {
             intent.putExtra(clave, valor);
         });
 
+        context.startActivity(intent);
+    }
+
+    public static void cambiarVentana(Context context, Usuario usuario, Class clase){
+
+        Intent intent = new Intent(context, clase);
+        intent.putExtra(Constantes.KEY_USUARIO, usuario);
         context.startActivity(intent);
     }
 
