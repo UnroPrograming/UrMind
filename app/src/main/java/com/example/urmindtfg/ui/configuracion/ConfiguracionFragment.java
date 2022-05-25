@@ -10,18 +10,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.urmindtfg.R;
+import com.example.urmindtfg.databinding.FragmentConfiguracionBinding;
 import com.example.urmindtfg.databinding.FragmentHomeBinding;
+import com.example.urmindtfg.databinding.FragmentTemasBinding;
 
 public class ConfiguracionFragment extends Fragment {
-    private FragmentHomeBinding binding;
+    private @NonNull FragmentConfiguracionBinding binding;
     public static ConfiguracionFragment newInstance() {
         return new ConfiguracionFragment();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_configuracion, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
         return inflater.inflate(R.layout.fragment_configuracion, container, false);
     }
 

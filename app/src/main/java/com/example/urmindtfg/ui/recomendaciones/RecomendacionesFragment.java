@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.urmindtfg.R;
 import com.example.urmindtfg.databinding.FragmentHomeBinding;
+import com.example.urmindtfg.databinding.FragmentRecomendacionesBinding;
+import com.example.urmindtfg.databinding.FragmentTemasBinding;
 
 public class RecomendacionesFragment extends Fragment {
-    private FragmentHomeBinding binding;
+    private @NonNull FragmentRecomendacionesBinding binding;
 
     public static RecomendacionesFragment newInstance() {
         return new RecomendacionesFragment();
@@ -22,8 +24,11 @@ public class RecomendacionesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_recomendaciones, container, false);
-        return inflater.inflate(R.layout.fragment_recomendaciones, container, false);
+        binding = FragmentRecomendacionesBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+
+        return root;
     }
 
     @Override

@@ -41,15 +41,16 @@
                 android:textColor="@color/blue2"
                 android:textSize="30sp" />
 
-            <ImageView
+            <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/imgusuario"
                 android:layout_width="170dp"
-                android:layout_height="169dp"
+                android:layout_height="170dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/ic_menu_cuenta"
                 tools:layout_editor_absoluteX="30dp"
-                tools:layout_editor_absoluteY="16dp" />
+                tools:layout_editor_absoluteY="16dp"
+                app:riv_oval="true" />
 
             <TextView
                 android:id="@+id/textView3"

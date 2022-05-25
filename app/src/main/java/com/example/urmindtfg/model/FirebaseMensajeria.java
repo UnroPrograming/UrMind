@@ -12,6 +12,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 public class FirebaseMensajeria extends FirebaseMessagingService {
     private FirebaseMessaging firebaseMessaging = FirebaseMessaging.getInstance();
+
     //Cuando recibimos una notificación y tenemos la app abierta aparece en primer plano
     @Override
     public void onMessageReceived(@NonNull RemoteMessage message) {

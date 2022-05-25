@@ -19,7 +19,4 @@ public class Constantes {
     public static final String KEY_RECEIVER_ID = "receiverId";
     public static final String KEY_MENSAJE = "mensaje";
     public static final String KEY_DATETIME = "dateTime";
-
-
-
 }

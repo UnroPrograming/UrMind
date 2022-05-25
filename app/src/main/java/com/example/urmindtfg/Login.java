@@ -86,14 +86,9 @@ public class Login extends AppCompatActivity{
                         //Si el registro es correcto pasamos a la nueva pantalla
                         if (l2.isSuccessful()) {
                             //Cambiamos la ventana
-                            HashMap<String, String> lista = new HashMap();
-                            lista.put(Constantes.KEY_EMAIL_USUARIOS, l2.getResult().getUser().getEmail());
-                            lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, ProviderType.BASIC.toString());
-
-                            //ChangeWindow.cambiarVentana(this, lista, Inicio_.class);
-                            ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
+                            ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(),ProviderType.BASIC.toString(), reg_usuario_.class);
                         } else {
-                            Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
+                            Validaciones.showAlert(this, "Error", "El usuario ya existe");
                         }
                     });
         }
@@ -120,11 +115,7 @@ public class Login extends AppCompatActivity{
                                         //Si el registro es correcto pasamos a la nueva pantalla
                                         if (l2.isSuccessful()) {
                                             //Cambiamos la ventana
-                                            HashMap<String, String> lista = new HashMap();
-                                            lista.put(Constantes.KEY_EMAIL_USUARIOS, l2.getResult().getUser().getEmail());
-                                            lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, ProviderType.BASIC.toString());
-
-                                            ChangeWindow.cambiarVentana(this, lista, ControladorNavigation.class);
+                                            ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(),ProviderType.BASIC.toString(), ControladorNavigation.class);
                                         } else {
                                             Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
                                         }
@@ -169,6 +160,7 @@ public class Login extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
                 super.onActivityResult(requestCode, resultCode, data);
+
                 try {
                     //En el caso de que el número sea el mismo significa que nos hemos autentificado
                     if (requestCode == GOOGLE_SIGN_IN) {
@@ -185,13 +177,11 @@ public class Login extends AppCompatActivity{
 
                                 //Si funciona
                                 if (l.isSuccessful()) {
-                                    //Cambiamos la ventana si la validación es correcta
-                                    HashMap<String, String> lista = new HashMap();
-                                    lista.put(Constantes.KEY_EMAIL_USUARIOS, account.getEmail());
-                                    lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, ProviderType.GOOGLE.toString());
+                                    String email = account.getEmail();
+                                    String proveedor = ProviderType.GOOGLE.toString();
 
                                     //Comprobamos que ha iniciado sesión anteriormente
-                                    DocumentReference docRef = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(account.getEmail());
+                                    DocumentReference docRef = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
 
                                     docRef.get().addOnCompleteListener(e -> {
                                         if (e.isSuccessful()) {
@@ -199,14 +189,14 @@ public class Login extends AppCompatActivity{
 
                                             if (document.exists()) {
                                                 datosObtenidos = document.getData();
-                                                if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(account.getEmail())) {
-                                                    ChangeWindow.cambiarVentana(this, lista, ControladorNavigation.class);
+                                                if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
+                                                    ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigation.class);
                                                 }
                                             } else {
-                                                ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
+                                                ChangeWindow.cambiarVentana(this, email, proveedor, reg_usuario_.class);
                                             }
                                         } else {
-                                            ChangeWindow.cambiarVentana(this, lista, reg_usuario_.class);
+                                            ChangeWindow.cambiarVentana(this, email, proveedor, reg_usuario_.class);
                                         }
                                     });
                         }
@@ -224,14 +214,14 @@ public class Login extends AppCompatActivity{
         String email = prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null);
         String proveedor = prefs.getString(Constantes.KEY_PROVEEDOR_USUARIOS,null);
 
+        //Si hay sesión iniciada
         if (email!= null && proveedor != null) {
-            lay_login.setVisibility(View.INVISIBLE);//Si hay sesión iniciada no aparece el formulario
-            //Si hay sesión iniciada pasa a la pestaña de inicio
-            HashMap<String,String> lista = new HashMap();
-            lista.put(Constantes.KEY_EMAIL_USUARIOS,email);
-            lista.put(Constantes.KEY_PROVEEDOR_USUARIOS,ProviderType.valueOf(proveedor).toString());
 
-            ChangeWindow.cambiarVentana(this, lista,Inicio_.class);
+            //No aparece el formulario
+            lay_login.setVisibility(View.INVISIBLE);
+
+            //Pasa a la pestaña de inicio
+            ChangeWindow.cambiarVentana(this, email, ProviderType.valueOf(proveedor).toString(), ControladorNavigation.class);
         }
     }
 

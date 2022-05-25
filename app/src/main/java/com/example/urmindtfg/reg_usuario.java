@@ -97,11 +97,7 @@ public class reg_usuario extends AppCompatActivity {
             dB.collection(Constantes.KEY_TABLA_USUARIOS).document(txt_email.getText().toString()).set(usuarioMap);
 
             //Cambiamos la ventana
-            HashMap<String,String> lista = new HashMap();
-            lista.put(Constantes.KEY_EMAIL_USUARIOS,txt_email.getText().toString());
-            lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, txt_provider.getText().toString());
-
-            ChangeWindow.cambiarVentana(this, lista, ControladorNavigation.class);
+            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), ControladorNavigation.class);
         }
     }
 

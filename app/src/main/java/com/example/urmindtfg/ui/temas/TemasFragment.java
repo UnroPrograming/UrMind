@@ -11,7 +11,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.urmindtfg.R;
-import com.example.urmindtfg.databinding.FragmentHomeBinding;
+
+
+import com.example.urmindtfg.databinding.FragmentChatBinding;
 import com.example.urmindtfg.databinding.FragmentTemasBinding;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.ui.chat.UsersActivity;
@@ -24,9 +26,10 @@ public class TemasFragment extends Fragment {
     private FragmentTemasBinding binding;
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_temas, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        binding = FragmentTemasBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
         binding.btnAdicciones.setOnClickListener(e->{
             ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), UsersActivity.class,true);

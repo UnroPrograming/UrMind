@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment;
 
 import com.example.urmindtfg.R;
 import com.example.urmindtfg.databinding.FragmentHomeBinding;
+import com.example.urmindtfg.databinding.FragmentLogrosBinding;
+import com.example.urmindtfg.databinding.FragmentTemasBinding;
 
 public class LogrosFragment extends Fragment {
-    private FragmentHomeBinding binding;
+    private @NonNull FragmentLogrosBinding binding;
 
     public static LogrosFragment newInstance() {
         return new LogrosFragment();
@@ -22,8 +24,10 @@ public class LogrosFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_logros, container, false);
-        return inflater.inflate(R.layout.fragment_logros, container, false);
+        binding = FragmentLogrosBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        return root;
     }
 
     @Override
