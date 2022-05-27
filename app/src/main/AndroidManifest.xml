@@ -43,6 +43,12 @@
             android:name=".reg_usuario_"
             android:exported="false" />
         <activity
+            android:name=".reg_psicologo_"
+            android:exported="false" />
+        <activity
+            android:name=".reg_seleccion_"
+            android:exported="false" />
+        <activity
             android:name=".Inicio_"
             android:exported="false" />
         <activity

@@ -19,4 +19,8 @@ public class Constantes {
     public static final String KEY_RECEIVER_ID = "receiverId";
     public static final String KEY_MENSAJE = "mensaje";
     public static final String KEY_DATETIME = "dateTime";
+
+    //PSICOLOGO
+    public static final String KEY_TABLA_PSICOLOGOS = "psicologos";
+    public static final String KEY_NUM_COLEGIADO_PSICOLOGO = "num_colegiado";
 }

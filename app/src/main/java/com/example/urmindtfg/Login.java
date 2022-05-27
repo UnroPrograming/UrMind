@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @EActivity(R.layout.activity_login)
-public class Login extends AppCompatActivity{
+public class Login extends AppCompatActivity {
 
     //Elementos android
     @ViewById
@@ -69,7 +69,7 @@ public class Login extends AppCompatActivity{
     private static final int GOOGLE_SIGN_IN = 100;
 
     @AfterViews
-    public void onCreate(){
+    public void onCreate() {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseMessaging = FirebaseMessaging.getInstance();
         dB = FirebaseFirestore.getInstance();
@@ -78,8 +78,8 @@ public class Login extends AppCompatActivity{
     }
 
     @Click
-    public void btn_registrarse(){
-        if(Validaciones.validacionEmailPass(eTxt_email.getText().toString(), eTxt_pass.getText().toString())) {
+    public void btn_registrarse() {
+        if (Validaciones.validacionEmailPass(eTxt_email.getText().toString(), eTxt_pass.getText().toString())) {
             //Llamamos al metodo para crear un nuevo usuario y contraseña
             firebaseAuth.createUserWithEmailAndPassword(eTxt_email.getText().toString(), eTxt_pass.getText().toString())
                     .addOnCompleteListener(l2 -> {
@@ -87,28 +87,30 @@ public class Login extends AppCompatActivity{
                         if (l2.isSuccessful()) {
 
                             //Cambiamos la ventana
-                            ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(),ProviderType.BASIC.toString(), reg_usuario_.class);
+                            ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), reg_seleccion_.class);
                         } else {
                             Validaciones.showAlert(this, "Error", "El usuario ya existe");
                         }
                     });
         }
     }
+
     @Click
     public void btn_login() {
         String email = eTxt_email.getText().toString();
         String pass = eTxt_pass.getText().toString();
 
-        if(Validaciones.validacionEmailPass(email, pass)) {
-            DocumentReference docRef = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
+        if (Validaciones.validacionEmailPass(email, pass)) {
+            DocumentReference docRefUsuario = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
+            DocumentReference docRefPsicologo = dB.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(email);
 
-            docRef.get().addOnCompleteListener(task -> {
-                if (task.isSuccessful()){
+            docRefUsuario.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
 
-                    if (document.exists()){
+                    if (document.exists()) {
                         datosObtenidos = document.getData();
-                        if(((String)datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)){
+                        if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
 
                             //Llamamos al método para iniciar sesion con usuario y contraseña
                             firebaseAuth.signInWithEmailAndPassword(email, pass)
@@ -117,30 +119,56 @@ public class Login extends AppCompatActivity{
                                         if (l2.isSuccessful()) {
 
                                             //Cambiamos la ventana
-                                            ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(),ProviderType.BASIC.toString(), ControladorNavigation.class);
+                                            ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigation.class);
                                         } else {
                                             Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
                                         }
                                     });
-
                         } else {
                             Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
                         }
+                    } else {
+                        docRefPsicologo.get().addOnCompleteListener(task2 -> {
+                            if (task2.isSuccessful()) {
+                                DocumentSnapshot document2 = task2.getResult();
 
-                        }else {
-                            Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
-                        }
+                                if (document2.exists()) {
+                                    datosObtenidos = document2.getData();
+                                    if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
 
-                    }else {
-                        Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
+                                        //Llamamos al método para iniciar sesion con usuario y contraseña
+                                        firebaseAuth.signInWithEmailAndPassword(email, pass)
+                                                .addOnCompleteListener(l2 -> {
+                                                    //Si el registro es correcto pasamos a la nueva pantalla
+                                                    if (l2.isSuccessful()) {
+
+                                                        //Cambiamos la ventana
+                                                        ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigation.class);
+                                                    } else {
+                                                        Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
+                                                    }
+                                                });
+
+                                    } else {
+                                        Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
+                                    }
+                                } else {
+                                    Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
+                                }
+                            } else {
+                                Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
+                            }
+                        });
                     }
-                });
+
+                }
+            });
         }
     }
 
 
     @Click
-    public void btn_google(){
+    public void btn_google() {
         //Solicitamos el id de la web y el gmail del usuario
         GoogleSignInOptions googleConf = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -149,7 +177,7 @@ public class Login extends AppCompatActivity{
 
         GoogleSignInClient googleClient = GoogleSignIn.getClient(this, googleConf);
         googleClient.signOut();//Para que en el caso de que ya haya una se cierre la sesión
-        startActivityForResult(googleClient.getSignInIntent(),GOOGLE_SIGN_IN);
+        startActivityForResult(googleClient.getSignInIntent(), GOOGLE_SIGN_IN);
     }
 
     @Override
@@ -160,64 +188,77 @@ public class Login extends AppCompatActivity{
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data){
-                super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
-                try {
-                    //En el caso de que el número sea el mismo significa que nos hemos autentificado
-                    if (requestCode == GOOGLE_SIGN_IN) {
+        try {
+            //En el caso de que el número sea el mismo significa que nos hemos autentificado
+            if (requestCode == GOOGLE_SIGN_IN) {
 
-                        //Recuperamos la cuenta de google
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-                        GoogleSignInAccount account = task.getResult(ApiException.class);
+                //Recuperamos la cuenta de google
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                GoogleSignInAccount account = task.getResult(ApiException.class);
 
-                        //Si la cuenta no es nula la introducimos en firebase
-                        if (account != null) {
-                            AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
+                //Si la cuenta no es nula la introducimos en firebase
+                if (account != null) {
+                    AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
 
-                            firebaseAuth.signInWithCredential(credential).addOnCompleteListener(l -> {
+                    firebaseAuth.signInWithCredential(credential).addOnCompleteListener(l -> {
 
-                                //Si funciona
-                                if (l.isSuccessful()) {
-                                    String email = account.getEmail();
-                                    String proveedor = ProviderType.GOOGLE.toString();
+                        //Si funciona
+                        if (l.isSuccessful()) {
+                            String email = account.getEmail();
+                            String proveedor = ProviderType.GOOGLE.toString();
 
-                                    //Comprobamos que ha iniciado sesión anteriormente
-                                    DocumentReference docRef = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
+                            //Comprobamos que ha iniciado sesión anteriormente
+                            DocumentReference docRefUsuario = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
+                            DocumentReference docRefPsicologo = dB.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(email);
 
-                                    docRef.get().addOnCompleteListener(e -> {
-                                        if (e.isSuccessful()) {
-                                            DocumentSnapshot document = e.getResult();
+                            docRefUsuario.get().addOnCompleteListener(e -> {
+                                if (e.isSuccessful()) {
+                                    DocumentSnapshot document = e.getResult();
 
-                                            if (document.exists()) {
-                                                datosObtenidos = document.getData();
-                                                if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
-                                                    ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigation.class);
-                                                }
-                                            } else {
-                                                ChangeWindow.cambiarVentana(this, email, proveedor, reg_usuario_.class);
-                                            }
-                                        } else {
-                                            ChangeWindow.cambiarVentana(this, email, proveedor, reg_usuario_.class);
+                                    if (document.exists()) {
+                                        datosObtenidos = document.getData();
+                                        if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
+                                            ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigation.class);
                                         }
-                                    });
+                                    } else {
+                                        docRefPsicologo.get().addOnCompleteListener(task2 -> {
+                                            if (task2.isSuccessful()) {
+                                                DocumentSnapshot document2 = task2.getResult();
+
+                                                if (document2.exists()) {
+                                                    datosObtenidos = document2.getData();
+                                                    if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
+                                                        ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigation.class);
+                                                    }
+                                                }else {
+                                                    ChangeWindow.cambiarVentana(this, email, proveedor, reg_seleccion_.class);
+                                                }
+                                            }
+                                        });
+                                        ChangeWindow.cambiarVentana(this, email, proveedor, reg_seleccion_.class);
+                                    }
+                                }
+                            });
                         }
                     });
                 }
             }
-        }catch (ApiException e) {
-                    Validaciones.showAlert(this, "Error", "No se ha podido recuperar la cuenta");
-                }
+        } catch (ApiException e) {
+            Validaciones.showAlert(this, "Error", "No se ha podido recuperar la cuenta");
+        }
     }
 
     //Nos valida si se ha iniciado sesión anteriormente y así pase directamente al menú home
-    private void comprobarSesion(){
+    private void comprobarSesion() {
         SharedPreferences prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
-        String email = prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null);
-        String proveedor = prefs.getString(Constantes.KEY_PROVEEDOR_USUARIOS,null);
+        String email = prefs.getString(Constantes.KEY_EMAIL_USUARIOS, null);
+        String proveedor = prefs.getString(Constantes.KEY_PROVEEDOR_USUARIOS, null);
 
         //Si hay sesión iniciada
-        if (email!= null && proveedor != null) {
+        if (email != null && proveedor != null) {
 
             //No aparece el formulario
             lay_login.setVisibility(View.INVISIBLE);
