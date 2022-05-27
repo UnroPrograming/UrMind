@@ -1,5 +1,14 @@
 package com.example.urmindtfg.entitis;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.urmindtfg.model.Img;
+
 import java.util.HashMap;
 
 public class Usuario extends Persona{
@@ -27,5 +36,25 @@ public class Usuario extends Persona{
         lista.put(Constantes.KEY_IMG_USUARIOS,getImagen());
 
         return lista;
+    }
+
+    public void setUsuarioActivity(ImageView img_fotoPerfil, EditText eTxt_Nombre, EditText eTxt_Apellidos, EditText eTxt_telefono , EditText eTxt_DNI, TextView txt_email, TextView txt_provider){
+        img_fotoPerfil.setImageBitmap(Img.getImgDesencriptada(getImagen()));
+        eTxt_Nombre.setText(getNombre());
+        eTxt_Apellidos.setText(getApellidos());
+        eTxt_telefono.setText(String.valueOf(getTelefono()));
+        eTxt_DNI.setText(getDNI());
+        txt_email.setText(getEmail());
+        txt_provider.setText(getProveedor());
+    }
+
+    public void actualizarUsuario(String img_fotoPerfil, EditText eTxt_Nombre, EditText eTxt_Apellidos, EditText eTxt_telefono , EditText eTxt_DNI, TextView txt_email, TextView txt_provider){
+        setImagen(img_fotoPerfil);
+        setNombre(eTxt_Nombre.getText().toString());
+        setApellidos(eTxt_Apellidos.getText().toString());
+        setTelefono(Integer.parseInt(eTxt_telefono.getText().toString()));
+        setDNI(eTxt_DNI.getText().toString());
+        setEmail(txt_email.getText().toString());
+        setProveedor(txt_provider.getText().toString());
     }
 }

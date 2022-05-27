@@ -127,8 +127,4 @@ public class reg_usuario extends AppCompatActivity {
                 }
             }
     );
-
-
-
-
 }

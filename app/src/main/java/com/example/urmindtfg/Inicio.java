@@ -175,7 +175,6 @@ public class Inicio extends AppCompatActivity{
                 btn_forzarFallo.setVisibility(View.INVISIBLE);
             }
             btn_forzarFallo.setText(btn_forzarFallo_text);
-
         });
     }
 }

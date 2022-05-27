@@ -17,6 +17,12 @@ import com.example.urmindtfg.databinding.FragmentChatBinding;
 import com.example.urmindtfg.databinding.FragmentTemasBinding;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.ui.chat.UsersActivity;
+import com.example.urmindtfg.ui.temas.activitys.Adicciones;
+import com.example.urmindtfg.ui.temas.activitys.Adicciones_;
+import com.example.urmindtfg.ui.temas.activitys.AmorPareja_;
+import com.example.urmindtfg.ui.temas.activitys.AnsiedadEstres_;
+import com.example.urmindtfg.ui.temas.activitys.TrastornoAlimenticio_;
+import com.example.urmindtfg.ui.temas.activitys.TrastornoAnimo_;
 
 public class TemasFragment extends Fragment {
 
@@ -32,7 +38,19 @@ public class TemasFragment extends Fragment {
         View root = binding.getRoot();
 
         binding.btnAdicciones.setOnClickListener(e->{
-            ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), UsersActivity.class,true);
+            ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), Adicciones_.class,true);
+        });
+        binding.btnAmorPareja.setOnClickListener(e->{
+            ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), AmorPareja_.class,true);
+        });
+        binding.btnAnsiedadEstres.setOnClickListener(e->{
+            ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), AnsiedadEstres_.class,true);
+        });
+        binding.btnTrastornoAlimentario.setOnClickListener(e->{
+            ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), TrastornoAlimenticio_.class,true);
+        });
+        binding.btnTrastornoAnimo.setOnClickListener(e->{
+            ChangeWindow.cambiarVentana(getActivity().getApplicationContext(), TrastornoAnimo_.class,true);
         });
 
         return root;

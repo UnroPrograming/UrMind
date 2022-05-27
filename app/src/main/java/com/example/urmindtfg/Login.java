@@ -85,6 +85,7 @@ public class Login extends AppCompatActivity{
                     .addOnCompleteListener(l2 -> {
                         //Si el registro es correcto pasamos a la nueva pantalla
                         if (l2.isSuccessful()) {
+
                             //Cambiamos la ventana
                             ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(),ProviderType.BASIC.toString(), reg_usuario_.class);
                         } else {
@@ -114,6 +115,7 @@ public class Login extends AppCompatActivity{
                                     .addOnCompleteListener(l2 -> {
                                         //Si el registro es correcto pasamos a la nueva pantalla
                                         if (l2.isSuccessful()) {
+
                                             //Cambiamos la ventana
                                             ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(),ProviderType.BASIC.toString(), ControladorNavigation.class);
                                         } else {

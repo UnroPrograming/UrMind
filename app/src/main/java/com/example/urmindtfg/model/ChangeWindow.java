@@ -7,6 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -62,6 +65,15 @@ public class ChangeWindow {
         context.startActivity(intent);
     }
 
+    public static void guardarDatosLibreriaInterna(SharedPreferences.Editor prefsEdit, Usuario usuario){
+        prefsEdit.putString(Constantes.KEY_EMAIL_USUARIOS, usuario.getEmail());
+        prefsEdit.putString(Constantes.KEY_PROVEEDOR_USUARIOS, usuario.getProveedor());
+        prefsEdit.putString(Constantes.KEY_NOMBRE_USUARIOS, usuario.getNombre());
+        prefsEdit.putString(Constantes.KEY_APELLIDO_USUARIOS, usuario.getApellidos());
+        prefsEdit.putString(Constantes.KEY_DNI_USUARIOS, usuario.getDNI());
+        prefsEdit.putString(Constantes.KEY_TELEFONO_USUARIOS, String.valueOf(usuario.getTelefono()));
+        prefsEdit.putString(Constantes.KEY_IMG_USUARIOS, usuario.getImagen());
+    }
     public static void recogerDatosUsuario(Usuario usuario, SharedPreferences prefs){
 
         usuario.setEmail(prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null));

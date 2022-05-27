@@ -19,6 +19,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.urmindtfg.databinding.ActivityMainBinding;
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Usuario;
+import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.model.Img;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -105,7 +106,7 @@ public class ControladorNavigation extends AppCompatActivity {
                     usuario.setProveedor(datosObtenidos.get(Constantes.KEY_PROVEEDOR_USUARIOS).toString());
                     usuario.setImagen(datosObtenidos.get(Constantes.KEY_IMG_USUARIOS).toString());
 
-                    guardarDatos();
+                    guardarDatosLibreriaInterna();
                     setDatosUsuarios();
                 }
             }
@@ -113,15 +114,9 @@ public class ControladorNavigation extends AppCompatActivity {
     }
 
     //Guarda los datos en una librería interna
-    private void guardarDatos(){
+    private void guardarDatosLibreriaInterna(){
         SharedPreferences.Editor prefsEdit = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
-        prefsEdit.putString(Constantes.KEY_EMAIL_USUARIOS, email);
-        prefsEdit.putString(Constantes.KEY_PROVEEDOR_USUARIOS, proveedor);
-        prefsEdit.putString(Constantes.KEY_NOMBRE_USUARIOS, usuario.getNombre());
-        prefsEdit.putString(Constantes.KEY_APELLIDO_USUARIOS, usuario.getApellidos());
-        prefsEdit.putString(Constantes.KEY_DNI_USUARIOS, usuario.getDNI());
-        prefsEdit.putString(Constantes.KEY_TELEFONO_USUARIOS, String.valueOf(usuario.getTelefono()));
-        prefsEdit.putString(Constantes.KEY_IMG_USUARIOS, usuario.getImagen());
+        ChangeWindow.guardarDatosLibreriaInterna(prefsEdit, usuario);
         prefsEdit.apply();
     }
 

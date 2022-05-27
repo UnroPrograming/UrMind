@@ -38,7 +38,9 @@ public class CuentaFragment extends Fragment {
         View root = binding.getRoot();
         usuario = new Usuario();
 
-        rellenarDatos();
+        binding.btneditarCambios.setOnClickListener(e -> ChangeWindow.cambiarVentana(getContext(),EditarUsuario_.class));
+
+        rellenarDatosUsuario();
         return root;
     }
 
@@ -48,7 +50,7 @@ public class CuentaFragment extends Fragment {
         binding = null;
     }
 
-    private void rellenarDatos(){
+    private void rellenarDatosUsuario(){
         SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
         ChangeWindow.recogerDatosUsuario(usuario, prefs);
 

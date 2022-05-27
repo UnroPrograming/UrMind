@@ -17,6 +17,24 @@
             android:name=".ui.chat.UsersActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.cuenta.EditarUsuario_"
+            android:exported="false" />
+        <activity
+            android:name=".ui.temas.activitys.Adicciones_"
+            android:exported="false" />
+        <activity
+            android:name=".ui.temas.activitys.AmorPareja_"
+            android:exported="false" />
+        <activity
+            android:name=".ui.temas.activitys.AnsiedadEstres_"
+            android:exported="false" />
+        <activity
+            android:name=".ui.temas.activitys.TrastornoAlimenticio_"
+            android:exported="false" />
+        <activity
+            android:name=".ui.temas.activitys.TrastornoAnimo_"
+            android:exported="false" />
+        <activity
             android:name=".ControladorNavigation"
             android:exported="false"
             android:label="@string/title_activity_main"
