@@ -20,6 +20,14 @@ public class Constantes {
     public static final String KEY_MENSAJE = "mensaje";
     public static final String KEY_DATETIME = "dateTime";
 
+    //CONVERSACIONES
+    public static final String KEY_TABLA_CONVERSACIONES = "conversaciones";
+    public static final String KEY_SENDER_NOMBRE = "senderNombre";
+    public static final String KEY_RECEIVER_NOMBRE = "receiverNombre";
+    public static final String KEY_SENDER_IMG = "senderIMG";
+    public static final String KEY_RECEIVER_IMG = "receiverIMG";
+    public static final String KEY_LAST_MENSAJE = "lastMensaje";
+
     //PSICOLOGO
     public static final String KEY_TABLA_PSICOLOGOS = "psicologos";
     public static final String KEY_NUM_COLEGIADO_PSICOLOGO = "num_colegiado";

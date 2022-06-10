@@ -14,7 +14,10 @@ import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChatMessage;
 import com.example.urmindtfg.model.Img;
 import com.example.urmindtfg.ui.chat.adapters.ChatAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -35,7 +38,8 @@ public class ChatActivity extends AppCompatActivity {
     private ChatAdapter chatAdapter;
     private FirebaseFirestore database;
     private SharedPreferences prefs;
-    private String currentUserId;
+    private String currentUserId, currentUserName, currentUserImg;
+    private String conversacionRecienteId = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +76,24 @@ public class ChatActivity extends AppCompatActivity {
         mensaje.put(Constantes.KEY_DATETIME, new Date());
 
         database.collection(Constantes.KEY_TABLA_CHAT).add(mensaje);
+
+        if(conversacionRecienteId != null){
+            updateConversacion(binding.eTxtMensaje.getText().toString());
+        }else {
+            //Creamos la lista conversacion
+            HashMap<String, Object> conversacion = new HashMap<>();
+            conversacion.put(Constantes.KEY_SENDER_ID, currentUserId);
+            conversacion.put(Constantes.KEY_SENDER_NOMBRE, currentUserName);
+            conversacion.put(Constantes.KEY_SENDER_IMG, currentUserImg);
+            conversacion.put(Constantes.KEY_RECEIVER_ID, usuarioRecivido.getEmail());
+            conversacion.put(Constantes.KEY_RECEIVER_NOMBRE, usuarioRecivido.getNombre());
+            conversacion.put(Constantes.KEY_RECEIVER_IMG, usuarioRecivido.getImagen());
+            conversacion.put(Constantes.KEY_LAST_MENSAJE, binding.eTxtMensaje.getText().toString());
+            conversacion.put(Constantes.KEY_DATETIME, new Date());
+
+            //Añadimos la conversacion
+            addConversacion(conversacion);
+        }
         binding.eTxtMensaje.setText(null);
     }
 
@@ -119,6 +141,10 @@ public class ChatActivity extends AppCompatActivity {
           binding.recycleViewChat.setVisibility(View.VISIBLE);
       }
         binding.progressBar.setVisibility(View.GONE);
+
+      if(conversacionRecienteId == null){
+          checkConversacionesRecientes();
+      }
     };
 
     private void cargarRecividos(){
@@ -127,7 +153,9 @@ public class ChatActivity extends AppCompatActivity {
         binding.txtNombreUsuario.setText(usuarioRecivido.getNombre());
 
         prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
-        currentUserId = prefs.getString("email",null);
+        currentUserId = prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null);
+        currentUserName = prefs.getString(Constantes.KEY_NOMBRE_USUARIOS,null);
+        currentUserImg = prefs.getString(Constantes.KEY_IMG_USUARIOS, null);
     }
 
     private void setListeners(){
@@ -141,4 +169,48 @@ public class ChatActivity extends AppCompatActivity {
     private String getModoLecturaDateTime(Date date){
         return new SimpleDateFormat("MMMM dd, yyyy -hh:mm a", Locale.getDefault()).format(date);
     }
+
+    private void addConversacion(HashMap<String, Object> listaConversaciones){
+        database.collection(Constantes.KEY_TABLA_CONVERSACIONES)
+                .add(listaConversaciones)
+                .addOnSuccessListener(documentReference -> conversacionRecienteId = documentReference.getId());
+    }
+
+    private void updateConversacion(String message){
+        DocumentReference documentReference =
+                database.collection(Constantes.KEY_TABLA_CONVERSACIONES).document(conversacionRecienteId);
+
+        documentReference.update(
+                Constantes.KEY_LAST_MENSAJE, message,
+                Constantes.KEY_DATETIME, new Date()
+        );
+    }
+    private void checkConversacionesRecientes() {
+        if(listaMensajes.size() != 0) {
+            checkConversacionesRecientes(
+                    currentUserId,
+                    usuarioRecivido.getEmail()
+            );
+            checkConversacionesRecientes(
+                    usuarioRecivido.getEmail(),
+                    currentUserId
+            );
+        }
+    }
+    //Cuando haya una conversacion reciente con esos ids devuelve el Id de la conversacion
+    private void checkConversacionesRecientes(String senderId, String receiverId){
+        database.collection(Constantes.KEY_TABLA_CONVERSACIONES)
+                .whereEqualTo(Constantes.KEY_SENDER_ID, senderId)
+                .whereEqualTo(Constantes.KEY_RECEIVER_ID, receiverId)
+                .get()
+                .addOnCompleteListener(conversacionListener);
+    }
+
+    //Escuchador que se realiza por la asincronidad de la base de datos(Hasta que no recibamos los datos no se ejecuta)
+    private final OnCompleteListener<QuerySnapshot> conversacionListener = task -> {
+        if (task.isSuccessful() && task.getResult() != null && task.getResult().getDocuments().size() > 0){
+            DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
+            conversacionRecienteId = documentSnapshot.getId();
+        }
+    };
 }

@@ -65,6 +65,15 @@ public class ChangeWindow {
         context.startActivity(intent);
     }
 
+    public static void cambiarVentana(Context context, Usuario usuario, Class clase, Boolean flag){
+
+        Intent intent = new Intent(context, clase);
+        intent.putExtra(Constantes.KEY_USUARIO, usuario);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+
     public static void guardarDatosLibreriaInterna(SharedPreferences.Editor prefsEdit, Usuario usuario){
         prefsEdit.putString(Constantes.KEY_EMAIL_USUARIOS, usuario.getEmail());
         prefsEdit.putString(Constantes.KEY_PROVEEDOR_USUARIOS, usuario.getProveedor());

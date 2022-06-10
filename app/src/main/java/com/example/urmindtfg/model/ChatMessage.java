@@ -6,15 +6,9 @@ public class ChatMessage {
 
     public String senderId, reciverId, mensaje, dateTime;
     public Date dateObject;
+    public String conversionId, conversionName, conversionImage;
 
     public ChatMessage() {
-    }
-
-    public ChatMessage(String senderId, String reciverId, String mensaje, String dateTime) {
-        this.senderId = senderId;
-        this.reciverId = reciverId;
-        this.mensaje = mensaje;
-        this.dateTime = dateTime;
     }
 
     public String getSenderId() {
@@ -57,6 +51,30 @@ public class ChatMessage {
         this.dateObject = dateObject;
     }
 
+    public String getConversionId() {
+        return conversionId;
+    }
+
+    public void setConversionId(String conversionId) {
+        this.conversionId = conversionId;
+    }
+
+    public String getConversionName() {
+        return conversionName;
+    }
+
+    public void setConversionName(String conversionName) {
+        this.conversionName = conversionName;
+    }
+
+    public String getConversionImage() {
+        return conversionImage;
+    }
+
+    public void setConversionImage(String conversionImage) {
+        this.conversionImage = conversionImage;
+    }
+
     @Override
     public String toString() {
         return "ChatMessage{" +
@@ -64,6 +82,10 @@ public class ChatMessage {
                 ", reciverId='" + reciverId + '\'' +
                 ", mensaje='" + mensaje + '\'' +
                 ", dateTime='" + dateTime + '\'' +
+                ", dateObject=" + dateObject +
+                ", conversionId='" + conversionId + '\'' +
+                ", conversionName='" + conversionName + '\'' +
+                ", conversionImage='" + conversionImage + '\'' +
                 '}';
     }
 }
