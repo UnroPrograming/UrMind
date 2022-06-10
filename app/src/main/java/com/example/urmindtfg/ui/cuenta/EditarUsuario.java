@@ -5,15 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.net.Uri;
-import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -21,7 +17,6 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.urmindtfg.ControladorNavigation;
-import com.example.urmindtfg.Login;
 import com.example.urmindtfg.Login_;
 import com.example.urmindtfg.R;
 import com.example.urmindtfg.entitis.Constantes;
@@ -151,7 +146,7 @@ public class EditarUsuario extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                         img_fotoPerfil.setImageBitmap(bitmap);
                         txt_addImagen.setVisibility(View.GONE);
-                        imagenEncriptada = Img.setImgEncriptada(bitmap);
+                        imagenEncriptada = Img.getImgString(bitmap);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
@@ -166,7 +161,7 @@ public class EditarUsuario extends AppCompatActivity {
 
         usuario.setUsuarioActivity(img_fotoPerfil, eTxt_Nombre, eTxt_Apellidos, eTxt_telefono, eTxt_DNI, txt_email, txt_provider);
 
-        imagenEncriptada = Img.setImgEncriptada(img_fotoPerfil);
+        imagenEncriptada = Img.getImgString(img_fotoPerfil);
 
         txt_addImagen.setVisibility(View.GONE);
     }

@@ -22,7 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class Img {
-    public static String setImgEncriptada(ImageView img) {
+    public static String getImgString(ImageView img) {
         Drawable drawable = img.getDrawable();
         Bitmap bitmap = drawableToBitmap(drawable);
 
@@ -37,13 +37,13 @@ public class Img {
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
-    public static Bitmap getImgDesencriptada(String encoderImage){
+    public static Bitmap getImgBitmap(String encoderImage){
         byte[] bytes = Base64.decode(encoderImage, 0);
         return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
     }
 
     //Encripta la imagen y la devuelve en String
-    public static String setImgEncriptada(Bitmap bitmap){
+    public static String getImgString(Bitmap bitmap){
         int previewWidth = 150;
         int previewHeight = bitmap.getHeight() * previewWidth / bitmap.getWidth();
 

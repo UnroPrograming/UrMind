@@ -1,17 +1,10 @@
 package com.example.urmindtfg.ui.chat;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 
 import com.example.urmindtfg.R;
@@ -28,13 +21,11 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.Queue;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -64,7 +55,7 @@ public class ChatActivity extends AppCompatActivity {
 
         chatAdapter = new ChatAdapter(
                 listaMensajes,
-                Img.getImgDesencriptada(usuarioRecivido.getImagen()),
+                Img.getImgBitmap(usuarioRecivido.getImagen()),
                 currentUserId
         );
 

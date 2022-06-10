@@ -1,8 +1,5 @@
 package com.example.urmindtfg.ui.cuenta;
 
-import static android.provider.Settings.System.getString;
-
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,9 +13,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.urmindtfg.R;
 import com.example.urmindtfg.databinding.FragmentCuentaBinding;
-import com.example.urmindtfg.databinding.FragmentHomeBinding;
-import com.example.urmindtfg.databinding.FragmentTemasBinding;
-import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.model.Img;
@@ -54,7 +48,7 @@ public class CuentaFragment extends Fragment {
         SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
         ChangeWindow.recogerDatosUsuario(usuario, prefs);
 
-        binding.imgusuario.setImageBitmap(Img.getImgDesencriptada(usuario.getImagen()));
+        binding.imgusuario.setImageBitmap(Img.getImgBitmap(usuario.getImagen()));
         binding.nombre.setText(usuario.getNombre());
         binding.apellidos.setText(usuario.getApellidos());
         binding.telefono.setText(String.valueOf(usuario.getTelefono()));

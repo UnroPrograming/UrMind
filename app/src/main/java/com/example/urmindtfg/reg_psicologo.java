@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Psicologo;
-import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.model.Img;
 import com.example.urmindtfg.model.Validaciones;
@@ -122,7 +121,7 @@ public class reg_psicologo extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                         img_fotoPerfil.setImageBitmap(bitmap);
                         txt_addImagen.setVisibility(View.GONE);
-                        imagenEncriptada = Img.setImgEncriptada(bitmap);
+                        imagenEncriptada = Img.getImgString(bitmap);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }

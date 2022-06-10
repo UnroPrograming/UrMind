@@ -1,8 +1,5 @@
 package com.example.urmindtfg.entitis;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,7 +36,7 @@ public class Usuario extends Persona{
     }
 
     public void setUsuarioActivity(ImageView img_fotoPerfil, EditText eTxt_Nombre, EditText eTxt_Apellidos, EditText eTxt_telefono , EditText eTxt_DNI, TextView txt_email, TextView txt_provider){
-        img_fotoPerfil.setImageBitmap(Img.getImgDesencriptada(getImagen()));
+        img_fotoPerfil.setImageBitmap(Img.getImgBitmap(getImagen()));
         eTxt_Nombre.setText(getNombre());
         eTxt_Apellidos.setText(getApellidos());
         eTxt_telefono.setText(String.valueOf(getTelefono()));

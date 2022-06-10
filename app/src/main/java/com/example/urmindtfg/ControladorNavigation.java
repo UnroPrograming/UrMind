@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +21,6 @@ import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.model.Img;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -124,6 +122,6 @@ public class ControladorNavigation extends AppCompatActivity {
     private void setDatosUsuarios(){
         txt_nombre.setText(usuario.getNombre());
         txt_email.setText(usuario.getEmail());
-        img_perfil.setImageBitmap(Img.getImgDesencriptada(usuario.getImagen()));
+        img_perfil.setImageBitmap(Img.getImgBitmap(usuario.getImagen()));
     }
 }

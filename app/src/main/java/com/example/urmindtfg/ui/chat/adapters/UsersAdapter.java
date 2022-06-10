@@ -1,8 +1,5 @@
 package com.example.urmindtfg.ui.chat.adapters;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -57,7 +54,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
         void setUserData(Usuario usuario){
             binding.txtNombreUsuario.setText(usuario.getNombre());
             binding.txtEmailUsuario.setText(usuario.getEmail());
-            binding.imgPerfil.setImageBitmap(Img.getImgDesencriptada(usuario.getImagen()));
+            binding.imgPerfil.setImageBitmap(Img.getImgBitmap(usuario.getImagen()));
             binding.getRoot().setOnClickListener(e-> usersListener.onUserClicked(usuario));
         }
     }

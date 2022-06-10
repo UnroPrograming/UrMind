@@ -10,7 +10,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +28,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -120,7 +118,7 @@ public class reg_usuario extends AppCompatActivity {
                         Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
                         img_fotoPerfil.setImageBitmap(bitmap);
                         txt_addImagen.setVisibility(View.GONE);
-                        imagenEncriptada = Img.setImgEncriptada(bitmap);
+                        imagenEncriptada = Img.getImgString(bitmap);
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }

@@ -43,7 +43,7 @@ public class Psicologo extends Persona{
     }
 
     public void setPsicologoActivity(ImageView img_fotoPerfil, EditText eTxt_Nombre, EditText eTxt_Apellidos, EditText eTxt_telefono , EditText eTxt_DNI, TextView txt_email, TextView txt_provider, EditText eTxt_numColegiado){
-        img_fotoPerfil.setImageBitmap(Img.getImgDesencriptada(getImagen()));
+        img_fotoPerfil.setImageBitmap(Img.getImgBitmap(getImagen()));
         eTxt_Nombre.setText(getNombre());
         eTxt_Apellidos.setText(getApellidos());
         eTxt_telefono.setText(String.valueOf(getTelefono()));
