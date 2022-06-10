@@ -21,6 +21,13 @@ public class Validaciones {
         return email.length()>0 && pass.length()>0;
     }
 
+    public static boolean validarPost(String titulo, String post, String imagen){
+        if (imagen == null || imagen.length()<=0){
+            return false;
+        }
+        return true;
+    }
+
     public static boolean validarUsuario(String nombre, String apellidos, String telefono, String DNI,String imagen) {
         if (imagen == null || imagen.length()<=0){
             return false;

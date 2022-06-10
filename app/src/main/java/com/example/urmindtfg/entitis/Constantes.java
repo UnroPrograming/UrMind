@@ -32,4 +32,11 @@ public class Constantes {
     //PSICOLOGO
     public static final String KEY_TABLA_PSICOLOGOS = "psicologos";
     public static final String KEY_NUM_COLEGIADO_PSICOLOGO = "num_colegiado";
+
+    //POST
+    public static final String KEY_TABLA_POST = "postTabla";
+    public static final String KEY_CREADOR_POST= "creador";
+    public static final String KEY_TITULO_POST= "titulo";
+    public static final String KEY_IMG_POST= "img";
+    public static final String KEY_POST_POST= "post";
 }
