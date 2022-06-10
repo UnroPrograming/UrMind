@@ -16,7 +16,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.urmindtfg.entitis.Constantes;
-import com.example.urmindtfg.entitis.Psicologo;
+import com.example.urmindtfg.entitis.UserType;
+import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.model.Img;
 import com.example.urmindtfg.model.Validaciones;
@@ -59,7 +60,7 @@ public class reg_psicologo extends AppCompatActivity {
     public RoundedImageView img_fotoPerfil;
 
     //Database
-    private Psicologo psicologo;
+    private Usuario psicologo;
     private FirebaseFirestore dB;
     private String imagenEncriptada;
 
@@ -81,14 +82,15 @@ public class reg_psicologo extends AppCompatActivity {
         if(Validaciones.validarPsicologo(eTxt_NumColegiado.getText().toString() ,eTxt_Nombre.getText().toString(), eTxt_Apellidos.getText().toString(), eTxt_telefono.getText().toString(), eTxt_DNI.getText().toString(),imagenEncriptada)){
 
             //Creamos el psicologo
-            psicologo = new Psicologo(txt_email.getText().toString(),
+            psicologo = new Usuario(
+                    txt_email.getText().toString(),
                     eTxt_Nombre.getText().toString(),
                     eTxt_Apellidos.getText().toString(),
                     Integer.parseInt(eTxt_telefono.getText().toString()),
                     eTxt_DNI.getText().toString(),
                     txt_provider.getText().toString(),
                     imagenEncriptada,
-                    eTxt_NumColegiado.getText().toString()
+                    UserType.PSICOLOGO.toString()
             );
 
             //Pasamos el usuario a HashMap
@@ -96,9 +98,10 @@ public class reg_psicologo extends AppCompatActivity {
 
             //Lo subimos a la base de datos
             dB.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(txt_email.getText().toString()).set(psicologosMap);
+            dB.collection(Constantes.KEY_TABLA_USUARIOS).document(txt_email.getText().toString()).set(psicologosMap);
 
             //Cambiamos la ventana
-            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), ControladorNavigation.class);
+            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), psicologo.getTipo(), ControladorNavigationUsuario.class);
         }
     }
 

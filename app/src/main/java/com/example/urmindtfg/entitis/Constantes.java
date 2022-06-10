@@ -12,6 +12,7 @@ public class Constantes {
     public static final String KEY_PROVEEDOR_USUARIOS = "proveedor";
     public static final String KEY_USUARIO = "usuario";
     public static final String KEY_IMG_USUARIOS = "imagen";
+    public static final String KEY_TIPO_USUARIO = "tipoUsuario";
 
     //CHAT
     public static final String KEY_TABLA_CHAT = "chat";

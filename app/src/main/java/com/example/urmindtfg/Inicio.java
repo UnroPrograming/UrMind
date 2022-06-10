@@ -138,7 +138,7 @@ public class Inicio extends AppCompatActivity{
         lista.put("Email",email);
         lista.put("Provider", proveedor);
 
-        ChangeWindow.cambiarVentana(this, lista,ControladorNavigation.class);
+        ChangeWindow.cambiarVentana(this, lista, ControladorNavigationUsuario.class);
     }
 
     //Le damos el correo y el proveedor

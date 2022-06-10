@@ -46,6 +46,14 @@ public class ChangeWindow {
 
         cambiarVentana(context,lista,clase);
     }
+    public static void cambiarVentana(Context context, String email, String proveedor, String userType, Class clase){
+        HashMap<String, String> lista = new HashMap();
+        lista.put(Constantes.KEY_EMAIL_USUARIOS, email);
+        lista.put(Constantes.KEY_PROVEEDOR_USUARIOS, proveedor);
+        lista.put(Constantes.KEY_TIPO_USUARIO, userType);
+
+        cambiarVentana(context,lista,clase);
+    }
 
     public static void cambiarVentana(Context context, HashMap<String, String> lista, Class clase){
 

@@ -16,6 +16,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.urmindtfg.databinding.ActivityMainBinding;
+import com.example.urmindtfg.databinding.ActivityMainPsicologoBinding;
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
@@ -27,10 +28,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Map;
 
-public class ControladorNavigation extends AppCompatActivity {
+public class ControladorNavigationPsicologo extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-    private ActivityMainBinding binding;
+    private ActivityMainPsicologoBinding binding;
     private String email,proveedor;
     private Usuario usuario;
     private TextView txt_email, txt_nombre;
@@ -40,19 +41,19 @@ public class ControladorNavigation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainPsicologoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;
-        NavigationView navigationView = binding.navView;
+        NavigationView navigationView = binding.navViewPsicologo;
 
         //Para poder coger los datos del navView
         View headView = navigationView.getHeaderView(0);
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_logros, R.id.nav_cuenta, R.id.nav_recomendaciones, R.id.nav_temas, R.id.nav_ubicaciones, R.id.nav_configuracion,R.id.nav_chat).setOpenableLayout(drawer).build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home, R.id.nav_cuenta, R.id.nav_temas, R.id.nav_ubicaciones,R.id.nav_chat, R.id.nav_configuracion).setOpenableLayout(drawer).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);

@@ -35,7 +35,12 @@
             android:name=".ui.temas.activitys.TrastornoAnimo_"
             android:exported="false" />
         <activity
-            android:name=".ControladorNavigation"
+            android:name=".ControladorNavigationUsuario"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.UrMindTFG.NoActionBar" />
+        <activity
+            android:name=".ControladorNavigationPsicologo"
             android:exported="false"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.UrMindTFG.NoActionBar" />

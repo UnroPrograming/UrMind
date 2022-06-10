@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.urmindtfg.entitis.UserType;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.entitis.Constantes;
@@ -85,7 +86,8 @@ public class reg_usuario extends AppCompatActivity {
                     Integer.parseInt(eTxt_telefono.getText().toString()),
                     eTxt_DNI.getText().toString(),
                     txt_provider.getText().toString(),
-                    imagenEncriptada
+                    imagenEncriptada,
+                    UserType.USUARIO.toString()
             );
 
             //Pasamos el usuario a HashMap
@@ -95,7 +97,7 @@ public class reg_usuario extends AppCompatActivity {
             dB.collection(Constantes.KEY_TABLA_USUARIOS).document(txt_email.getText().toString()).set(usuarioMap);
 
             //Cambiamos la ventana
-            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), ControladorNavigation.class);
+            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), usuario.getTipo(), ControladorNavigationUsuario.class);
         }
     }
 

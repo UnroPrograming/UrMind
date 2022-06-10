@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 
+import com.example.urmindtfg.entitis.UserType;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.entitis.ProviderType;
 import com.example.urmindtfg.entitis.Constantes;
@@ -36,7 +37,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 @EActivity(R.layout.activity_login)
@@ -85,7 +86,6 @@ public class Login extends AppCompatActivity {
                     .addOnCompleteListener(l2 -> {
                         //Si el registro es correcto pasamos a la nueva pantalla
                         if (l2.isSuccessful()) {
-
                             //Cambiamos la ventana
                             ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), reg_seleccion_.class);
                         } else {
@@ -102,7 +102,6 @@ public class Login extends AppCompatActivity {
 
         if (Validaciones.validacionEmailPass(email, pass)) {
             DocumentReference docRefUsuario = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
-            DocumentReference docRefPsicologo = dB.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(email);
 
             docRefUsuario.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
@@ -110,57 +109,29 @@ public class Login extends AppCompatActivity {
 
                     if (document.exists()) {
                         datosObtenidos = document.getData();
-                        if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
+                        if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equalsIgnoreCase(email)) {
 
                             //Llamamos al método para iniciar sesion con usuario y contraseña
                             firebaseAuth.signInWithEmailAndPassword(email, pass)
                                     .addOnCompleteListener(l2 -> {
                                         //Si el registro es correcto pasamos a la nueva pantalla
                                         if (l2.isSuccessful()) {
-
                                             //Cambiamos la ventana
-                                            ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigation.class);
+                                            if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.USUARIO.toString())){
+                                                ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationUsuario.class);
+                                            }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.PSICOLOGO.toString())){
+                                                ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
+                                            }
                                         } else {
-                                            Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
+                                            Validaciones.showAlert(this, "Error", "Hay un error al loguearse");
                                         }
                                     });
                         } else {
                             Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
                         }
-                    } else {
-                        docRefPsicologo.get().addOnCompleteListener(task2 -> {
-                            if (task2.isSuccessful()) {
-                                DocumentSnapshot document2 = task2.getResult();
-
-                                if (document2.exists()) {
-                                    datosObtenidos = document2.getData();
-                                    if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
-
-                                        //Llamamos al método para iniciar sesion con usuario y contraseña
-                                        firebaseAuth.signInWithEmailAndPassword(email, pass)
-                                                .addOnCompleteListener(l2 -> {
-                                                    //Si el registro es correcto pasamos a la nueva pantalla
-                                                    if (l2.isSuccessful()) {
-
-                                                        //Cambiamos la ventana
-                                                        ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigation.class);
-                                                    } else {
-                                                        Validaciones.showAlert(this, "Error", "Hay un error al registrarse");
-                                                    }
-                                                });
-
-                                    } else {
-                                        Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
-                                    }
-                                } else {
-                                    Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
-                                }
-                            } else {
-                                Validaciones.showAlert(this, "Fallo al iniciar sesión", "Este usuario no está registrado");
-                            }
-                        });
                     }
-
+                }else {
+                    Validaciones.showAlert(this, "Error", "Hay un error al loguearse");
                 }
             });
         }
@@ -220,24 +191,14 @@ public class Login extends AppCompatActivity {
 
                                     if (document.exists()) {
                                         datosObtenidos = document.getData();
-                                        if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
-                                            ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigation.class);
-                                        }
+                                        if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equalsIgnoreCase(email)) {
+                                            //Cambiamos la ventana
+                                            if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.USUARIO.toString())){
+                                                ChangeWindow.cambiarVentana(this, l.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationUsuario.class);
+                                            }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.PSICOLOGO.toString())){
+                                                ChangeWindow.cambiarVentana(this, l.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
+                                            }}
                                     } else {
-                                        docRefPsicologo.get().addOnCompleteListener(task2 -> {
-                                            if (task2.isSuccessful()) {
-                                                DocumentSnapshot document2 = task2.getResult();
-
-                                                if (document2.exists()) {
-                                                    datosObtenidos = document2.getData();
-                                                    if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equals(email)) {
-                                                        ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigation.class);
-                                                    }
-                                                }else {
-                                                    ChangeWindow.cambiarVentana(this, email, proveedor, reg_seleccion_.class);
-                                                }
-                                            }
-                                        });
                                         ChangeWindow.cambiarVentana(this, email, proveedor, reg_seleccion_.class);
                                     }
                                 }
@@ -264,7 +225,7 @@ public class Login extends AppCompatActivity {
             lay_login.setVisibility(View.INVISIBLE);
 
             //Pasa a la pestaña de inicio
-            ChangeWindow.cambiarVentana(this, email, ProviderType.valueOf(proveedor).toString(), ControladorNavigation.class);
+            ChangeWindow.cambiarVentana(this, email, ProviderType.valueOf(proveedor).toString(), ControladorNavigationUsuario.class);
         }
     }
 

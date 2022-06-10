@@ -16,7 +16,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.urmindtfg.ControladorNavigation;
+import com.example.urmindtfg.ControladorNavigationUsuario;
 import com.example.urmindtfg.Login_;
 import com.example.urmindtfg.R;
 import com.example.urmindtfg.entitis.Constantes;
@@ -95,7 +95,7 @@ public class EditarUsuario extends AppCompatActivity {
             //Los actualizamos de la librería interna
             guardarDatosLibreriaInterna();
 
-            ChangeWindow.cambiarVentana(this, usuario.getEmail(), usuario.getProveedor(), ControladorNavigation.class);
+            ChangeWindow.cambiarVentana(this, usuario.getEmail(), usuario.getProveedor(), ControladorNavigationUsuario.class);
 
         }else {
             Validaciones.showAlert(this,"Error registro","Rellena los campos");

@@ -127,12 +127,15 @@ public class ChatFragment extends Fragment implements ConversacionListener {
                     }
                 }
             }
-
-            Collections.sort(listaConversaciones, (obj1, obj2) -> obj2.dateObject.compareTo(obj1.dateObject));
-            conversationsAdapter.notifyDataSetChanged();
-            binding.recyclerViewConversaciones.smoothScrollToPosition(0);
-            binding.recyclerViewConversaciones.setVisibility(View.VISIBLE);
-            binding.progressBar.setVisibility(View.GONE);
+            try {
+                Collections.sort(listaConversaciones, (obj1, obj2) -> obj2.dateObject.compareTo(obj1.dateObject));
+                conversationsAdapter.notifyDataSetChanged();
+                binding.recyclerViewConversaciones.smoothScrollToPosition(0);
+                binding.recyclerViewConversaciones.setVisibility(View.VISIBLE);
+                binding.progressBar.setVisibility(View.GONE);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     };
 

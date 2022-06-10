@@ -9,7 +9,7 @@ import com.example.urmindtfg.model.Img;
 import java.util.HashMap;
 
 public class Usuario extends Persona{
-
+    private String tipo;
     public Usuario() {
     }
 
@@ -19,6 +19,11 @@ public class Usuario extends Persona{
 
     public Usuario(String email, String nombre, String apellidos, int telefono, String DNI, String proveedor, String imagen) {
         super(email, nombre, apellidos, telefono, DNI, proveedor, imagen);
+    }
+
+    public Usuario(String email, String nombre, String apellidos, int telefono, String DNI, String proveedor, String imagen, String tipo) {
+        super(email, nombre, apellidos, telefono, DNI, proveedor, imagen);
+        this.tipo = tipo;
     }
 
     public HashMap<String, String> toHashMap(){
@@ -31,6 +36,7 @@ public class Usuario extends Persona{
         lista.put(Constantes.KEY_DNI_USUARIOS,getDNI());
         lista.put(Constantes.KEY_PROVEEDOR_USUARIOS ,getProveedor());
         lista.put(Constantes.KEY_IMG_USUARIOS,getImagen());
+        lista.put(Constantes.KEY_TIPO_USUARIO, getTipo());
 
         return lista;
     }
@@ -53,5 +59,13 @@ public class Usuario extends Persona{
         setDNI(eTxt_DNI.getText().toString());
         setEmail(txt_email.getText().toString());
         setProveedor(txt_provider.getText().toString());
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }
