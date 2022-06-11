@@ -10,23 +10,63 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.urmindtfg.R;
-import com.example.urmindtfg.databinding.FragmentHomeBinding;
-import com.example.urmindtfg.databinding.FragmentTemasBinding;
 import com.example.urmindtfg.databinding.FragmentUbicacionesBinding;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class UbicacionesFragment extends Fragment {
     private FragmentUbicacionesBinding binding;
-
     public static UbicacionesFragment newInstance() {
         return new UbicacionesFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentUbicacionesBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
 
-        return root;
+        //Initialize view
+        View view = inflater.inflate(R.layout.fragment_ubicaciones, container, false);
+
+        //Initialize map fragment
+        SupportMapFragment supportMapFragment = (SupportMapFragment)
+                getChildFragmentManager().findFragmentById(R.id.google_map);
+
+        //Async map
+        supportMapFragment.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(@NonNull GoogleMap googleMap) {
+                //When map is loaded
+                googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                    @Override
+                    public void onMapClick(@NonNull LatLng latLng) {
+                        //When cliked on map
+                        //Iitialize marker options
+                        MarkerOptions markerOptions = new MarkerOptions();
+                        //Set position of marker
+                        markerOptions.position(latLng);
+                        //Set title of marker
+                        markerOptions.title(latLng.latitude + " : " + latLng.longitude);
+                        //Remove all marker
+                        googleMap.clear();
+                        //Animating to zoom the mark
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+                                latLng, 10
+                        ));
+                        //Add marker on map
+                        googleMap.addMarker(markerOptions);
+                    }
+                });
+            }
+        });
+
+
+
+        //Return view
+        return view;
     }
 
     @Override

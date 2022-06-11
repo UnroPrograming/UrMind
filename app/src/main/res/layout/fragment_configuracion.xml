@@ -71,14 +71,37 @@
                     android:layout_height="20dp"
                     android:fontFamily="@font/montserrat_regular"
                     android:text="Finalizar sesión"
-                    android:textColor="@color/error"/>
+                    android:textColor="@color/blue1"/>
                 <Button
                     android:id="@+id/btn_cerrarSesion"
                     android:layout_width="60dp"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="30dp"
-                    android:backgroundTint="@color/error"
+                    android:backgroundTint="@color/blue1"
                     android:text="SALIR"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="10dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="324dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="230dp"
+                    android:layout_height="20dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Eliminar cuenta"
+                    android:textColor="@color/error"/>
+                <Button
+                    android:id="@+id/btn_borroar_cuenta"
+                    android:layout_width="75dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="23dp"
+                    android:backgroundTint="@color/error"
+                    android:text="ELIMINAR"
                     android:textColor="@color/white"
                     android:fontFamily="@font/montserrat_medium"
                     android:textSize="10dp"/>
@@ -107,7 +130,7 @@
                 <Switch
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="30dp"/>
+                    android:layout_marginLeft="40dp"/>
             </LinearLayout>
 
 
