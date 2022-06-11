@@ -11,8 +11,23 @@
         android:layout_width="700dp"
         android:layout_height="700dp"
         tools:ignore="MissingConstraints"
-        android:background="@drawable/ic_menu_cuenta"
+        android:background="@drawable/ic_post"
         android:backgroundTint="#9FE4D8BF"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibolditalic"
+        android:gravity="center"
+        android:text="Crea un post"
+        android:textColor="@color/blue2"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24"
+        tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/lay_newPost"

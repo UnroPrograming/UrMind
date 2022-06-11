@@ -25,37 +25,51 @@
             android:text="USUARIO"
             android:textColor="#3A4257"
             android:textSize="28dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="215dp"
-            tools:layout_editor_absoluteY="252dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.836"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37"
+            tools:ignore="MissingConstraints" />
 
         <TextView
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibolditalic"
             android:text="ESPECIALISTA"
             android:textColor="#3A4257"
             android:textSize="28dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="170dp"
-            tools:layout_editor_absoluteY="371dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.967"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.521"
+            tools:ignore="MissingConstraints" />
 
         <TextView
+            android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semibolditalic"
             android:text="EMPRESA"
             android:textColor="#3A4257"
             android:textSize="28dp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="215dp"
-            tools:layout_editor_absoluteY="488dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.863"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.658"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/lay_imagen"
-        android:layout_width="390dp"
-        android:layout_height="357dp"
+        android:layout_width="388dp"
+        android:layout_height="379dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -81,13 +95,13 @@
             android:layout_height="87dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/especialista2"/>
+            android:background="@drawable/especialista2" />
 
         <Button
             android:id="@+id/btn_empresa"
             android:layout_width="379dp"
             android:layout_height="85dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/empresa2"/>
+            android:background="@drawable/empresa2" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

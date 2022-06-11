@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,74 +35,181 @@
                 android:textSize="30sp"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="30dp"/>
+                tools:layout_editor_absoluteY="30dp" />
 
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Cuenta"
-                android:textColor="@color/blue2"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="tu correo electrónico"/>
+
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="nombre de tu cuenta"/>
+
+            <LinearLayout
+                android:layout_width="324dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="230dp"
+                    android:layout_height="20dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Finalizar sesión"
+                    android:textColor="@color/error"/>
+                <Button
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="30dp"
+                    android:backgroundTint="@color/error"
+                    android:text="SALIR"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:textSize="10dp"/>
+            </LinearLayout>
+
+
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Notificaciones"
                 android:textColor="@color/blue2"
                 android:textSize="20sp" />
 
+            <LinearLayout
+                android:layout_width="324dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15dp">
+                <TextView
+                    android:layout_width="230dp"
+                    android:layout_height="20dp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="Desactivar notificacines" />
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"/>
+            </LinearLayout>
+
+
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Apariencia"
                 android:textColor="@color/blue2"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="La apariencia va asociada al tema del dispsitivo con el cual esta en uso la aplicación" />
+
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Ayuda y Soporte"
                 android:textColor="@color/blue2"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="En caso necesario de alguna consulta sobre la aplicación pueden comunicarse con el euipo técnico de UrMInd mediante los correos electrónicos o en su defecto los números de teléfono proporcionados a continuación."></TextView>
+
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="jlbastida@alumnos.imf.com"
+                android:textColor="@color/blue1"/>
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+
+                android:fontFamily="@font/montserrat_regular"
+                android:text="dmamblna@alumnos.imf.com"
+                android:textColor="@color/blue1"/>
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="+34 611 407 285 - José Luis Bastida"
+                android:textColor="@color/blue1"/>
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="+34 601 011 803 - Daniel Mamblona"
+                android:textColor="@color/blue1"/>
+
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Sobre Nosotros"
                 android:textColor="@color/blue2"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
+
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:textColor="@color/blue1"
-                android:text="Hoy en día una de las principales cuestiones en la vida diaria es el bienestar, tanto físico como psicológico y durante estos últimos años estamos experimentando una mayor concienciación y requerimiento del uso de la psicología como solución a problemas, personales o grupales, o bien para mejorar el sentimiento con uno mismo.  "/>
+                android:text="Hoy en día una de las principales cuestiones en la vida diaria es el bienestar, tanto físico como psicológico y durante estos últimos años estamos experimentando una mayor concienciación y requerimiento del uso de la psicología como solución a problemas, personales o grupales, o bien para mejorar el sentimiento con uno mismo.  "
+                android:textColor="@color/blue1" />
+
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:fontFamily="@font/montserrat_regular"
                 android:layout_marginTop="10dp"
-                android:text="Es por ello por lo que hemos decidido crear esta aplicación. Muchas personas necesitan o quieren ayuda de este tipo, pero bien no se encuentra información o no queda claro si su problema se puede solucionar con el requerimiento de estos especialistas. Gracias a esta aplicación una persona puede informarse sobre diferentes especialistas y encontrar al más adecuado.">
-            </TextView>
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Es por ello por lo que hemos decidido crear esta aplicación. Muchas personas necesitan o quieren ayuda de este tipo, pero bien no se encuentra información o no queda claro si su problema se puede solucionar con el requerimiento de estos especialistas. Gracias a esta aplicación una persona puede informarse sobre diferentes especialistas y encontrar al más adecuado."></TextView>
+
             <TextView
                 android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:textColor="@color/blue1"
-                android:fontFamily="@font/montserrat_regular"
                 android:layout_marginTop="10dp"
-                android:text="Porque, antes que nada, solo estas tu.">
-            </TextView>
+                android:fontFamily="@font/montserrat_regular"
+                android:text="Porque, antes que nada, solo estas tu."
+                android:textColor="@color/blue1"></TextView>
 
             <TextView
                 android:layout_width="360dp"
@@ -110,24 +218,26 @@
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:gravity="center"
-                android:text="Somos Jose Luis Bastida y Daniel Mamblona,  estudiantes de 2º curso de DAM (Desarrollde Aplicaciones Multiplatafrma) y este es nuestro trabajo de fin de grado, donde queremos mostrar todo lo aprendido y lo que somos capaces de desarrollar. "/>
+                android:text="Somos Jose Luis Bastida y Daniel Mamblona,  estudiantes de 2º curso de DAM (Desarrollde Aplicaciones Multiplatafrma) y este es nuestro trabajo de fin de grado, donde queremos mostrar todo lo aprendido y lo que somos capaces de desarrollar. " />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="80dp"
-                android:layout_marginBottom="30dp">
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/jose"
-                    android:layout_marginRight="25dp"/>
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/jose" />
+
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/dani"/>
+                    android:background="@drawable/dani" />
             </LinearLayout>
 
         </LinearLayout>

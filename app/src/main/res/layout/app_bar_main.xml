@@ -12,16 +12,17 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
-            android:layout_width="55dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/boton_outblue2">
+            android:background="@color/nonwhite">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_width="55dp"
-                android:layout_height="55dp"/>
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/boton_outcream"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <include layout="@layout/content_main" />
