@@ -14,6 +14,44 @@
         android:background="@drawable/ic_menu_cuenta"
         android:backgroundTint="#9FE4D8BF"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibolditalic"
+            android:text="USUARIO"
+            android:textColor="#3A4257"
+            android:textSize="28dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="215dp"
+            tools:layout_editor_absoluteY="252dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibolditalic"
+            android:text="ESPECIALISTA"
+            android:textColor="#3A4257"
+            android:textSize="28dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="371dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibolditalic"
+            android:text="EMPRESA"
+            android:textColor="#3A4257"
+            android:textSize="28dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="215dp"
+            tools:layout_editor_absoluteY="488dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:id="@+id/lay_imagen"
         android:layout_width="390dp"
@@ -35,11 +73,7 @@
             android:layout_height="89dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/usuario"
-            android:fontFamily="@font/montserrat_semibolditalic"
-            android:text="USUARIO"
-            android:textColor="#3A4257"
-            android:textSize="28dp" />
+            android:background="@drawable/usuario2" />
 
         <Button
             android:id="@+id/btn_psicologo"
@@ -47,21 +81,13 @@
             android:layout_height="87dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:background="@drawable/especialista"
-            android:fontFamily="@font/montserrat_semibolditalic"
-            android:text="ESPECIALISTA"
-            android:textColor="@color/blue2"
-            android:textSize="28dp" />
+            android:background="@drawable/especialista2"/>
 
         <Button
             android:id="@+id/btn_empresa"
             android:layout_width="379dp"
             android:layout_height="85dp"
             android:layout_marginTop="30dp"
-            android:background="@drawable/empresa"
-            android:fontFamily="@font/montserrat_semibolditalic"
-            android:text="EMPRESA"
-            android:textColor="@color/blue2"
-            android:textSize="28dp" />
+            android:background="@drawable/empresa2"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

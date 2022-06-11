@@ -39,6 +39,8 @@
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Cuenta"
                 android:textColor="@color/blue2"
@@ -46,13 +48,16 @@
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
+                android:layout_marginLeft="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Notificaciones"
                 android:textColor="@color/blue2"
-                android:textSize="20sp"/>
+                android:textSize="20sp" />
+
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
+                android:layout_marginLeft="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Apariencia"
                 android:textColor="@color/blue2"
@@ -60,6 +65,7 @@
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
+                android:layout_marginLeft="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Ayuda y Soporte"
                 android:textColor="@color/blue2"
@@ -67,10 +73,63 @@
             <TextView
                 android:layout_width="282dp"
                 android:layout_height="37dp"
+                android:layout_marginLeft="15dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Sobre Nosotros"
                 android:textColor="@color/blue2"
                 android:textSize="20sp"/>
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/blue1"
+                android:text="Hoy en día una de las principales cuestiones en la vida diaria es el bienestar, tanto físico como psicológico y durante estos últimos años estamos experimentando una mayor concienciación y requerimiento del uso de la psicología como solución a problemas, personales o grupales, o bien para mejorar el sentimiento con uno mismo.  "/>
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_marginTop="10dp"
+                android:text="Es por ello por lo que hemos decidido crear esta aplicación. Muchas personas necesitan o quieren ayuda de este tipo, pero bien no se encuentra información o no queda claro si su problema se puede solucionar con el requerimiento de estos especialistas. Gracias a esta aplicación una persona puede informarse sobre diferentes especialistas y encontrar al más adecuado.">
+            </TextView>
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/blue1"
+                android:fontFamily="@font/montserrat_regular"
+                android:layout_marginTop="10dp"
+                android:text="Porque, antes que nada, solo estas tu.">
+            </TextView>
+
+            <TextView
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/montserrat_regular"
+                android:gravity="center"
+                android:text="Somos Jose Luis Bastida y Daniel Mamblona,  estudiantes de 2º curso de DAM (Desarrollde Aplicaciones Multiplatafrma) y este es nuestro trabajo de fin de grado, donde queremos mostrar todo lo aprendido y lo que somos capaces de desarrollar. "/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginBottom="30dp">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/jose"
+                    android:layout_marginRight="25dp"/>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/dani"/>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
