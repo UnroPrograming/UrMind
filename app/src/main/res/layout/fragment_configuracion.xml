@@ -72,6 +72,7 @@
                     android:text="Finalizar sesión"
                     android:textColor="@color/error"/>
                 <Button
+                    android:id="@+id/btn_cerrarSesion"
                     android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="30dp"

@@ -48,7 +48,7 @@ public class CuentaFragment extends Fragment {
         SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
         ChangeWindow.recogerDatosUsuario(usuario, prefs);
 
-        binding.imgusuario.setImageBitmap(Img.getImgBitmap(usuario.getImagen()));
+        binding.imgUsuario.setImageBitmap(Img.getImgBitmap(usuario.getImagen()));
         binding.nombre.setText(usuario.getNombre());
         binding.apellidos.setText(usuario.getApellidos());
         binding.telefono.setText(String.valueOf(usuario.getTelefono()));

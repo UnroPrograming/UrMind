@@ -77,7 +77,7 @@ public class Post {
         HashMap<String,Object> lista = new HashMap<>();
 
         lista.put(Constantes.KEY_CREADOR_POST, getCreadorId());
-        lista.put(Constantes.KEY_TITULO_POST, getPost());
+        lista.put(Constantes.KEY_TITULO_POST, getTitulo());
         lista.put(Constantes.KEY_IMG_POST, getImg());
         lista.put(Constantes.KEY_POST_POST, getPost());
         lista.put(Constantes.KEY_DATETIME,getDateObject());

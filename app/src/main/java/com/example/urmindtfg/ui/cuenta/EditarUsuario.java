@@ -103,19 +103,6 @@ public class EditarUsuario extends AppCompatActivity {
     }
 
     @Click
-    public void btn_cerrarSesion() {
-        //Para deslogearse de firebase
-        FirebaseAuth.getInstance().signOut();
-
-        //Para borrar la librería interna
-        SharedPreferences.Editor prefsEdit = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
-        prefsEdit.clear();
-        prefsEdit.apply();
-
-        ChangeWindow.cambiarVentana(this, Login_.class);
-    }
-
-    @Click
     public void btn_borrarSesion() {
         FirebaseAuth.getInstance().getCurrentUser().delete();
         dB.collection("users").document(usuario.getEmail()).delete();

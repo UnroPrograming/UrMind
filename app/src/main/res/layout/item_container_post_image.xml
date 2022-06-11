@@ -7,7 +7,7 @@
     android:padding="@dimen/_8sdp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
@@ -16,7 +16,7 @@
         tools:ignore="MissingConstraints">
 
         <LinearLayout
-            android:layout_width="336dp"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
@@ -47,8 +47,8 @@
 
                 <ImageView
                     android:id="@+id/imgPost"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"/>
 
