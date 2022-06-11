@@ -23,6 +23,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class HomeFragment extends Fragment{
@@ -87,12 +88,14 @@ public class HomeFragment extends Fragment{
                     String titulo = documentChange.getDocument().getString(Constantes.KEY_TITULO_POST);
                     String img = documentChange.getDocument().getString(Constantes.KEY_IMG_POST);
                     String contenido = documentChange.getDocument().getString(Constantes.KEY_POST_POST);
+                    Date date = documentChange.getDocument().getDate(Constantes.KEY_DATETIME);
 
                     Post post = new Post();
                     post.setCreadorId(creadorId);
                     post.setTitulo(titulo);
                     post.setImg(img);
                     post.setPost(contenido);
+                    post.setDateObject(date);
 
                     listaPosts.add(post);
 
@@ -114,12 +117,9 @@ public class HomeFragment extends Fragment{
                 }
             }
             try {
-                if(count == 0){
-                    postAdapter.notifyDataSetChanged();
-                }else{
-                    postAdapter.notifyItemRangeInserted(listaPosts.size(), listaPosts.size());
-                    binding.recyclerViewPost.smoothScrollToPosition(listaPosts.size()-1);
-                }
+                Collections.sort(listaPosts,(obj1, obj2) -> obj2.getDateObject().compareTo(obj1.getDateObject()));
+                postAdapter.notifyDataSetChanged();
+                binding.recyclerViewPost.smoothScrollToPosition(0);
                 binding.recyclerViewPost.setVisibility(View.VISIBLE);
                 binding.progressBar.setVisibility(View.GONE);
             }catch (Exception e){

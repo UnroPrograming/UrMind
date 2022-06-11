@@ -24,7 +24,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class NewPost extends AppCompatActivity {
 
@@ -61,11 +64,13 @@ public class NewPost extends AppCompatActivity {
                         currentUserId,
                         binding.eTxtTitulo.getText().toString(),
                         imagenEncriptada,
-                        binding.eTxtPost.getText().toString()
+                        binding.eTxtPost.getText().toString(),
+                        getModoLecturaDateTime(new Date()),
+                        new Date()
                 );
 
                 //Pasamos el Post a HashMap
-                HashMap<String,String> postMap = post.toHashMap();
+                HashMap<String, Object> postMap = post.toHashMap();
                 dB.collection(Constantes.KEY_TABLA_POST).add(postMap);
                 onBackPressed();
             }
@@ -96,4 +101,8 @@ public class NewPost extends AppCompatActivity {
                 }
             }
     );
+
+    private String getModoLecturaDateTime(Date date){
+        return new SimpleDateFormat("MMMM dd, yyyy -hh:mm a", Locale.getDefault()).format(date);
+    }
 }
