@@ -42,6 +42,7 @@ public class UsersActivity extends AppCompatActivity implements UsersListener {
 
     private void setListeners(){
         binding.imgBack.setOnClickListener(e -> onBackPressed());
+        binding.btnBuscador.setOnClickListener(e-> getUsersBuscador());
     }
 
     private void getUsers(){
@@ -61,6 +62,53 @@ public class UsersActivity extends AppCompatActivity implements UsersListener {
                             //No pilla nuestro usuario
                             if(currentUserId.equals(queryDocumentSnapshot.getId())){
                                 continue;
+                            }
+
+                            Usuario usuario = new Usuario();
+                            usuario.setNombre(queryDocumentSnapshot.getString(Constantes.KEY_NOMBRE_USUARIOS));
+                            usuario.setApellidos(queryDocumentSnapshot.getString(Constantes.KEY_APELLIDO_USUARIOS));
+                            usuario.setEmail(queryDocumentSnapshot.getString(Constantes.KEY_EMAIL_USUARIOS));
+                            usuario.setDNI(queryDocumentSnapshot.getString(Constantes.KEY_DNI_USUARIOS));
+                            usuario.setTelefono(Integer.parseInt(queryDocumentSnapshot.getString(Constantes.KEY_TELEFONO_USUARIOS)));
+                            usuario.setProveedor(queryDocumentSnapshot.getString(Constantes.KEY_PROVEEDOR_USUARIOS));
+                            usuario.setImagen(queryDocumentSnapshot.getString(Constantes.KEY_IMG_USUARIOS));
+
+                            listaUsuarios.add(usuario);
+
+                            if(listaUsuarios.size() >0){
+                                UsersAdapter usersAdapter = new UsersAdapter(listaUsuarios, this);
+                                binding.recyclerViewUsuarios.setAdapter(usersAdapter);
+                                binding.recyclerViewUsuarios.setVisibility(View.VISIBLE);
+                            }else {
+                                showErrorMessage();
+                            }
+                        }
+                    }else{
+                        showErrorMessage();
+                    }
+                });
+    }
+    private void getUsersBuscador(){
+        loading(true);
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+        //Obtenemos todos los usuarios de la base de datos
+        database.collection(Constantes.KEY_TABLA_USUARIOS)
+                .get()
+                .addOnCompleteListener(task ->{
+                    loading(false);
+
+                    if (task.isSuccessful()){
+                        List<Usuario> listaUsuarios = new ArrayList<>();
+                        for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()){
+
+                            //No pilla nuestro usuario
+                            if(currentUserId.equals(queryDocumentSnapshot.getId())){
+                                continue;
+                            }else if(!(binding.eTxtBuscador.getText().toString().equalsIgnoreCase(queryDocumentSnapshot.getString(Constantes.KEY_NOMBRE_USUARIOS)))){
+                                if (binding.eTxtBuscador.getText().toString().length()>0 && binding.eTxtBuscador.getText() != null){
+                                    continue;
+                                }
                             }
 
                             Usuario usuario = new Usuario();
