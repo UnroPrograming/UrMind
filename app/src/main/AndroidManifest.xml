@@ -72,6 +72,9 @@
             android:name=".ui.home.NewPost"
             android:exported="false"/>
         <activity
+            android:name=".ui.home.PostActivityUsuario"
+            android:exported="false"/>
+        <activity
             android:name=".Login_"
             android:exported="true">
             <intent-filter>

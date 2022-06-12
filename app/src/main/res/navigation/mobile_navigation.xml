@@ -46,5 +46,10 @@
         android:name="com.example.urmindtfg.ui.chat.ChatFragment"
         android:label="@string/menu_chats"
         tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/nav_busqueda_usuarios"
+        android:name="com.example.urmindtfg.ui.home.UsersFragment"
+        android:label="fragment_users_usuario"
+        tools:layout="@layout/fragment_users_usuario" />
 
 </navigation>
