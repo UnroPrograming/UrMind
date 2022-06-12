@@ -7,17 +7,18 @@
     android:padding="@dimen/_8sdp">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_width="296dp"
+        android:layout_height="489dp"
         android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="#9C3A4257"
+        android:backgroundTint="#3A4257"
         app:cardCornerRadius="30dp"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp">
 
         <LinearLayout
-            android:layout_width="290dp"
-            android:layout_height="wrap_content"
+            android:layout_width="289dp"
+            android:layout_height="368dp"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"
@@ -25,12 +26,65 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:layout_width="276dp"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/img_perfil"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/back_login"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_oval="true" />
+
+                <LinearLayout
+                    android:layout_width="210dp"
+                    android:layout_height="60dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_nombreUsuario"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_mediumitalic"
+                        android:textColor="@color/cream"
+                        android:maxLines="1"
+                        android:text="Nombre"
+                        android:textSize="@dimen/_13sdp"/>
+
+                    <TextView
+                        android:id="@+id/txt_emailUsuario"
+                        android:layout_width="195dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/montserrat_light"
+                        android:textColor="@color/nonwhite"
+                        android:maxLines="1"
+                        android:text="Correo"
+                        android:textSize="@dimen/_10sdp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:orientation="vertical"
-                android:layout_gravity="center">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txtTitulo"
@@ -45,16 +99,9 @@
                     android:textColor="@color/cream"
                     android:textSize="17dp" />
 
-                <ImageView
-                    android:id="@+id/imgPost"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"/>
-
                 <TextView
                     android:id="@+id/txtPost"
-                    android:layout_width="326dp"
+                    android:layout_width="277dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
@@ -64,6 +111,14 @@
                     android:text="Contenido del post"
                     android:textColor="@color/white"
                     android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/imgPost"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp" />
+
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
