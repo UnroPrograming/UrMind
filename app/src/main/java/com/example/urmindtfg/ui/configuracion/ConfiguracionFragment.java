@@ -16,8 +16,10 @@ import com.example.urmindtfg.R;
 import com.example.urmindtfg.databinding.FragmentConfiguracionBinding;
 import com.example.urmindtfg.databinding.FragmentHomeBinding;
 import com.example.urmindtfg.databinding.FragmentTemasBinding;
+import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.model.ChangeWindow;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.androidannotations.annotations.Click;
 
@@ -39,6 +41,19 @@ public class ConfiguracionFragment extends Fragment {
             prefsEdit.apply();
 
             ChangeWindow.cambiarVentana(getContext(), Login_.class,true);
+        });
+
+        binding.btnBorrarCuenta.setOnClickListener(e -> {
+            FirebaseAuth.getInstance().getCurrentUser().delete();
+
+            //Para borrar la librería interna
+            SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
+            FirebaseFirestore.getInstance().collection("users").document(prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null));
+
+            SharedPreferences.Editor prefsEdit = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
+            prefsEdit.clear();
+            prefsEdit.apply();
+            ChangeWindow.cambiarVentana(getContext(), Login_.class);
         });
 
         return root;

@@ -103,18 +103,6 @@ public class EditarUsuario extends AppCompatActivity {
     }
 
     @Click
-    public void btn_borrarSesion() {
-        FirebaseAuth.getInstance().getCurrentUser().delete();
-        dB.collection("users").document(usuario.getEmail()).delete();
-
-        //Para borrar la librería interna
-        SharedPreferences.Editor prefsEdit = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
-        prefsEdit.clear();
-        prefsEdit.apply();
-        ChangeWindow.cambiarVentana(this, Login_.class);
-    }
-
-    @Click
     public void lay_addImagen() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         intent.addFlags(Intent.FLAG_GRANT_PREFIX_URI_PERMISSION);
