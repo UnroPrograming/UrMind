@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/blue2"
+    android:background="@color/cream"
     tools:context=".ui.chat.ChatActivity">
+
     <View
         android:id="@+id/viewBacground"
         android:layout_width="match_parent"
@@ -35,7 +36,7 @@
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white"/>
+        app:tint="@color/nonwhite"/>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_info"
@@ -48,7 +49,7 @@
         android:src="@drawable/ic_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white"/>
+        app:tint="@color/nonwhite"/>
     
     <TextView
         android:id="@+id/txt_nombreUsuario"
@@ -59,7 +60,8 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxLines="1"
-        android:textColor="@color/white"
+        android:textColor="@color/nonwhite"
+        android:fontFamily="@font/montserrat_mediumitalic"
         android:textSize="@dimen/_14sdp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/img_back"
@@ -96,8 +98,7 @@
         app:layout_constraintBottom_toBottomOf="@id/viewBacground"
         app:layout_constraintEnd_toEndOf="@id/viewBacground"
         app:layout_constraintStart_toStartOf="@id/viewBacground"
-        app:layout_constraintTop_toTopOf="@id/viewBacground"
-        />
+        app:layout_constraintTop_toTopOf="@id/viewBacground" />
 
     <FrameLayout
         android:id="@+id/layoutSend"
@@ -120,7 +121,6 @@
             android:src="@drawable/ic_send"
             android:tint="@color/white"
             />
-
     </FrameLayout>
 
     <EditText
@@ -130,14 +130,15 @@
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginBottom="@dimen/_12sdp"
-        android:background="@drawable/background_chat_input"
+        android:background="@drawable/boton_outblue2_chat"
         android:hint="Escribe un mensaje"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:inputType="text"
+        android:fontFamily="@font/montserrat_regular"
         android:paddingStart="@dimen/_16sdp"
-        android:textColor="@color/white"
-        android:textColorHint="#7A7A7A"
+        android:textColor="@color/black"
+        android:textColorHint="#AFAFAF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/layoutSend"
         app:layout_constraintStart_toStartOf="parent"/>

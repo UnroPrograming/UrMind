@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/blue2"
+    android:background="@color/nonwhite"
     tools:context=".ui.home.UsersFragment">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -18,15 +18,16 @@
         android:padding="@dimen/_6sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/nonwhite"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Selecciona un usuario"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14sdp"
+        android:text="Post de los usuarios"
+        android:textColor="@color/blue1"
+        android:textSize="30dp"
         android:textStyle="bold"
+        android:fontFamily="@font/montserrat_mediumitalic"
         app:layout_constraintBottom_toBottomOf="@id/img_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +41,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/img_back">
 
+        <ImageView
+            android:layout_width="700dp"
+            android:layout_height="700dp"
+            android:background="@drawable/ic_post"
+            android:backgroundTint="#9FE4D8BF"
+            tools:ignore="MissingConstraints" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:hint="nombre usuario"
                 android:textColor="@color/nondark"
+                android:fontFamily="@font/montserrat_regular"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold" />
 
