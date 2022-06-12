@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_logors"
     android:label="@string/menu_logros"
-    app:startDestination="@+id/nav_temas">
+    app:startDestination="@+id/nav_chat">
 
     <fragment
         android:id="@+id/nav_temas"
