@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_configuracion" />
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.urmindtfg.ui.home.HomeFragmentPsicologo"
+        android:name="com.example.urmindtfg.ui.post.HomeFragmentPsicologo"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
     <fragment
@@ -48,8 +48,8 @@
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/nav_busqueda_usuarios"
-        android:name="com.example.urmindtfg.ui.home.UsersFragment"
+        android:name="com.example.urmindtfg.ui.buscadorEmpleados.BuscadorEmpleadosFragment"
         android:label="fragment_users_usuario"
-        tools:layout="@layout/fragment_users_usuario" />
+        tools:layout="@layout/fragment_buscador_empleados" />
 
 </navigation>

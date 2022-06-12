@@ -122,7 +122,7 @@ public class Login extends AppCompatActivity {
                                             }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.PSICOLOGO.toString())){
                                                 ChangeWindow.cambiarVentana(this, email, ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
                                             }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.EMPRESA.toString())){
-                                                ChangeWindow.cambiarVentana(this, email, ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
+                                                ChangeWindow.cambiarVentana(this, email, ProviderType.BASIC.toString(), ControladorNavigationEmpresa.class);
                                             }
                                         } else {
                                             Validaciones.showAlert(this, "Error", "Hay un error al loguearse");
@@ -185,7 +185,6 @@ public class Login extends AppCompatActivity {
 
                             //Comprobamos que ha iniciado sesión anteriormente
                             DocumentReference docRefUsuario = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
-                            DocumentReference docRefPsicologo = dB.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(email);
 
                             docRefUsuario.get().addOnCompleteListener(e -> {
                                 if (e.isSuccessful()) {
@@ -200,7 +199,7 @@ public class Login extends AppCompatActivity {
                                             }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.PSICOLOGO.toString())){
                                                 ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationPsicologo.class);
                                             }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.EMPRESA.toString())){
-                                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationPsicologo.class);
+                                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationEmpresa.class);
                                             }
                                         }
                                     } else {
@@ -230,7 +229,27 @@ public class Login extends AppCompatActivity {
             lay_login.setVisibility(View.INVISIBLE);
 
             //Pasa a la pestaña de inicio
-            ChangeWindow.cambiarVentana(this, email, ProviderType.valueOf(proveedor).toString(), ControladorNavigationUsuario.class);
+            DocumentReference docRefUsuario = dB.collection(Constantes.KEY_TABLA_USUARIOS).document(email);
+
+            docRefUsuario.get().addOnCompleteListener(e -> {
+                if (e.isSuccessful()) {
+                    DocumentSnapshot document = e.getResult();
+
+                    if (document.exists()) {
+                        datosObtenidos = document.getData();
+                        if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equalsIgnoreCase(email)) {
+                            //Cambiamos la ventana
+                            if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.USUARIO.toString())){
+                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationUsuario.class);
+                            }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.PSICOLOGO.toString())){
+                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationPsicologo.class);
+                            }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.EMPRESA.toString())){
+                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationEmpresa.class);
+                            }
+                        }
+                    }
+                }
+            });
         }
     }
 

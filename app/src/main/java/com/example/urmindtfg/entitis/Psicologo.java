@@ -11,6 +11,8 @@ import java.util.HashMap;
 public class Psicologo extends Persona{
 
     private String numColegiado;
+    private String empresa;
+    private Boolean empleadoActual;
 
     public Psicologo() { }
 
@@ -27,8 +29,24 @@ public class Psicologo extends Persona{
         this.numColegiado = numColegiado;
     }
 
-    public HashMap<String, String> toHashMap(){
-        HashMap<String, String> lista = new HashMap<String, String>();
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+
+    public Boolean getEmpleadoActual() {
+        return empleadoActual;
+    }
+
+    public void setEmpleadoActual(Boolean empleadoActual) {
+        this.empleadoActual = empleadoActual;
+    }
+
+    public HashMap<String, Object> toHashMap(){
+        HashMap<String, Object> lista = new HashMap<>();
 
         lista.put(Constantes.KEY_EMAIL_USUARIOS,getEmail());
         lista.put(Constantes.KEY_NOMBRE_USUARIOS,getNombre());
@@ -38,29 +56,8 @@ public class Psicologo extends Persona{
         lista.put(Constantes.KEY_PROVEEDOR_USUARIOS ,getProveedor());
         lista.put(Constantes.KEY_IMG_USUARIOS,getImagen());
         lista.put(Constantes.KEY_NUM_COLEGIADO_PSICOLOGO,getNumColegiado());
+        lista.put(Constantes.KEY_EMPRESA_PSICOLOGO,getEmpresa());
 
         return lista;
-    }
-
-    public void setPsicologoActivity(ImageView img_fotoPerfil, EditText eTxt_Nombre, EditText eTxt_Apellidos, EditText eTxt_telefono , EditText eTxt_DNI, TextView txt_email, TextView txt_provider, EditText eTxt_numColegiado){
-        img_fotoPerfil.setImageBitmap(Img.getImgBitmap(getImagen()));
-        eTxt_Nombre.setText(getNombre());
-        eTxt_Apellidos.setText(getApellidos());
-        eTxt_telefono.setText(String.valueOf(getTelefono()));
-        eTxt_DNI.setText(getDNI());
-        txt_email.setText(getEmail());
-        txt_provider.setText(getProveedor());
-        eTxt_numColegiado.setText(getNumColegiado());
-    }
-
-    public void actualizarPsicologo(String img_fotoPerfil, EditText eTxt_Nombre, EditText eTxt_Apellidos, EditText eTxt_telefono , EditText eTxt_DNI, TextView txt_email, TextView txt_provider, EditText eTxt_numColegiado){
-        setImagen(img_fotoPerfil);
-        setNombre(eTxt_Nombre.getText().toString());
-        setApellidos(eTxt_Apellidos.getText().toString());
-        setTelefono(Integer.parseInt(eTxt_telefono.getText().toString()));
-        setDNI(eTxt_DNI.getText().toString());
-        setEmail(txt_email.getText().toString());
-        setProveedor(txt_provider.getText().toString());
-        setNumColegiado(eTxt_numColegiado.getText().toString());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.urmindtfg.ui.home.adapters;
+package com.example.urmindtfg.ui.post.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,9 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.urmindtfg.databinding.ItemContainerPostImageBinding;
-import com.example.urmindtfg.databinding.ItemContainerRecentConversionBinding;
-import com.example.urmindtfg.entitis.Usuario;
-import com.example.urmindtfg.model.ChatMessage;
 import com.example.urmindtfg.model.Img;
 import com.example.urmindtfg.model.Post;
 

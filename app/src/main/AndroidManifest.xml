@@ -49,6 +49,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.UrMindTFG.NoActionBar" />
         <activity
+            android:name=".ControladorNavigationEmpresa"
+            android:exported="false"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.UrMindTFG.NoActionBar" />
+        <activity
             android:name=".ControladorNavigationPsicologo"
             android:exported="false"
             android:label="@string/title_activity_main"
@@ -69,10 +74,10 @@
             android:name=".Inicio_"
             android:exported="false" />
         <activity
-            android:name=".ui.home.NewPost"
+            android:name=".ui.post.NewPost"
             android:exported="false"/>
         <activity
-            android:name=".ui.home.PostActivityUsuario"
+            android:name=".ui.post.PostActivityUsuario"
             android:exported="false"/>
         <activity
             android:name=".Login_"

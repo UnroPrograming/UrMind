@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:backgroundTint="@color/nonwhite"
-    tools:context=".ui.home.PostActivityUsuario">
+    tools:context=".ui.post.PostActivityUsuario">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/img_back"

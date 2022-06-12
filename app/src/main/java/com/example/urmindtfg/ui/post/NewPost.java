@@ -1,4 +1,4 @@
-package com.example.urmindtfg.ui.home;
+package com.example.urmindtfg.ui.post;
 
 import android.content.Context;
 import android.content.Intent;

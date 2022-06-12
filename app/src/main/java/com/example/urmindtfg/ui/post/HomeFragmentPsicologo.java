@@ -1,4 +1,4 @@
-package com.example.urmindtfg.ui.home;
+package com.example.urmindtfg.ui.post;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,7 +15,7 @@ import com.example.urmindtfg.databinding.FragmentHomeBinding;
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.model.Post;
 import com.example.urmindtfg.model.ChangeWindow;
-import com.example.urmindtfg.ui.home.adapters.PostAdapter;
+import com.example.urmindtfg.ui.post.adapters.PostAdapter;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;

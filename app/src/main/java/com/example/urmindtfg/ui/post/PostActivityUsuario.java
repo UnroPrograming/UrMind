@@ -1,23 +1,15 @@
-package com.example.urmindtfg.ui.home;
+package com.example.urmindtfg.ui.post;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
-import com.example.urmindtfg.R;
 import com.example.urmindtfg.databinding.ActivityPostUsuarioBinding;
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Usuario;
-import com.example.urmindtfg.model.ChangeWindow;
 import com.example.urmindtfg.model.Post;
-import com.example.urmindtfg.ui.home.adapters.PostAdapter;
+import com.example.urmindtfg.ui.post.adapters.PostAdapter;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;

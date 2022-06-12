@@ -1,4 +1,4 @@
-package com.example.urmindtfg.ui.home;
+package com.example.urmindtfg.ui.post;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,17 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.urmindtfg.R;
-import com.example.urmindtfg.databinding.ActivityUsersBinding;
 import com.example.urmindtfg.databinding.FragmentUsersUsuarioBinding;
 import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.UserType;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
-import com.example.urmindtfg.ui.chat.ChatActivity;
 import com.example.urmindtfg.ui.chat.adapters.UsersAdapter;
 import com.example.urmindtfg.ui.chat.listeners.UsersListener;
 import com.google.firebase.firestore.FirebaseFirestore;

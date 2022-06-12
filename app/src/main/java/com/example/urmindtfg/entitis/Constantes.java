@@ -32,6 +32,7 @@ public class Constantes {
     //PSICOLOGO
     public static final String KEY_TABLA_PSICOLOGOS = "psicologos";
     public static final String KEY_NUM_COLEGIADO_PSICOLOGO = "num_colegiado";
+    public static final String KEY_EMPRESA_PSICOLOGO = "empresa";
 
     //EMPRESA
     public static final String KEY_TABLA_EMPRESA = "empresas";
