@@ -34,6 +34,17 @@ public class Validaciones {
         }
         return true;
     }
+    public static boolean validarEmpresa(String nombre, String telefono, String cif, String coordenadas,String imagen) {
+        if (imagen == null || imagen.length()<=0){
+            return false;
+        }
+        try{
+            Integer.parseInt(telefono);
+        }catch (Exception e){
+            return false;
+        }
+        return true;
+    }
 
     public static boolean validarPsicologo(String numColegiado, String nombre, String apellidos, String telefono, String DNI,String imagen) {
         if (imagen == null || imagen.length()<=0){

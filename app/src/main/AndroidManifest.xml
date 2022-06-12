@@ -60,6 +60,9 @@
             android:name=".reg_psicologo_"
             android:exported="false" />
         <activity
+            android:name=".reg_empresa_"
+            android:exported="false" />
+        <activity
             android:name=".reg_seleccion_"
             android:exported="false" />
         <activity

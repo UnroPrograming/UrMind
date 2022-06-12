@@ -48,16 +48,16 @@ public class reg_seleccion extends AppCompatActivity {
 
     @Click
     public void btn_usuario() {
-       ChangeWindow.cambiarVentana(this,email,provider,reg_usuario_.class);
+       ChangeWindow.cambiarVentana(this, email, provider, reg_usuario_.class);
     }
 
     @Click
     public void btn_psicologo() {
-        ChangeWindow.cambiarVentana(this,email,provider,reg_psicologo_.class);
+        ChangeWindow.cambiarVentana(this, email, provider, reg_psicologo_.class);
     }
 
     @Click
     public void btn_empresa() {
-
+        ChangeWindow.cambiarVentana(this, email, provider, reg_empresa_.class);
     }
 }

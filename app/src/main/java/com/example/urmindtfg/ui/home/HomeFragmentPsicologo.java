@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class HomeFragment extends Fragment{
+public class HomeFragmentPsicologo extends Fragment{
 
     private FragmentHomeBinding binding;
     private List<Post> listaPosts;

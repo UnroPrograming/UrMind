@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.urmindtfg.entitis.Constantes;
+import com.example.urmindtfg.entitis.Empresa;
 import com.example.urmindtfg.entitis.UserType;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
@@ -33,8 +34,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.HashMap;
 
-@EActivity(R.layout.activity_reg_psicologo)
-public class reg_psicologo extends AppCompatActivity {
+@EActivity(R.layout.activity_reg_empresa)
+public class reg_empresa extends AppCompatActivity {
     //Elementos android
     @ViewById
     public TextView txt_email;
@@ -45,22 +46,17 @@ public class reg_psicologo extends AppCompatActivity {
     @ViewById
     public EditText eTxt_telefono;
     @ViewById
-    public EditText eTxt_Nombre;
+    public EditText eTxt_NombreCorporacion;
     @ViewById
-    public EditText eTxt_NumColegiado;
+    public EditText eTxt_CIF;
     @ViewById
-    public EditText eTxt_Apellidos;
-    @ViewById
-    public EditText eTxt_DNI;
-
-    @ViewById
-    public Button btn_registrarUsuario;
-
+    public EditText eTxt_Coordenadas;
     @ViewById
     public RoundedImageView img_fotoPerfil;
 
     //Database
-    private Usuario psicologo;
+    private Usuario usuario;
+    private Empresa empresa;
     private FirebaseFirestore dB;
     private String imagenEncriptada;
 
@@ -77,31 +73,41 @@ public class reg_psicologo extends AppCompatActivity {
     }
 
     @Click
-    public void btn_registrarPsicologo() {
+    public void btn_registrarEmpresa() {
         //Validamos el psicologo
-        if(Validaciones.validarPsicologo(eTxt_NumColegiado.getText().toString() ,eTxt_Nombre.getText().toString(), eTxt_Apellidos.getText().toString(), eTxt_telefono.getText().toString(), eTxt_DNI.getText().toString(),imagenEncriptada)){
+        if(Validaciones.validarEmpresa(eTxt_NombreCorporacion.getText().toString(), eTxt_telefono.getText().toString(), eTxt_CIF.getText().toString(), eTxt_Coordenadas.toString(), imagenEncriptada)){
 
-            //Creamos el psicologo
-            psicologo = new Usuario(
+            //Creamos la empresa
+            usuario = new Usuario(
                     txt_email.getText().toString(),
-                    eTxt_Nombre.getText().toString(),
-                    eTxt_Apellidos.getText().toString(),
+                    eTxt_NombreCorporacion.getText().toString(),
+                    eTxt_Coordenadas.getText().toString(),
                     Integer.parseInt(eTxt_telefono.getText().toString()),
-                    eTxt_DNI.getText().toString(),
+                    eTxt_CIF.getText().toString(),
                     txt_provider.getText().toString(),
                     imagenEncriptada,
-                    UserType.PSICOLOGO.toString()
+                    UserType.EMPRESA.toString()
+            );
+            empresa = new Empresa(
+                    txt_email.getText().toString(),
+                    eTxt_NombreCorporacion.getText().toString(),
+                    eTxt_telefono.getText().toString(),
+                    eTxt_CIF.getText().toString(),
+                    eTxt_Coordenadas.getText().toString(),
+                    imagenEncriptada
             );
 
+
             //Pasamos el usuario a HashMap
-            HashMap<String,String> psicologosMap = psicologo.toHashMap();
+            HashMap<String,String> empresaUsuarioMap = usuario.toHashMap();
+            HashMap<String,String> empresasMap = empresa.toHashMap();
 
             //Lo subimos a la base de datos
-            dB.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(txt_email.getText().toString()).set(psicologosMap);
-            dB.collection(Constantes.KEY_TABLA_USUARIOS).document(txt_email.getText().toString()).set(psicologosMap);
+            dB.collection(Constantes.KEY_TABLA_USUARIOS).document(txt_email.getText().toString()).set(empresaUsuarioMap);
+            dB.collection(Constantes.KEY_TABLA_EMPRESA).document(txt_email.getText().toString()).set(empresasMap);
 
             //Cambiamos la ventana
-            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), psicologo.getTipo(), ControladorNavigationPsicologo.class);
+            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), usuario.getTipo(), ControladorNavigationUsuario.class);
         }
     }
 

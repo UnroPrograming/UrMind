@@ -33,6 +33,15 @@ public class Constantes {
     public static final String KEY_TABLA_PSICOLOGOS = "psicologos";
     public static final String KEY_NUM_COLEGIADO_PSICOLOGO = "num_colegiado";
 
+    //EMPRESA
+    public static final String KEY_TABLA_EMPRESA = "empresas";
+    public static final String KEY_NOMBRE_EMPRESA = "nombre";
+    public static final String KEY_EMAIL_EMPRESA = "email";
+    public static final String KEY_TELEFONO_EMPRESA = "telefono";
+    public static final String KEY_CIF_EMPRESA = "cif";
+    public static final String KEY_IMG_EMPRESA = "imagen";
+    public static final String KEY_COORDENADAS_EMPRESA = "coordenadas";
+
     //POST
     public static final String KEY_TABLA_POST = "postTabla";
     public static final String KEY_CREADOR_POST= "creador";

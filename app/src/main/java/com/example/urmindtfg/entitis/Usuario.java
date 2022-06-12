@@ -26,6 +26,8 @@ public class Usuario extends Persona{
         this.tipo = tipo;
     }
 
+
+
     public HashMap<String, String> toHashMap(){
         HashMap<String, String> lista = new HashMap<String, String>();
 

@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_configuracion" />
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.urmindtfg.ui.home.HomeFragment"
+        android:name="com.example.urmindtfg.ui.home.HomeFragmentPsicologo"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
     <fragment

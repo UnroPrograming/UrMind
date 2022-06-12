@@ -118,9 +118,11 @@ public class Login extends AppCompatActivity {
                                         if (l2.isSuccessful()) {
                                             //Cambiamos la ventana
                                             if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.USUARIO.toString())){
-                                                ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationUsuario.class);
+                                                ChangeWindow.cambiarVentana(this, email, ProviderType.BASIC.toString(), ControladorNavigationUsuario.class);
                                             }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.PSICOLOGO.toString())){
-                                                ChangeWindow.cambiarVentana(this, l2.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
+                                                ChangeWindow.cambiarVentana(this, email, ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
+                                            }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.EMPRESA.toString())){
+                                                ChangeWindow.cambiarVentana(this, email, ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
                                             }
                                         } else {
                                             Validaciones.showAlert(this, "Error", "Hay un error al loguearse");
@@ -194,10 +196,13 @@ public class Login extends AppCompatActivity {
                                         if (((String) datosObtenidos.get(Constantes.KEY_EMAIL_USUARIOS)).equalsIgnoreCase(email)) {
                                             //Cambiamos la ventana
                                             if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.USUARIO.toString())){
-                                                ChangeWindow.cambiarVentana(this, l.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationUsuario.class);
+                                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationUsuario.class);
                                             }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.PSICOLOGO.toString())){
-                                                ChangeWindow.cambiarVentana(this, l.getResult().getUser().getEmail(), ProviderType.BASIC.toString(), ControladorNavigationPsicologo.class);
-                                            }}
+                                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationPsicologo.class);
+                                            }else if(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString().equalsIgnoreCase(UserType.EMPRESA.toString())){
+                                                ChangeWindow.cambiarVentana(this, email, proveedor, ControladorNavigationPsicologo.class);
+                                            }
+                                        }
                                     } else {
                                         ChangeWindow.cambiarVentana(this, email, proveedor, reg_seleccion_.class);
                                     }
