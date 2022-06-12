@@ -115,21 +115,24 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
                                             if (document.exists()) {
                                                 String empresaPsicologo = document.getString(Constantes.KEY_EMPRESA_PSICOLOGO);
                                                 if(empresaPsicologo != null && empresaPsicologo.equalsIgnoreCase(currentEmpresa)){
+                                                    System.out.println("entra");
                                                     psicologo.setEmpleadoActual(true);
+                                                    listaPsicologo.add(psicologo);
+
+                                                }else {
+                                                    listaPsicologo.add(psicologo);
+                                                }
+                                                if(listaPsicologo.size() >0){
+                                                    PsicologoAdapter usersAdapter = new PsicologoAdapter(listaPsicologo, this);
+                                                    binding.recyclerViewUsuarios.setAdapter(usersAdapter);
+                                                    binding.recyclerViewUsuarios.setVisibility(View.VISIBLE);
+                                                }else {
+                                                    showErrorMessage();
                                                 }
                                             }
                                         }
+
                                     });
-
-                            listaPsicologo.add(psicologo);
-
-                            if(listaPsicologo.size() >0){
-                                PsicologoAdapter usersAdapter = new PsicologoAdapter(listaPsicologo, this);
-                                binding.recyclerViewUsuarios.setAdapter(usersAdapter);
-                                binding.recyclerViewUsuarios.setVisibility(View.VISIBLE);
-                            }else {
-                                showErrorMessage();
-                            }
                         }
                     }else{
                         showErrorMessage();
@@ -177,8 +180,11 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
                                             DocumentSnapshot document = task2.getResult();
                                             if (document.exists()) {
                                                 String empresaPsicologo = document.getString(Constantes.KEY_EMPRESA_PSICOLOGO);
-                                                if(empresaPsicologo.equalsIgnoreCase(currentEmpresa)){
+                                                if(empresaPsicologo != null && empresaPsicologo.equalsIgnoreCase(currentEmpresa)){
                                                     psicologo.setEmpleadoActual(true);
+                                                    listaPsicologo.add(psicologo);
+                                                }else {
+                                                    listaPsicologo.add(psicologo);
                                                 }
                                             }
                                         }
@@ -218,11 +224,19 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
             usuario.setEmpleadoActual(true);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
+            getUsers();
         }else if(!usuario.getEmpleadoActual()){
             usuario.setEmpresa(currentEmpresa);
             usuario.setEmpleadoActual(true);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
+            getUsers();
+        }else if(usuario.getEmpleadoActual()){
+            usuario.setEmpresa("");
+            usuario.setEmpleadoActual(false);
+            HashMap<String, Object> lista = usuario.toHashMap();
+            database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
+            getUsers();
         }
     }
 }

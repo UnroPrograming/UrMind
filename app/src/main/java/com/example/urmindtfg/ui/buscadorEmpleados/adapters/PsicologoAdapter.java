@@ -60,6 +60,7 @@ public class PsicologoAdapter extends RecyclerView.Adapter<PsicologoAdapter.User
             binding.imgPerfil.setImageBitmap(Img.getImgBitmap(usuario.getImagen()));
             binding.getRoot().setOnClickListener(e-> usersListener.onUserClicked(usuario));
             binding.checkEmpleado.setVisibility(View.VISIBLE);
+            System.out.println("AQUI: " +usuario.getEmpleadoActual());
             if(usuario.getEmpleadoActual()!=null){
                 binding.checkEmpleado.setChecked(usuario.getEmpleadoActual());
             }
