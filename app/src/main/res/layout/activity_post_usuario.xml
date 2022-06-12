@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
+    android:backgroundTint="@color/nonwhite"
     tools:context=".ui.home.PostActivityUsuario">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -18,14 +19,23 @@
         android:src="@drawable/ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/nondark" />
+        app:tint="@color/blue2"/>
+
+    <ImageView
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:background="@drawable/ic_post"
+        android:backgroundTint="#9FE4D8BF"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_14sdp"
+        android:text="Posts"
+        android:textColor="@color/blue1"
+        android:textSize="25dp"
         android:textStyle="bold"
+        android:fontFamily="@font/montserrat_mediumitalic"
         app:layout_constraintBottom_toBottomOf="@id/img_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

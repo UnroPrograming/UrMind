@@ -10,13 +10,13 @@
             android:icon="@drawable/ic_post"
             android:title="@string/menu_posts"/>
         <item
-            android:id="@+id/nav_temas"
-            android:icon="@drawable/ic_menu_temas"
-            android:title="@string/menu_temas"/>
-        <item
             android:id="@+id/nav_chat"
             android:icon="@drawable/ic_menu_chats"
             android:title="@string/menu_chats"/>
+        <item
+            android:id="@+id/nav_temas"
+            android:icon="@drawable/ic_menu_temas"
+            android:title="@string/menu_temas"/>
         <item
             android:id="@+id/nav_recomendaciones"
             android:icon="@drawable/ic_menu_recomendaciones"
