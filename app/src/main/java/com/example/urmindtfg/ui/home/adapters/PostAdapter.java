@@ -69,7 +69,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
             binding.imgPost.setImageBitmap(Img.getImgBitmap(post.getImg()));
             binding.txtTitulo.setText(post.getTitulo());
             binding.txtPost.setText(post.getPost());
-            binding.txtFecha.setText(post.getDateTime());
+            binding.txtFecha.setText(getModoLecturaDateTime(post.getDateObject()));
         }
     }
 

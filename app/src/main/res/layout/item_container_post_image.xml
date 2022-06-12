@@ -8,7 +8,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="296dp"
-        android:layout_height="489dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#3A4257"
         app:cardCornerRadius="30dp"
@@ -126,6 +126,7 @@
                     android:fontFamily="@font/montserrat_lightitalic"
                     android:text="dasdasd"
                     android:textColor="@color/cream"
+                    android:layout_marginTop="7dp"
                     android:textSize="12dp" />
 
             </LinearLayout>
