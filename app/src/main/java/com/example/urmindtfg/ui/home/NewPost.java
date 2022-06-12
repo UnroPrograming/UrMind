@@ -35,7 +35,7 @@ public class NewPost extends AppCompatActivity {
     private FirebaseFirestore dB;
     private String imagenEncriptada;
     private SharedPreferences prefs;
-    private String currentUserId;
+    private String currentUserId, nombreUser, imgUser;
     private Post post;
 
     @Override
@@ -52,6 +52,8 @@ public class NewPost extends AppCompatActivity {
         //Obtenemos el currentId
         prefs = getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
         currentUserId = prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null);
+        nombreUser = prefs.getString(Constantes.KEY_NOMBRE_USUARIOS,null);
+        imgUser = prefs.getString(Constantes.KEY_IMG_USUARIOS,null);
         System.out.println("id:" + currentUserId);
     }
 
@@ -62,6 +64,8 @@ public class NewPost extends AppCompatActivity {
                 //Creamos el post
                 post = new Post(
                         currentUserId,
+                        nombreUser,
+                        imgUser,
                         binding.eTxtTitulo.getText().toString(),
                         imagenEncriptada,
                         binding.eTxtPost.getText().toString(),

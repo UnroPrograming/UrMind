@@ -13,6 +13,8 @@ import com.example.urmindtfg.model.ChatMessage;
 import com.example.urmindtfg.model.Img;
 import com.example.urmindtfg.model.Post;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -61,9 +63,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
         //Le asignamos los datos al recyclerView
         void setData(Post post){
+            binding.imgPerfil.setImageBitmap(Img.getImgBitmap(post.getImgCreador()));
+            binding.txtEmailUsuario.setText(post.getCreadorId());
+            binding.txtNombreUsuario.setText(post.getNombreCreador());
             binding.imgPost.setImageBitmap(Img.getImgBitmap(post.getImg()));
             binding.txtTitulo.setText(post.getTitulo());
             binding.txtPost.setText(post.getPost());
+            binding.txtFecha.setText(post.getDateTime());
         }
+    }
+
+    private String getModoLecturaDateTime(Date date){
+        return new SimpleDateFormat("MMMM dd, yyyy -hh:mm a", Locale.getDefault()).format(date);
     }
 }

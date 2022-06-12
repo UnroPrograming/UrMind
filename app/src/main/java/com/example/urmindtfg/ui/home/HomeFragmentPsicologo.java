@@ -73,7 +73,7 @@ public class HomeFragmentPsicologo extends Fragment{
 
     private void listenPosts(){
         database.collection(Constantes.KEY_TABLA_POST)
-                .whereEqualTo(Constantes.KEY_CREADOR_POST, currentUserId)
+                .whereEqualTo(Constantes.KEY_CREADOR_ID_POST, currentUserId)
                 .addSnapshotListener(eventListener);
     }
     private final EventListener<QuerySnapshot> eventListener = (value, error) -> {
@@ -84,7 +84,9 @@ public class HomeFragmentPsicologo extends Fragment{
             int count = listaPosts.size();
             for (DocumentChange documentChange : value.getDocumentChanges()) {
                 if (documentChange.getType() == DocumentChange.Type.ADDED) {
-                    String creadorId = documentChange.getDocument().getString(Constantes.KEY_CREADOR_POST);
+                    String creadorId = documentChange.getDocument().getString(Constantes.KEY_CREADOR_ID_POST);
+                    String creadorNombre = documentChange.getDocument().getString(Constantes.KEY_CREADOR_NOMBRE_POST);
+                    String creadorImg = documentChange.getDocument().getString(Constantes.KEY_CREADOR_IMG_POST);
                     String titulo = documentChange.getDocument().getString(Constantes.KEY_TITULO_POST);
                     String img = documentChange.getDocument().getString(Constantes.KEY_IMG_POST);
                     String contenido = documentChange.getDocument().getString(Constantes.KEY_POST_POST);
@@ -96,26 +98,13 @@ public class HomeFragmentPsicologo extends Fragment{
                     post.setImg(img);
                     post.setPost(contenido);
                     post.setDateObject(date);
+                    post.setNombreCreador(creadorNombre);
+                    post.setImgCreador(creadorImg);
 
                     listaPosts.add(post);
-
-                }else if(documentChange.getType() == DocumentChange.Type.MODIFIED){
-                    for(int i = 0; i < listaPosts.size(); i++){
-                        String creadorId = documentChange.getDocument().getString(Constantes.KEY_CREADOR_POST);
-
-                        if(listaPosts.get(i).getCreadorId().equals(creadorId)){
-                            String titulo = documentChange.getDocument().getString(Constantes.KEY_TITULO_POST);
-                            String img = documentChange.getDocument().getString(Constantes.KEY_IMG_POST);
-                            String contenido = documentChange.getDocument().getString(Constantes.KEY_POST_POST);
-
-                            listaPosts.get(i).setTitulo(titulo);
-                            listaPosts.get(i).setImg(img);
-                            listaPosts.get(i).setPost(contenido);
-                            break;
-                        }
-                    }
                 }
             }
+
             try {
                 Collections.sort(listaPosts,(obj1, obj2) -> obj2.getDateObject().compareTo(obj1.getDateObject()));
                 postAdapter.notifyDataSetChanged();

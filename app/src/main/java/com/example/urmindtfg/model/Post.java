@@ -7,6 +7,8 @@ import java.util.HashMap;
 
 public class Post {
     private String creadorId;
+    private String nombreCreador;
+    private String imgCreador;
     private String titulo;
     private String img;
     private String post;
@@ -16,8 +18,10 @@ public class Post {
     public Post() {
     }
 
-    public Post(String creadorId, String titulo, String img, String post, String dateTime, Date dateObject) {
+    public Post(String creadorId, String nombreCreador, String imgCreador, String titulo, String img, String post, String dateTime, Date dateObject) {
         this.creadorId = creadorId;
+        this.nombreCreador = nombreCreador;
+        this.imgCreador = imgCreador;
         this.titulo = titulo;
         this.img = img;
         this.post = post;
@@ -73,14 +77,32 @@ public class Post {
         this.dateObject = dateObject;
     }
 
+    public String getNombreCreador() {
+        return nombreCreador;
+    }
+
+    public void setNombreCreador(String nombreCreador) {
+        this.nombreCreador = nombreCreador;
+    }
+
+    public String getImgCreador() {
+        return imgCreador;
+    }
+
+    public void setImgCreador(String imgCreador) {
+        this.imgCreador = imgCreador;
+    }
+
     public HashMap<String,Object> toHashMap(){
         HashMap<String,Object> lista = new HashMap<>();
 
-        lista.put(Constantes.KEY_CREADOR_POST, getCreadorId());
+        lista.put(Constantes.KEY_CREADOR_ID_POST, getCreadorId());
         lista.put(Constantes.KEY_TITULO_POST, getTitulo());
         lista.put(Constantes.KEY_IMG_POST, getImg());
         lista.put(Constantes.KEY_POST_POST, getPost());
         lista.put(Constantes.KEY_DATETIME,getDateObject());
+        lista.put(Constantes.KEY_CREADOR_NOMBRE_POST,getNombreCreador());
+        lista.put(Constantes.KEY_CREADOR_IMG_POST, getImgCreador());
 
         return lista;
     }

@@ -44,8 +44,10 @@ public class Constantes {
 
     //POST
     public static final String KEY_TABLA_POST = "postTabla";
-    public static final String KEY_CREADOR_POST= "creador";
+    public static final String KEY_CREADOR_ID_POST= "creador_id";
     public static final String KEY_TITULO_POST= "titulo";
     public static final String KEY_IMG_POST= "img";
     public static final String KEY_POST_POST= "post";
+    public static final String KEY_CREADOR_NOMBRE_POST = "creador_nombre";
+    public static final String KEY_CREADOR_IMG_POST = "creador_img";
 }
