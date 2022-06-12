@@ -17,10 +17,7 @@
             android:id="@+id/nav_temas"
             android:icon="@drawable/ic_menu_temas"
             android:title="@string/menu_temas"/>
-        <item
-            android:id="@+id/nav_recomendaciones"
-            android:icon="@drawable/ic_menu_recomendaciones"
-            android:title="@string/menu_recomendaciones"/>
+
         <item
             android:id="@+id/nav_logros"
             android:icon="@drawable/ic_menu_logros"

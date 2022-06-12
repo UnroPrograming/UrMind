@@ -52,7 +52,7 @@ public class ControladorNavigationUsuario extends AppCompatActivity {
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_busqueda_usuarios, R.id.nav_logros, R.id.nav_cuenta, R.id.nav_recomendaciones, R.id.nav_temas, R.id.nav_ubicaciones, R.id.nav_configuracion,R.id.nav_chat).setOpenableLayout(drawer).build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_busqueda_usuarios, R.id.nav_logros, R.id.nav_cuenta, R.id.nav_temas, R.id.nav_ubicaciones, R.id.nav_configuracion,R.id.nav_chat).setOpenableLayout(drawer).build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);

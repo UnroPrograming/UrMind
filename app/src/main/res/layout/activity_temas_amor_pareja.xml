@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.temas.TemasFragment">
 
-    <ImageView
-        android:layout_width="700dp"
-        android:layout_height="700dp"
-        android:background="@drawable/ic_menu_temas"
-        android:backgroundTint="#9FE4D8BF"
-        tools:ignore="MissingConstraints"/>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +43,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_italic"
-                android:text="La ansiedad es un sentimiento de miedo, temor e inquietud. "
+                android:text="El amor es un estado que todos vivimos alguna vez en nuestra vida. En éste, nuestro cerebro lleva acabo una liberación de dopamina, lo que nos hace experimentar una serie de emociones: felicidad, excitación y placer. Sin embargo, el amor también puede producir algunos trastornos. "
                 android:textColor="@color/blue1"
                 android:textSize="15dp"
                 tools:ignore="MissingConstraints"
@@ -59,16 +52,16 @@
 
             <TextView
                 android:layout_width="318dp"
-                android:layout_height="135dp"
+                android:layout_height="73dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/montserrat_italic"
-                android:text="Puede hacer que sude, se sienta inquieto y tenso, y tener palpitaciones. Puede ser una reacción normal al estrés. Por ejemplo, puede sentirse ansioso cuando se enfrenta a un problema difícil en el trabajo, antes de tomar un examen o antes de tomar una decisión importante."
+                android:text="Este estado emocional puede derivar en los siguientes trastornos: adicción, pérdida de la atenión, nos volvemos irreales e irrefliexivos, obsesión y compulsión"
                 android:textColor="@color/blue1"
                 android:textSize="15dp"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="46dp"
-                tools:layout_editor_absoluteY="154dp"/>
+                tools:layout_editor_absoluteY="154dp" />
 
             <TextView
                 android:layout_width="282dp"
@@ -82,7 +75,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="TOPDOCTORS"
+                android:text="BIENESTAR180"
                 android:textSize="15dp"
                 android:textColor="@color/blue1"
                 android:fontFamily="@font/montserrat_semibolditalic"
@@ -90,16 +83,16 @@
                 android:layout_marginTop="10dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="23dp"
+                android:layout_width="351dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:text="https://www.topdoctors.es/diccionario-medico/adiccion"
+                android:text="https://www.salud180.com/salud-dia-dia/4-trastornos-producidos-por-el-amor"
                 android:textSize="13sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="FUNDACIÓN HAY SALIDA"
+                android:text="PSICOLOGÍA Y MENTE"
                 android:textSize="15dp"
                 android:textColor="@color/blue1"
                 android:fontFamily="@font/montserrat_semibolditalic"
@@ -107,16 +100,16 @@
                 android:layout_marginTop="10dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="23dp"
+                android:layout_width="344dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:text="https://www.fundacionhaysalida.com/que-es-la-adiccion"
+                android:text="https://psicologiaymente.com/clinica/trastornos-mentales-mas-comunes"
                 android:textSize="13sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="IAFA"
+                android:text="BBC"
                 android:textSize="15dp"
                 android:textColor="@color/blue1"
                 android:fontFamily="@font/montserrat_semibolditalic"
@@ -127,13 +120,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="23dp"
                 android:layout_marginLeft="30dp"
-                android:text="https://www.iafa.go.cr/blog/que-es-la-adiccion"
+                android:text="https://www.bbc.com/mundo/noticias-46116491"
                 android:textSize="13sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="GUADALSALUS"
+                android:text="AVANCE PSICÓLOGOS"
                 android:textSize="15dp"
                 android:textColor="@color/blue1"
                 android:fontFamily="@font/montserrat_semibolditalic"
@@ -141,10 +134,10 @@
                 android:layout_marginTop="10dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="23dp"
+                android:layout_width="339dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:text="https://guadalsalus.com/la-adiccion-sintoma-o-enfermedad"
+                android:text="https://www.avancepsicologos.com/problemas-mas-comunes-en-relaciones-de-pareja/"
                 android:textSize="13sp" />
 
             <TextView
@@ -470,6 +463,13 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="700dp"
+                android:layout_height="700dp"
+                android:background="@drawable/ic_menu_temas"
+                android:backgroundTint="#9FE4D8BF"
+                tools:ignore="MissingConstraints" />
 
 
         </LinearLayout>
