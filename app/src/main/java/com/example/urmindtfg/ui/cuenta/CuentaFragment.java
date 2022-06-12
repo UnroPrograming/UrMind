@@ -53,5 +53,6 @@ public class CuentaFragment extends Fragment {
         binding.apellidos.setText(usuario.getApellidos());
         binding.telefono.setText(String.valueOf(usuario.getTelefono()));
         binding.correo.setText(usuario.getEmail());
+        binding.dni.setText(usuario.getDNI());
     }
 }

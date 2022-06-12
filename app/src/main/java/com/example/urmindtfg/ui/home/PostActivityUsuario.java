@@ -43,7 +43,6 @@ public class PostActivityUsuario extends AppCompatActivity {
         binding = ActivityPostUsuarioBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        System.out.println("AQUÍ");
         init();
         listenPosts();
     }
