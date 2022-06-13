@@ -18,6 +18,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:layout_width="700dp"
+                android:layout_height="700dp"
+                android:background="@drawable/ic_post"
+                android:backgroundTint="#9FE4D8BF"
+                tools:ignore="MissingConstraints" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_Post"
                 android:layout_width="match_parent"
