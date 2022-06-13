@@ -30,6 +30,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class BuscadorEmpleadosFragment extends Fragment implements PsicologoListener {
 
@@ -80,7 +81,6 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
 
     private void getUsers(){
         loading(true);
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
 
         //Obtenemos todos los usuarios de la base de datos
         database.collection(Constantes.KEY_TABLA_USUARIOS).get()
@@ -95,9 +95,9 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
                             if(currentUserId.equals(queryDocumentSnapshotUser.getId())){
                                 continue;
                             }
-                            if (!(queryDocumentSnapshotUser.getString(Constantes.KEY_TIPO_USUARIO).equalsIgnoreCase(UserType.PSICOLOGO.toString()))){
-                                continue;
-                            }
+//                            if (!(Objects.requireNonNull(queryDocumentSnapshotUser.getString(Constantes.KEY_TIPO_USUARIO)).equalsIgnoreCase(UserType.PSICOLOGO.toString()))){
+//                                continue;
+//                            }
 
                             Psicologo psicologo = new Psicologo();
                             psicologo.setNombre(queryDocumentSnapshotUser.getString(Constantes.KEY_NOMBRE_USUARIOS));
@@ -142,7 +142,6 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
 
     private void getUsersBuscador(){
         loading(true);
-        FirebaseFirestore database = FirebaseFirestore.getInstance();
 
         //Obtenemos todos los usuarios de la base de datos
         database.collection(Constantes.KEY_TABLA_USUARIOS).get()
@@ -161,10 +160,9 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
                                     continue;
                                 }
                             }
-                            if (!(queryDocumentSnapshotUser.getString(Constantes.KEY_TIPO_USUARIO).equalsIgnoreCase(UserType.PSICOLOGO.toString()))){
+                            if (!(queryDocumentSnapshotUser.getString(Constantes.KEY_TIPO_USUARIO).equalsIgnoreCase(UserType.PSICOLOGO.toString()))) {
                                 continue;
                             }
-
                             Psicologo psicologo = new Psicologo();
                             psicologo.setNombre(queryDocumentSnapshotUser.getString(Constantes.KEY_NOMBRE_USUARIOS));
                             psicologo.setApellidos(queryDocumentSnapshotUser.getString(Constantes.KEY_APELLIDO_USUARIOS));
@@ -224,19 +222,16 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
             usuario.setEmpleadoActual(true);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
-            getUsers();
         }else if(!usuario.getEmpleadoActual()){
             usuario.setEmpresa(currentEmpresa);
             usuario.setEmpleadoActual(true);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
-            getUsers();
         }else if(usuario.getEmpleadoActual()){
             usuario.setEmpresa("");
             usuario.setEmpleadoActual(false);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
-            getUsers();
         }
     }
 }

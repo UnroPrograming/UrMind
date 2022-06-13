@@ -100,6 +100,7 @@ public class ChangeWindow {
         usuario.setTelefono(Integer.parseInt(prefs.getString(Constantes.KEY_TELEFONO_USUARIOS,null)));
         usuario.setDNI(prefs.getString(Constantes.KEY_DNI_USUARIOS,null));
         usuario.setImagen(prefs.getString(Constantes.KEY_IMG_USUARIOS,null));
+        usuario.setTipo(prefs.getString(Constantes.KEY_TIPO_USUARIO,null));
     }
 
 }
