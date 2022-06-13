@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LogrosFragment extends Fragment {
-    private @NonNull FragmentLogrosBinding binding;
+    private FragmentLogrosBinding binding;
     private ArrayList<CheckBox> listaCheckDiarios, listaCheckSemanales;
     private int puntuacion;
 
@@ -71,13 +71,13 @@ public class LogrosFragment extends Fragment {
         listaCheckDiarios.forEach(e -> {
             if (e.isChecked()) puntuacion += 10;
         });
-        binding.txtPuntuacion.setText(puntuacion);
+        binding.txtPuntuacion.setText(String.valueOf(puntuacion));
     }
 
     private void updateSemanales(){
         listaCheckSemanales.forEach(e ->{
             if (e.isChecked()) puntuacion += 30;
         });
-        binding.txtPuntuacion.setText(puntuacion);
+        binding.txtPuntuacion.setText(String.valueOf(puntuacion));
     }
 }

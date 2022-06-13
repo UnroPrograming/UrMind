@@ -90,6 +90,7 @@ public class ChangeWindow {
         prefsEdit.putString(Constantes.KEY_DNI_USUARIOS, usuario.getDNI());
         prefsEdit.putString(Constantes.KEY_TELEFONO_USUARIOS, String.valueOf(usuario.getTelefono()));
         prefsEdit.putString(Constantes.KEY_IMG_USUARIOS, usuario.getImagen());
+        prefsEdit.putString(Constantes.KEY_TIPO_USUARIO, usuario.getTipo());
     }
     public static void recogerDatosUsuario(Usuario usuario, SharedPreferences prefs){
 

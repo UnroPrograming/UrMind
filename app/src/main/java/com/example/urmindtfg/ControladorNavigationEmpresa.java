@@ -104,6 +104,7 @@ public class ControladorNavigationEmpresa extends AppCompatActivity {
                     usuario.setTelefono(Integer.parseInt(datosObtenidos.get(Constantes.KEY_TELEFONO_USUARIOS).toString()));
                     usuario.setProveedor(datosObtenidos.get(Constantes.KEY_PROVEEDOR_USUARIOS).toString());
                     usuario.setImagen(datosObtenidos.get(Constantes.KEY_IMG_USUARIOS).toString());
+                    usuario.setTipo(datosObtenidos.get(Constantes.KEY_TIPO_USUARIO).toString());
 
                     guardarDatosLibreriaInterna();
                     setDatosUsuarios();
