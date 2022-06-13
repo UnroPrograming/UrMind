@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Empleados asociados"
+        android:text="Nuestros empleados"
         android:textColor="@color/blue1"
         android:textSize="30dp"
         android:textStyle="bold"
@@ -44,7 +44,7 @@
         <ImageView
             android:layout_width="700dp"
             android:layout_height="700dp"
-            android:background="@drawable/ic_post"
+            android:background="@drawable/ic_menu_cuenta"
             android:backgroundTint="#9FE4D8BF"
             tools:ignore="MissingConstraints" />
 
