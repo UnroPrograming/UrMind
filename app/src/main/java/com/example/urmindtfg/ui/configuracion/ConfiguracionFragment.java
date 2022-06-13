@@ -25,12 +25,19 @@ import org.androidannotations.annotations.Click;
 
 public class ConfiguracionFragment extends Fragment {
     private FragmentConfiguracionBinding binding;
+    private String email, nombre;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentConfiguracionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        
+        SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
+        email = prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null);
+        nombre = prefs.getString(Constantes.KEY_NOMBRE_USUARIOS,null);
+
+        binding.txtEmail.setText(email);
+        binding.txtNombre.setText(nombre);
+
         binding.btnCerrarSesion.setOnClickListener(e -> {
             //Para deslogearse de firebase
             FirebaseAuth.getInstance().signOut();
@@ -47,8 +54,7 @@ public class ConfiguracionFragment extends Fragment {
             FirebaseAuth.getInstance().getCurrentUser().delete();
 
             //Para borrar la librería interna
-            SharedPreferences prefs = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE);
-            FirebaseFirestore.getInstance().collection("users").document(prefs.getString(Constantes.KEY_EMAIL_USUARIOS,null));
+            FirebaseFirestore.getInstance().collection("users").document(email);
 
             SharedPreferences.Editor prefsEdit = getActivity().getSharedPreferences(getString(R.string.libreria_clave_valor), Context.MODE_PRIVATE).edit();
             prefsEdit.clear();
