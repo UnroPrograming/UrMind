@@ -34,10 +34,6 @@ public class UbicacionesFragment extends Fragment {
     public SupportMapFragment supportMapFragment;
     public FusedLocationProviderClient client;
 
-    public static UbicacionesFragment newInstance() {
-        return new UbicacionesFragment();
-    }
-
     public void getCurrentLocation() {
         //Initalize task location
         if (ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -57,18 +53,16 @@ public class UbicacionesFragment extends Fragment {
                 //When succes
                 if (location != null){
                     //Sync map
-                    supportMapFragment.getMapAsync(new OnMapReadyCallback() {
-                        @Override
-                        public void onMapReady(@NonNull GoogleMap googleMap) {
-                            //Initialice lat lang
-                            LatLng latLng = new LatLng(location.getLatitude()
-                                    ,location.getLongitude());
-                            //Create marker options
-                            MarkerOptions options = new MarkerOptions().position(latLng)
-                                    .title("Estas aqui");
-                            //Add marker on map
-                            googleMap.addMarker(options);
-                        }
+                    supportMapFragment.getMapAsync(googleMap -> {
+                        //Initialice lat lang
+                        LatLng latLng = new LatLng(location.getLatitude()
+                                ,location.getLongitude());
+                        //Create marker options
+                        MarkerOptions options = new MarkerOptions().position(latLng)
+                                .title("Estas aqui");
+                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
+                        //Add marker on map
+                        googleMap.addMarker(options);
                     });
                 }
             }
@@ -82,7 +76,7 @@ public class UbicacionesFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ubicaciones, container, false);
 
         //Initialize map fragment
-        SupportMapFragment supportMapFragment = (SupportMapFragment)
+        supportMapFragment = (SupportMapFragment)
                 getChildFragmentManager().findFragmentById(R.id.google_map);
 
         //Async map
@@ -123,7 +117,7 @@ public class UbicacionesFragment extends Fragment {
             //Cal method
             getCurrentLocation();
         }else{
-            //Wen permission denied
+            //When permission denied
             //Request permission
             ActivityCompat.requestPermissions(getActivity(),
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
