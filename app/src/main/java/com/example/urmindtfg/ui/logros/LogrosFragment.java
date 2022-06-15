@@ -19,13 +19,10 @@ import com.example.urmindtfg.entitis.Constantes;
 import com.example.urmindtfg.entitis.Logros;
 import com.example.urmindtfg.entitis.Usuario;
 import com.example.urmindtfg.model.ChangeWindow;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class LogrosFragment extends Fragment {
@@ -159,9 +156,7 @@ public class LogrosFragment extends Fragment {
     }
 
     private void getTablaLogros(){
-
         try {
-
             dB.collection(Constantes.KEY_TABLA_LOGROS).document(usuario.getEmail()).get()
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
