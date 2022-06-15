@@ -16,17 +16,19 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="385dp"
-        android:layout_height="44dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_width="330dp"
+        android:layout_height="43dp"
         android:fontFamily="@font/montserrat_semibolditalic"
         android:text="Ubicaciones"
         android:textColor="@color/blue1"
         android:textSize="30sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="30dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
 
     <FrameLayout
         android:id="@+id/frame_layut"
