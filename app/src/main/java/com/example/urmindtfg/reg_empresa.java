@@ -107,7 +107,7 @@ public class reg_empresa extends AppCompatActivity {
             dB.collection(Constantes.KEY_TABLA_EMPRESA).document(txt_email.getText().toString()).set(empresasMap);
 
             //Cambiamos la ventana
-            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), usuario.getTipo(), ControladorNavigationUsuario.class);
+            ChangeWindow.cambiarVentana(this, txt_email.getText().toString(), txt_provider.getText().toString(), usuario.getTipo(), ControladorNavigationEmpresa.class);
         }
     }
 

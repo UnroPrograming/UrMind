@@ -155,11 +155,13 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
                             //No pilla nuestro usuario
                             if(currentUserId.equals(queryDocumentSnapshotUser.getId())){
                                 continue;
+                                //Buscador
                             }else if(!(binding.eTxtBuscador.getText().toString().equalsIgnoreCase(queryDocumentSnapshotUser.getString(Constantes.KEY_NOMBRE_USUARIOS)))){
                                 if (binding.eTxtBuscador.getText().toString().length()>0 && binding.eTxtBuscador.getText() != null){
                                     continue;
                                 }
                             }
+                            //Pilla solo los psicologos
                             if (!(queryDocumentSnapshotUser.getString(Constantes.KEY_TIPO_USUARIO).equalsIgnoreCase(UserType.PSICOLOGO.toString()))) {
                                 continue;
                             }
@@ -222,16 +224,19 @@ public class BuscadorEmpleadosFragment extends Fragment implements PsicologoList
             usuario.setEmpleadoActual(true);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
+            getUsers();
         }else if(!usuario.getEmpleadoActual()){
             usuario.setEmpresa(currentEmpresa);
             usuario.setEmpleadoActual(true);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
+            getUsers();
         }else if(usuario.getEmpleadoActual()){
             usuario.setEmpresa("");
             usuario.setEmpleadoActual(false);
             HashMap<String, Object> lista = usuario.toHashMap();
             database.collection(Constantes.KEY_TABLA_PSICOLOGOS).document(usuario.getEmail()).update(lista);
+            getUsers();
         }
     }
 }

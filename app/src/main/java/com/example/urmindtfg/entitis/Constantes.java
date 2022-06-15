@@ -51,4 +51,9 @@ public class Constantes {
     public static final String KEY_POST_POST= "post";
     public static final String KEY_CREADOR_NOMBRE_POST = "creador_nombre";
     public static final String KEY_CREADOR_IMG_POST = "creador_img";
+
+    //LOGROS
+    public static final String KEY_TABLA_LOGROS = "logros";
+    public static final String KEY_LISTADIARIO_LOGROS = "listaBoolDiarios";
+    public static final String KEY_LISTASEMANAL_LOGROS = "listaBoolSemanales";
 }
