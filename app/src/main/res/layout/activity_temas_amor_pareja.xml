@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".ui.temas.TemasFragment">
 
+    <ImageView
+        android:layout_width="700dp"
+        android:layout_height="700dp"
+        android:background="@drawable/ic_menu_temas"
+        android:backgroundTint="#9FE4D8BF"
+        tools:ignore="MissingConstraints" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -463,15 +470,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
-
-            <ImageView
-                android:layout_width="700dp"
-                android:layout_height="700dp"
-                android:background="@drawable/ic_menu_temas"
-                android:backgroundTint="#9FE4D8BF"
-                tools:ignore="MissingConstraints" />
-
-
         </LinearLayout>
     </ScrollView>
 
