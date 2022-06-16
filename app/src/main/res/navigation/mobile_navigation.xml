@@ -2,9 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_logors"
-    android:label="@string/menu_logros"
-    app:startDestination="@+id/nav_chat">
+    app:startDestination="@+id/nav_temas">
 
     <fragment
         android:id="@+id/nav_temas"
@@ -36,11 +34,7 @@
         android:name="com.example.urmindtfg.ui.cuenta.CuentaFragment"
         android:label="@string/menu_cuenta"
         tools:layout="@layout/fragment_cuenta" />
-    <fragment
-        android:id="@+id/nav_recomendaciones"
-        android:name="com.example.urmindtfg.ui.recomendaciones.RecomendacionesFragment"
-        android:label="@string/menu_recomendaciones"
-        tools:layout="@layout/fragment_recomendaciones" />
+
     <fragment
         android:id="@+id/nav_chat"
         android:name="com.example.urmindtfg.ui.chat.ChatFragment"

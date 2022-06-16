@@ -21,10 +21,6 @@ public class CuentaFragment extends Fragment {
     private @NonNull FragmentCuentaBinding binding;
     private Usuario usuario;
 
-    public static CuentaFragment newInstance() {
-        return new CuentaFragment();
-    }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
